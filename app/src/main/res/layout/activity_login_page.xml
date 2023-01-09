@@ -61,6 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/lineleft"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_locker"
+        android:textColor="@color/black"
         style="@style/TextinputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -69,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@color/sweet_grey"
+            android:textColor="@color/black"
             android:hint="Password"/>
 
         <!--  <EditText

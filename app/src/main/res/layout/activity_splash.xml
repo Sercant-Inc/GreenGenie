@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/geniosplash"
         android:layout_width="201dp"
         android:layout_height="361dp"
         android:layout_marginTop="108dp"
@@ -25,6 +25,6 @@
         android:layout_marginStart="92dp"
         android:layout_marginTop="256dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/geniosplash"
         app:srcCompat="@drawable/nombreapp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

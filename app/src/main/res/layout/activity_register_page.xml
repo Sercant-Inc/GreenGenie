@@ -119,6 +119,7 @@
         app:passwordToggleEnabled="true"
         android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_locker">
+<!--        ic_locker working-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword_confirm"

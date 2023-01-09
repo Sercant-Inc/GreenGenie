@@ -7,4 +7,6 @@
     <color name="caqui">#5C713A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#595555</color>
+    <color name="sweet_grey">#EFECEC</color>
 </resources>

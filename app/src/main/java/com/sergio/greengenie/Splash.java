@@ -23,7 +23,8 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(Splash
-                        .this, MainPage.class);
+                        .this, LoginPage
+                        .class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -35,4 +36,5 @@ public class Splash extends AppCompatActivity {
 
 
     }
+
 }

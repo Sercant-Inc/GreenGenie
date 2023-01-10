@@ -5,6 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterPage">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/lineleft"
@@ -36,8 +50,8 @@
         android:id="@+id/name"
         style="@style/TextInputLayout"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/logoname"
         android:layout_marginTop="16dp"
         app:startIconDrawable="@drawable/ic_user">
@@ -55,8 +69,8 @@
         android:id="@+id/userName"
         style="@style/TextInputLayout"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/name"
         android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_user">
@@ -74,8 +88,8 @@
         android:id="@+id/email"
         style="@style/TextInputLayout"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/userName"
         android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_envelop">
@@ -93,8 +107,8 @@
         android:id="@+id/password"
         style="@style/TextInputLayout"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/email"
         app:passwordToggleEnabled="true"
         android:layout_marginTop="8dp"
@@ -114,8 +128,8 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="8dp"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_locker">

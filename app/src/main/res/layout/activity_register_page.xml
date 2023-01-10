@@ -130,6 +130,14 @@
             android:textColor="@color/sweet_grey" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="150dp"
@@ -139,6 +147,7 @@
         android:text="I'm ready!"
         android:textAllCaps="false"
         app:flow_horizontalAlign="center"
+        app:layout_constraintBottom_toTopOf="@+id/line_horizontal"
         app:layout_constraintEnd_toStartOf="@+id/lineright"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/lineleft"

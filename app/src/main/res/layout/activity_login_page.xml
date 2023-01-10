@@ -19,6 +19,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
 
 
     <ImageView
@@ -36,8 +49,8 @@
         android:id="@+id/username"
         style="@style/TextInputLayout"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/logoname"
 
         app:startIconDrawable="@drawable/ic_envelop">
@@ -53,13 +66,12 @@
 
 
 
-
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="@id/lineright"
-        app:layout_constraintStart_toStartOf="@id/lineleft"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_locker"
         android:textColor="@color/black"

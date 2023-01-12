@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.sergio.greengenie.UI.Main.SectionsPagerAdapter;
+import com.sergio.greengenie.ui.main.SectionsPagerAdapter;
+import com.sergio.greengenie.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -2,9 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.GreenGenie" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/verde_oscuro</item>
-        <item name="colorPrimaryVariant">@color/verde</item>
+
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/verde</item>
+        <item name="colorPrimary">@color/verde_oscuro</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/azul_claro</item>
         <item name="colorSecondaryVariant">@color/caqui</item>

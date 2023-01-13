@@ -1,12 +1,11 @@
-package com.sergio.greengenie.Fragments;
+package com.sergio.greengenie.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.sergio.greengenie.R;
 
@@ -36,7 +35,7 @@ public class Page1 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Page1.
+     * @return A new instance of fragment Fragment1.
      */
     // TODO: Rename and change types and number of parameters
     public static Page1 newInstance(String param1, String param2) {

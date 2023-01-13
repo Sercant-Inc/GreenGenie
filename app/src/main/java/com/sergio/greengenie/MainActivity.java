@@ -25,5 +25,5 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
     }
-    //comentario para ver la rama de Carlos
+    //comentario para ver el reset
 }

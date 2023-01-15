@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36455779828",
+    "project_id": "greengenie-3b668",
+    "storage_bucket": "greengenie-3b668.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36455779828:android:afa223a2f376b3d023fda1",
+        "android_client_info": {
+          "package_name": "com.sergio.greengenie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36455779828-i8kd6s04a6vk2afkrueedvtmpje91k8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfUFFO2H-sr7U1SSn-CTplmV3HbJBocA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36455779828-i8kd6s04a6vk2afkrueedvtmpje91k8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

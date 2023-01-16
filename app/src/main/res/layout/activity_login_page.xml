@@ -52,19 +52,17 @@
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintTop_toBottomOf="@+id/logoname"
-
+        android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_envelop">
 
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_edit_text_outlined"
+            android:id="@+id/txtemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
             android:background="@color/sweet_grey"
             android:hint="Email"
-            android:textColor="@color/black"/>
-
-
+            android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -73,6 +71,7 @@
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintStart_toStartOf="@id/line_left"
         app:passwordToggleEnabled="true"
+        android:background="@color/transparent"
         app:startIconDrawable="@drawable/ic_locker"
         android:textColor="@color/black"
         style="@style/TextinputLayout2">

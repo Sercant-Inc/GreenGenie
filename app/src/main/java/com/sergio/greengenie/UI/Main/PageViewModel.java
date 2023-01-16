@@ -1,4 +1,4 @@
-package com.sergio.greengenie.UI.Main;
+package com.sergio.greengenie.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
@@ -24,3 +24,4 @@ public class PageViewModel extends ViewModel {
         return mText;
     }
 }
+

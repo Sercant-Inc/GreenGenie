@@ -1,4 +1,4 @@
-package com.sergio.greengenie.ui.main;
+package com.sergio.greengenie.UI.Main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

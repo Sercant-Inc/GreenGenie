@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineleft"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineright"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+
+    <ImageView
+        android:id="@+id/logoname"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/nombreapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/lineleft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/recover_email"
+        style="@style/TextInputLayout"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/logoname"
+        android:layout_marginTop="8dp"
+        app:startIconDrawable="@drawable/ic_envelop">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_recover_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sweet_grey"
+            android:hint="Email"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bordes_redondos"
+        android:text="Recover"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/recover_email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.sergio.greengenie.ui.main;
+package com.sergio.greengenie.UI.Main;
 
 import android.content.Context;
 

@@ -10,12 +10,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.sergio.greengenie.Fragments.Page1;
 import com.sergio.greengenie.Fragments.Page2;
+
 import com.sergio.greengenie.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.txt_tab1, R.string.txt_tab2};
     private final Context mContext;
+
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);

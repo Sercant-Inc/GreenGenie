@@ -9,17 +9,38 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Splash extends AppCompatActivity {
+    private FirebaseAuth mAuth;
  ImageView genio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        mAuth = FirebaseAuth.getInstance();
         genio=findViewById(R.id.geniosplash);
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         genio.startAnimation(myanim);
-        openApp();
 
+
+    }
+
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent = new Intent(Splash
+                    .this, MainActivity
+                    .class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }else{
+            openApp();
+        }
     }
     private void openApp() {
 

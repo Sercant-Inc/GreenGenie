@@ -7,18 +7,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class RegisterPage extends AppCompatActivity {
     Button button1;
+    TextInputEditText nombre;
+
+    TextInputEditText email;
+    TextInputEditText password;
+    TextInputEditText c_password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
         button1=findViewById(R.id.btnRegister);
+        nombre=findViewById(R.id.txtname);
+        email=findViewById(R.id.txtemail);
+        password=findViewById(R.id.txtpassword);
+        c_password=findViewById(R.id.txtpassword_confirm);
         Intent intent2 = getIntent();
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openMain();
+
             }
 
         });

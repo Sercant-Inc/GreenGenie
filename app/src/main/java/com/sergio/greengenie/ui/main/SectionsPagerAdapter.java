@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.sergio.greengenie.fragments.Page1;
-import com.sergio.greengenie.fragments.Page2;
+import com.sergio.greengenie.Fragments.Page1;
+import com.sergio.greengenie.Fragments.Page2;
 import com.sergio.greengenie.fragments.Page3;
 
 /**

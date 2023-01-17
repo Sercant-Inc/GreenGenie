@@ -1,15 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Page1"
-    android:background="@android:color/holo_blue_dark">
+    tools:context=".Fragments.Page1"
+    android:background="@android:color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Noborrarcodigoxml">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="457dp"
+            android:layout_height="711dp"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:layout_constraintTop_toTopOf="@+id/line_top"
+            app:srcCompat="@drawable/greengenie" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="290dp"
+            android:layout_height="422dp"
+
+            android:layout_marginBottom="424dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/bocadillo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
 
 </FrameLayout>

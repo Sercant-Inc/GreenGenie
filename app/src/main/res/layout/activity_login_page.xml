@@ -103,7 +103,7 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
@@ -111,9 +111,9 @@
         android:background="@drawable/bordes_redondos"
         android:text="Log in"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/lineright"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/lineleft"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -131,7 +131,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
         android:background="@drawable/bordes_redondos"
@@ -144,7 +144,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
         android:background="@drawable/bordes_redondos"

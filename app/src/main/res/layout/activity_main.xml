@@ -56,26 +56,32 @@
 
 
 
-    <FrameLayout android:id="@+id/frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/linerleft"
-        app:layout_constraintTop_toTopOf="@+id/linertop">
+<!--    <FrameLayout android:id="@+id/frame"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/linerleft"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/linertop">-->
 
-        <ImageView
-            android:id="@+id/profile_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+<!--        <ImageView-->
+<!--            android:id="@+id/profile_photo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:srcCompat="@tools:sample/avatars" />-->
 
-        <ImageView
-            android:id="@+id/circle_crop"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:src="@drawable/circle_crop" />
+<!--        <ImageView-->
+<!--            android:id="@+id/circle_crop"-->
+<!--            android:layout_width="130dp"-->
+<!--            android:layout_height="130dp"-->
+<!--            android:src="@drawable/circle_crop" />-->
 
-    </FrameLayout>
-
+<!--    </FrameLayout>-->
+<ImageView
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:id="@+id/frame"
+    app:layout_constraintStart_toStartOf="@+id/linerleft"
+    app:layout_constraintTop_toTopOf="@+id/linertop"
+    />
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"

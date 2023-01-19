@@ -19,9 +19,7 @@ public class LoginPage extends AppCompatActivity {
         button1=findViewById(R.id.button1);
         button2=findViewById(R.id.button2);
         textView2=findViewById(R.id.textView2);
-
-
-
+        
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,8 +43,6 @@ public class LoginPage extends AppCompatActivity {
     }
     public void openRegister(){
         Intent intent = new Intent(this, RegisterPage.class);
-
-
         startActivity(intent);
     }
     public void openMain(){

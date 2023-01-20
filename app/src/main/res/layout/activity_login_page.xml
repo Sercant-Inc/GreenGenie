@@ -134,26 +134,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
-        android:background="@drawable/bordes_redondos"
+
         android:text="Register with email"
         android:textAllCaps="false"
         app:layout_constraintEnd_toStartOf="@+id/linercenterleft"
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="@+id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        style="@style/buttonoutlined"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
-        android:background="@drawable/bordes_redondos"
+
         android:text="Register with google"
         android:textAllCaps="false"
         app:layout_constraintEnd_toStartOf="@+id/lineright"
         app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="@+id/linercenteright"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        style="@style/buttonoutlined"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -164,7 +166,8 @@
         android:textAlignment="center"
         android:textSize="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

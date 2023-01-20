@@ -61,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
+            android:inputType="textEmailAddress"
             android:hint="Email"
             android:textColor="@color/black" />
 
@@ -83,6 +84,7 @@
             android:layout_marginTop="16dp"
             android:background="@color/sweet_grey"
             android:textColor="@color/black"
+            android:inputType="textPassword"
             android:hint="Password"/>
 
 
@@ -132,7 +134,7 @@
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="160dp"
 
         android:text="Register with email"
@@ -146,7 +148,7 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="160dp"
 
         android:text="Register with google"

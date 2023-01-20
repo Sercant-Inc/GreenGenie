@@ -21,13 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        frame=findViewById(R.id.frame);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
-        tabs.setupWithViewPager(viewPager);
-        Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
+       // TabLayout tabs = binding.tabs;
+        //tabs.setupWithViewPager(viewPager);
+       // Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
     }
     //comentario para ver el reset
 }

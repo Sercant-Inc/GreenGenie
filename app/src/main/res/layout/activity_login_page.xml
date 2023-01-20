@@ -61,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
+            android:inputType="textEmailAddress"
             android:hint="Email"
             android:textColor="@color/black" />
 
@@ -83,6 +84,7 @@
             android:layout_marginTop="16dp"
             android:background="@color/sweet_grey"
             android:textColor="@color/black"
+            android:inputType="textPassword"
             android:hint="Password"/>
 
 
@@ -99,7 +101,8 @@
         app:layout_constraintEnd_toStartOf="@+id/lineright"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:onClick="openForgot"/>
 
     <Button
         android:id="@+id/button1"
@@ -114,7 +117,8 @@
         app:layout_constraintEnd_toEndOf="@id/lineright"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:onClick="openMain"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/linercenteright"
@@ -132,7 +136,7 @@
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="160dp"
 
         android:text="Register with email"
@@ -141,12 +145,13 @@
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="@+id/lineleft"
         app:layout_constraintTop_toBottomOf="@+id/email"
-        style="@style/buttonoutlined"/>
+        style="@style/buttonoutlined"
+        android:onClick="openRegister"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="160dp"
 
         android:text="Register with google"
@@ -167,6 +172,7 @@
         android:textSize="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
+        android:onClick="openPolicy"
         />
 
 

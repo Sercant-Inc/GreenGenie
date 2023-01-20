@@ -27,16 +27,9 @@ public class RegisterPage extends AppCompatActivity {
         password=findViewById(R.id.txtpassword);
         c_password=findViewById(R.id.txtpassword_confirm);
         Intent intent2 = getIntent();
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMain();
 
-            }
-
-        });
     }
-    public void openMain(){
+    public void openMain(View v){
         Intent intent = new Intent(this,MainActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

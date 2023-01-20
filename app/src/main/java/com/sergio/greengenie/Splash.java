@@ -24,7 +24,6 @@ public class Splash extends AppCompatActivity {
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         genio.startAnimation(myanim);
 
-
     }
 
     public void onStart() {

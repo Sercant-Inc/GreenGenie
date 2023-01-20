@@ -80,7 +80,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
-            android:inputType="textEmailAddress"
             android:hint="Email"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +100,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
-            android:inputType="textPassword"
             android:hint="Password"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -123,9 +121,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
-            android:inputType="textPassword"
-            android:hint="Password"
-            android:textColor="@color/black" />
+            android:hint="Confirm password"
+            android:textColor="@color/black"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -141,8 +139,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/lineright"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/lineleft"
-        android:onClick="openMain"/>
+        app:layout_constraintStart_toStartOf="@+id/lineleft" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

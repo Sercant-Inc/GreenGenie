@@ -10,4 +10,9 @@
     <color name="grey">#595555</color>
     <color name="sweet_grey">#EFECEC</color>
     <color name="transparent">#00EFECEC</color>
+    <color name="color_icon_add_selected">#29862C</color>
+    <color name="color_icon_browse_selected">#9C27B0</color>
+    <color name="color_icon_personal_selected">#29862C</color>
+    <color name="color_icon_form_selected">#00EFECEC</color>
+    <color name="color_icon_add_unselected">#00EFECEC</color>
 </resources>

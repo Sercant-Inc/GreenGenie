@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        bottom_navigation=findViewById(R.id.bottom_navigation);
-       // TabLayout tabs = binding.tabs;
-       // tabs.setupWithViewPager(viewPager);
+
        // Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -100,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     }

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.85" />
+            app:layout_constraintGuide_percent="0.94" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/line_top"
             android:layout_width="match_parent"
@@ -47,6 +47,19 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/bocadillo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="226dp"
+            android:layout_height="151dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="172dp"
+            android:text="@string/genie_tips"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:autoSizeMaxTextSize="@dimen/heigh_adjust"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

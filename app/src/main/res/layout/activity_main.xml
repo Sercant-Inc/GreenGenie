@@ -10,7 +10,11 @@
 <!--        <com.google.android.material.appbar.AppBarLayout-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:theme="@style/Theme.GreenGenie">-->
+<!--            android:background="@color/transparent"-->
+<!--            android:theme="@style/Theme.GreenGenie"-->
+<!--            >-->
+
+
 
 <!--            <TextView-->
 <!--                android:id="@+id/title"-->
@@ -42,6 +46,7 @@
             android:layout_gravity="bottom"
             app:menu="@menu/bottom_navigation_menu"
             app:itemIconTint="@color/bottom_nav_item_color_selector"
+
             />
 
         <!--        android:foregroundTint="@color/bottomselector"-->

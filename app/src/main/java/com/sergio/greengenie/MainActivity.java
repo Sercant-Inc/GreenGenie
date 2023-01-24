@@ -41,29 +41,29 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
 
 
-                    case R.id.add:
+                    case R.id.lamp:
                         item.setChecked(true);
-                        Toast.makeText(MainActivity.this, "Add clicked.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Add clicked.", Toast.LENGTH_SHORT).show();
                        // removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(0);
                         break;
 
-                    case R.id.browse:
+                    case R.id.user:
                         item.setChecked(true);
-                        Toast.makeText(MainActivity.this, "Browse clicked.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Browse clicked.", Toast.LENGTH_SHORT).show();
                       //  removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(1);
                         break;
 
-                    case R.id.personal:
+                    case R.id.data:
                         item.setChecked(true);
-                        Toast.makeText(MainActivity.this, "Personal clicked.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Personal clicked.", Toast.LENGTH_SHORT).show();
                        // removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(2);
                         break;
                     case R.id.form:
                         item.setChecked(true);
-                        Toast.makeText(MainActivity.this, "Likes clicked.", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Likes clicked.", Toast.LENGTH_SHORT).show();
                         //removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(4);
                         break;

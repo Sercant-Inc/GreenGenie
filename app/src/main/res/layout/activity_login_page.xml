@@ -57,7 +57,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtemail"
+            android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
@@ -79,7 +79,7 @@
         style="@style/TextinputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_edit_text_filled"
+            android:id="@+id/text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -107,7 +107,7 @@
         android:onClick="openForgot"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -27,6 +27,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +38,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginPage extends AppCompatActivity {
     private static final int RC_SIGN_IN = 2;
     Button b_google;
+    Button login;
+    TextInputEditText passwd;
+    TextInputEditText email;
     private FirebaseAuth mAuth;
     private static final int REQ_ONE_TAP = 2;
     private boolean showOneTapUI = true;
@@ -48,6 +53,9 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
         b_google=findViewById(R.id.buttongoogle);
         mAuth = FirebaseAuth.getInstance();
+        login=findViewById(R.id.login);
+        passwd=findViewById(R.id.text_password);
+        email=findViewById(R.id.txt_email);
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -61,12 +69,40 @@ public class LoginPage extends AppCompatActivity {
                 toGoogle();
             }
         });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logIn();
+            }
+
+
+        });
 
 
    }
 
 
-
+    private void logIn() {
+        String vemail=email.getText().toString().trim();
+        String vpassword=passwd.getText().toString().trim();
+        mAuth.signInWithEmailAndPassword(vemail, vpassword)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            openMain();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginPage.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 
 public void toGoogle(){
     Intent intg=gsc.getSignInIntent();
@@ -95,19 +131,7 @@ public void toGoogle(){
         startActivity(intent);
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Signed in successfully, show authenticated UI.
-
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
-
-        }
-    }
     @Override
     public void onStart() {
         super.onStart();
@@ -121,7 +145,7 @@ public void toGoogle(){
         Intent intent = new Intent(this, RegisterPage.class);
         startActivity(intent);
     }
-    public void openMain(View v){
+    public void openMain(){
         Intent intent = new Intent(this,MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

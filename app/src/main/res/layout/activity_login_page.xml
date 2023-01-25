@@ -151,11 +151,10 @@
         android:onClick="openRegister"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttongoogle"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="160dp"
-
         android:text="Register with google"
         android:textAllCaps="false"
         app:layout_constraintEnd_toStartOf="@+id/lineright"

@@ -52,14 +52,13 @@
 
         <TextView
             android:id="@+id/water_sentence"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="4dp"
             android:gravity="center"
             android:text="@string/water_sentc"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/linerightEnd"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/txt_form"
             app:srcCompat="@drawable/water" />
@@ -72,7 +71,6 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:text="water bill"
-            app:layout_constraintEnd_toEndOf="@id/linerightEnd"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence"
             app:srcCompat="@drawable/water" />
@@ -347,6 +345,7 @@
             android:id="@+id/btn_newForm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textSize="12dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/bordes_redondos"
             android:text="@string/btnNewForm"
@@ -360,6 +359,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:textSize="12dp"
             android:background="@drawable/bordes_redondos"
             android:text="@string/btnFix"
             android:textAllCaps="false"

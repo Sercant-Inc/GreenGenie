@@ -22,8 +22,11 @@
     <string name="btnDone">Done</string>
     <string name="btnFix">Fix Objective</string>
     <string name="btnNewForm">New Form</string>
-
-
+    <string name="LogOut">Log Out</string>
+    <string name="editProfile">editProfile</string>
+    <string name="nameProfile">Profile Name</string>
+    <string name="emailProfile">Profile email</string>
+    <string name="spinner">Vehicle Type</string>
 
 
 

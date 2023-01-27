@@ -26,7 +26,7 @@ public class Page1 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String TIP=" HI!!! I´m GreenGenie!! \n\n I´m going to be your assistant to help you saving money, and... being ecofriendly!!";
+    private static final String TIP="HI!!! I´m GreenGenie!! \n\n I´m going to be your assistant to help you saving money, and... being ecofriendly!!";
     private static final String TIP2="BLLLLLLLL";
     String[] tips={TIP,TIP2};
     // TODO: Rename and change types of parameters

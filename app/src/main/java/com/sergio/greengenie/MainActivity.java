@@ -1,6 +1,8 @@
 package com.sergio.greengenie;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.sergio.greengenie.Fragments.Page2;
 import com.sergio.greengenie.UI.Main.SectionsPagerAdapter;
 import com.sergio.greengenie.databinding.ActivityMainBinding;
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottom_navigation;
 
     private MenuItem prevMenuItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
 
-       // Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
+        // Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -44,21 +48,21 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.lamp:
                         item.setChecked(true);
                         //Toast.makeText(MainActivity.this, "Add clicked.", Toast.LENGTH_SHORT).show();
-                       // removeBadge(mybottomNavView,item.getItemId());
+                        // removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(0);
                         break;
 
                     case R.id.user:
                         item.setChecked(true);
                         //Toast.makeText(MainActivity.this, "Browse clicked.", Toast.LENGTH_SHORT).show();
-                      //  removeBadge(mybottomNavView,item.getItemId());
+                        //  removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(1);
                         break;
 
                     case R.id.data:
                         item.setChecked(true);
                         //Toast.makeText(MainActivity.this, "Personal clicked.", Toast.LENGTH_SHORT).show();
-                       // removeBadge(mybottomNavView,item.getItemId());
+                        // removeBadge(mybottomNavView,item.getItemId());
                         viewPager.setCurrentItem(2);
                         break;
                     case R.id.form:
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     bottom_navigation.getMenu().getItem(0).setChecked(false);
                     bottom_navigation.getMenu().getItem(position).setChecked(true);
-                   // removeBadge(bottom_navigation, bottom_navigation.getMenu().getItem(position).getItemId());
+                    // removeBadge(bottom_navigation, bottom_navigation.getMenu().getItem(position).getItemId());
                 }
             }
 
@@ -100,4 +104,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    }
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.profile_menu, menu);
+//        return true;
+//    }
+//
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        if (id == R.id.settings) {
+//        }
+//        if (id == R.id.profile) {
+//            Intent intent = new Intent(this, Page2.class);
+//            startActivity(intent);
+//        }
+//        if (id == R.id.logout) {
+//            Intent intent = new Intent(this, LoginPage.class);
+//            startActivity(intent);
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+}

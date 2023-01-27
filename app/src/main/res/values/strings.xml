@@ -19,7 +19,9 @@
     <string name="people_sentc">How many people lives in your house?</string>
     <string name="house_sentc">Introduce the surface of your house</string>
 
-
+    <string name="btnDone">Done</string>
+    <string name="btnFix">Fix Objective</string>
+    <string name="btnNewForm">New Form</string>
 
 
 

@@ -1,25 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.Page2"
-    >
+    tools:context=".Fragments.Page2">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
 
     <TextView
         android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="356dp"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="40dp"
         android:text="Log Out"
         android:textColor="@color/verde"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@id/line_right"
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
+
+    <TextView
+        android:id="@+id/editProfile"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/editProfile"
+        android:textColor="@color/verde"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@id/line_right"
+        app:layout_constraintTop_toBottomOf="@+id/logout">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@id/logout"
+        tools:src="@tools:sample/avatars"
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="40dp"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_profileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sweet_grey"
+            android:hint="@string/nameProfile"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userEmail"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="40dp"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/username">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sweet_grey"
+            android:hint="@string/emailProfile"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/userEmail"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintEnd_toStartOf="@id/line_right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/spinner" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="820px"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="50px"
+            android:background="#9F9F9F"
+            android:entries="@array/valores" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

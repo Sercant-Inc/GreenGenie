@@ -5,9 +5,7 @@
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintEnd_toEndOf="@id/line_bottom"
-    app:layout_editor_absoluteX="1dp"
-    app:layout_editor_absoluteY="1dp">
+    android:fillViewport="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,12 +27,12 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.85" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.96" />
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/line_bottom"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_percent="0.96" />-->
 
         <TextView
             android:id="@+id/graphic"
@@ -46,12 +44,26 @@
             android:gravity="center"
             android:background="@color/caqui"
             android:fontFamily="@font/gelasio"/>
+        <TextView
+            android:id="@+id/txt_lastBill"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/verde"
+            android:textSize="20dp"
+            android:text="Last Bill"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/graphic"
+            app:layout_constraintStart_toStartOf="@+id/line_left"
+            app:srcCompat="@drawable/water" />
+
         <ImageView
             android:id="@+id/water"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/graphic"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_lastBill"
             app:layout_constraintStart_toStartOf="@+id/line_left"
             app:srcCompat="@drawable/water"/>
 
@@ -59,22 +71,276 @@
             android:id="@+id/water_data1"
             android:layout_width="80dp"
             android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="water data"
-            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/water"
             app:layout_constraintStart_toStartOf="@+id/line_left"
             app:srcCompat="@drawable/water" />
 
+        <TextView
+            android:id="@+id/water_data2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="water data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/water_data1"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
+        <TextView
+            android:id="@+id/txt_objectives"
+            android:layout_width="90dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/verde"
+            android:textSize="20dp"
+            android:text="Objective"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/graphic"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:srcCompat="@drawable/water" />
 
 
+        <ImageView
+            android:id="@+id/water_objective"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_objectives"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:srcCompat="@drawable/water"/>
+        <TextView
+            android:id="@+id/water_dataobj1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="water data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/water_objective"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+
+        <TextView
+            android:id="@+id/water_dataobj2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="water data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/water_dataobj1"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+
+<!--***************************LIGHT****************************************-->
+        <ImageView
+            android:id="@+id/light"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/water_data2"
+            app:layout_constraintStart_toStartOf="@+id/line_left"
+            app:srcCompat="@drawable/light"/>
+
+        <TextView
+            android:id="@+id/light_data1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="light data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/light"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
+
+        <TextView
+            android:id="@+id/light_data2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="light data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/light_data1"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
 
 
+        <ImageView
+            android:id="@+id/light_objective"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@id/water_dataobj2"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:srcCompat="@drawable/light"/>
+        <TextView
+            android:id="@+id/light_dataobj1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="light data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/light_objective"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+
+        <TextView
+            android:id="@+id/light_dataobj2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="light data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/light_dataobj1"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+<!--********************************GAS**************************************-->
+        <ImageView
+            android:id="@+id/gas"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/light_data2"
+            app:layout_constraintStart_toStartOf="@+id/line_left"
+            app:srcCompat="@drawable/gas"/>
+
+        <TextView
+            android:id="@+id/gas_data1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="gas data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/gas"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
+
+        <TextView
+            android:id="@+id/gas_data2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="gas data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/gas_data1"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
 
 
+        <ImageView
+            android:id="@+id/gas_objective"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@id/light_dataobj2"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:srcCompat="@drawable/gas"/>
+        <TextView
+            android:id="@+id/gas_dataobj1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="gas data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/gas_objective"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"/>
+
+        <TextView
+            android:id="@+id/gas_dataobj2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="gas data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/gas_dataobj1"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+<!--****************************PETROL************************************-->
+        <ImageView
+            android:id="@+id/petrol"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/gas_data2"
+            app:layout_constraintStart_toStartOf="@+id/line_left"
+            app:srcCompat="@drawable/fuel"/>
+
+        <TextView
+            android:id="@+id/petrol_data1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="petrol data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/petrol"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
+
+        <TextView
+            android:id="@+id/petrol_data2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="petrol data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/petrol_data1"
+            app:layout_constraintStart_toStartOf="@+id/line_left"/>
 
 
+        <ImageView
+            android:id="@+id/petrol_objective"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@id/gas_dataobj2"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            app:srcCompat="@drawable/fuel"/>
+        <TextView
+            android:id="@+id/petrol_dataobj1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="petrol data"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/petrol_objective"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"/>
 
+        <TextView
+            android:id="@+id/petrol_dataobj2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:text="petrol data2"
+            android:gravity="center"
+            android:background="@color/azul_claro_tr"
+            app:layout_constraintTop_toBottomOf="@id/petrol_dataobj1"
+            app:layout_constraintEnd_toStartOf="@+id/line_right"
+            />
+        <TextView
+            android:id="@+id/texmargin"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text=""
+            app:layout_constraintStart_toStartOf="@id/line_left"
+            app:layout_constraintEnd_toStartOf="@id/line_right"
+            app:layout_constraintTop_toBottomOf="@id/petrol_dataobj2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

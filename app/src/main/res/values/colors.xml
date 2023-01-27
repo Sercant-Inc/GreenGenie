@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="azul_claro">#3A7DA4</color>
+    <color name="azul_claro_tr">#9F3A7DA4</color>
     <color name="verde_oscuro">#1C5744</color>
     <color name="verde">#29862C</color>
     <color name="verde_claro">#78b721</color>
@@ -15,4 +16,5 @@
     <color name="color_icon_personal_selected">#29862C</color>
     <color name="color_icon_form_selected">#00EFECEC</color>
     <color name="color_icon_add_unselected">#00EFECEC</color>
+
 </resources>

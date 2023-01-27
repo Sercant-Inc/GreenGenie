@@ -7,6 +7,25 @@
     <string name="user">Profile</string>
     <string name="data">Data</string>
     <string name="form">Form</string>
+
+    <string name="water_sentc">Introduce the amount of your last water bill</string>
+    <string name="water_sentc2">Introduce the price of your last water bill</string>
+    <string name="light_sentc">Introduce the amount of your last light bill</string>
+    <string name="light_sentc2">Introduce the price of your last light bill</string>
+    <string name="gas_sentc">Introduce the amount of your last gas bill</string>
+    <string name="gas_sentc2">Introduce the price of your last gas bill</string>
+    <string name="petrol_sentc">Introduce the amount of your last petrol bill</string>
+    <string name="petrol_sentc2">Introduce the price of your last petrol bill</string>
+    <string name="people_sentc">How many people lives in your house?</string>
+    <string name="house_sentc">Introduce the surface of your house</string>
+
+
+
+
+
+
+
+
     <string name="text_policy">POLÍTICA DE PRIVACIDAD \n\n
 
     El presente Política de Privacidad establece los términos en que GreenGenie usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.\n\n

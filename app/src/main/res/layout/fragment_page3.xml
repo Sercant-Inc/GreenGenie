@@ -5,7 +5,7 @@
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:fillViewport="true">
+    android:fillViewport="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,12 +27,12 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.85" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.96" />
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/line_bottom"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_percent="0.96" />-->
 
         <TextView
             android:id="@+id/graphic"
@@ -163,7 +163,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="light data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/light_data1"
@@ -184,7 +184,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
-            android:text="water data"
+            android:text="light data"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/light_objective"
@@ -196,7 +196,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="light data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/light_dataobj1"
@@ -218,7 +218,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
-            android:text="light data"
+            android:text="gas data"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/gas"
@@ -229,7 +229,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="gas data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/gas_data1"
@@ -250,7 +250,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
-            android:text="water data"
+            android:text="gas data"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/gas_objective"
@@ -261,7 +261,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="gas data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/gas_dataobj1"
@@ -283,7 +283,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
-            android:text="light data"
+            android:text="petrol data"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/petrol"
@@ -294,7 +294,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="petrol data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/petrol_data1"
@@ -315,7 +315,7 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
-            android:text="water data"
+            android:text="petrol data"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/petrol_objective"
@@ -326,12 +326,21 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_marginTop="8dp"
-            android:text="water data2"
+            android:text="petrol data2"
             android:gravity="center"
             android:background="@color/azul_claro_tr"
             app:layout_constraintTop_toBottomOf="@id/petrol_dataobj1"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             />
+        <TextView
+            android:id="@+id/texmargin"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text=""
+            app:layout_constraintStart_toStartOf="@id/line_left"
+            app:layout_constraintEnd_toStartOf="@id/line_right"
+            app:layout_constraintTop_toBottomOf="@id/petrol_dataobj2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

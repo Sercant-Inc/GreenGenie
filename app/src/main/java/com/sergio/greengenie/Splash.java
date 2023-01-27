@@ -33,7 +33,7 @@ public class Splash extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(currentUser != null){
+        if(currentUser != null || account != null){
             Intent intent = new Intent(Splash
                     .this, MainActivity
                     .class);
@@ -44,16 +44,6 @@ public class Splash extends AppCompatActivity {
             openApp();
         }
 
-        if(account != null){
-            Intent intent = new Intent(Splash
-                    .this, MainActivity
-                    .class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }else{
-            openApp();
-        }
     }
     private void openApp() {
 

@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -85,23 +87,38 @@ public class LoginPage extends AppCompatActivity {
     private void logIn() {
         String vemail=email.getText().toString().trim();
         String vpassword=passwd.getText().toString().trim();
-        mAuth.signInWithEmailAndPassword(vemail, vpassword)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            openMain();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginPage.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(vpassword) ){
+            passwd.setError("Password can not be empty");
+            passwd.requestFocus();
+        }
+        if(TextUtils.isEmpty(vemail) ){
+            email.setError("Email can not be empty");
+            email.requestFocus();
+        }
+        else if(Patterns.EMAIL_ADDRESS.matcher(vemail).matches()){
+            mAuth.signInWithEmailAndPassword(vemail, vpassword)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                openMain();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(LoginPage.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }else {
+            email.setError("Email is not in the right format");
+            email.requestFocus();
+        }
+
+
     }
 
 public void toGoogle(){

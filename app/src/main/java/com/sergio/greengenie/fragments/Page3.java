@@ -17,7 +17,7 @@ import com.sergio.greengenie.R;
  * create an instance of this fragment.
  */
 public class Page3 extends Fragment {
-
+    static BarChart graphic;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -63,8 +63,8 @@ public class Page3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_page3, container, false);
-        BarChart graphic = (BarChart) view.findViewById(R.id.graphic);
-        Graphic.chart(graphic);
+  graphic = (BarChart) view.findViewById(R.id.graphic);
+   //  Graphic.chart(graphic);
 
 
         return view;

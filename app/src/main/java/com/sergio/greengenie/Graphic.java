@@ -9,23 +9,28 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.sergio.greengenie.Fragments.Page4;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Graphic {
 
     public static void chart(BarChart graphic) {
         // Declaración de arrays con los meses y los valores de cada grupo
-        List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
-        //String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        ArrayList<Float> water= new ArrayList<>();
+        ArrayList<Float> light= new ArrayList<>();
+        ArrayList<Float> gas= new ArrayList<>();
+        ArrayList<Float> fuel= new ArrayList<>();
+        for (Bill f: Page4.bills) {
+            water.add(f.getWater());
+            light.add(f.getLight());
+            gas.add(f.getGas());
+            fuel.add(f.getPetrol());
+        }
 
-        int[] group1 = {2, 6, 8, 6, 4, 5, 7, 6, 5};
-        int[] group2 = {3, 5, 2, 4, 5, 5, 4, 5, 8};
-        int[] group3 = {6, 1, 4, 4, 4, 3, 3, 6, 9};
-        int[] group4 = {1, 3, 5, 6, 2, 4, 5, 1, 8, 5};
         // Creación de las listas de entradas para cada grupo
         List<BarEntry> entriesGroup1 = new ArrayList<>();
         List<BarEntry> entriesGroup2 = new ArrayList<>();
@@ -34,16 +39,16 @@ public class Graphic {
 
 
 // Rellenado de las listas con los valores de cada grupo
-        for (int i = 0; i < group1.length; i++) {
+        for (int i = 0; i < water.size(); i++) {
 
-            entriesGroup1.add(new BarEntry(i, group1[i]));
-            entriesGroup2.add(new BarEntry(i, group2[i]));
-            entriesGroup3.add(new BarEntry(i, group3[i]));
-            entriesGroup4.add(new BarEntry(i, group4[i]));
+            entriesGroup1.add(new BarEntry(i, water.get(i)));
+            entriesGroup2.add(new BarEntry(i, light.get(i)));
+            entriesGroup3.add(new BarEntry(i, gas.get(i)));
+            entriesGroup4.add(new BarEntry(i, fuel.get(i)));
 
         }
-        BarDataSet set1 = new BarDataSet(entriesGroup1, "Light");
-        BarDataSet set2 = new BarDataSet(entriesGroup2, "Water");
+        BarDataSet set1 = new BarDataSet(entriesGroup1, "Water");
+        BarDataSet set2 = new BarDataSet(entriesGroup2, "Light");
         BarDataSet set3 = new BarDataSet(entriesGroup3, "Gas");
         BarDataSet set4 = new BarDataSet(entriesGroup4, "Fuel");
 

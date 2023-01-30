@@ -63,14 +63,15 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_form"
             app:srcCompat="@drawable/water" />
 
-        <TextView
+        <EditText
             android:id="@+id/water_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
 
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="water bill"
+            android:hint="water bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence"
             app:srcCompat="@drawable/water" />
@@ -85,13 +86,14 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_billData" />
 
-        <TextView
+        <EditText
             android:id="@+id/water_data2"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="water price"
+            android:hint="water price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence2" />
 
@@ -117,13 +119,14 @@
             app:layout_constraintTop_toBottomOf="@+id/water_data2"
             app:srcCompat="@drawable/water" />
 
-        <TextView
+        <EditText
             android:id="@+id/light_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="light bill"
+            android:hint="light bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence"
             app:srcCompat="@drawable/water" />
@@ -138,13 +141,14 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_billData" />
 
-        <TextView
+        <EditText
             android:id="@+id/light_data2"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="light price"
+            android:hint="light price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence2" />
 
@@ -169,13 +173,14 @@
             app:layout_constraintTop_toBottomOf="@+id/light_data2"
             app:srcCompat="@drawable/gas" />
 
-        <TextView
+        <EditText
             android:id="@+id/gas_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas bill"
+            android:hint="gas bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence"
             app:srcCompat="@drawable/water" />
@@ -190,13 +195,14 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_billData" />
 
-        <TextView
+        <EditText
             android:id="@+id/gas_data2"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas price"
+            android:hint="gas price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence2" />
 
@@ -221,13 +227,14 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/gas_data2" />
 
-        <TextView
+        <EditText
             android:id="@+id/petrol_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="petrol bill"
+            android:hint="petrol bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence" />
 
@@ -241,13 +248,14 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_billData" />
 
-        <TextView
+        <EditText
             android:id="@+id/petrol_data2"
             android:layout_width="270dp"
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas price"
+            android:hint="gas price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence2" />
         <!--****************************PEOPLE****************************************-->
@@ -270,7 +278,7 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/petrol_data2" />
 
-        <TextView
+        <EditText
             android:id="@+id/house_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
@@ -300,7 +308,7 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/house_billData" />
 
-        <TextView
+        <EditText
             android:id="@+id/home_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
@@ -380,7 +388,8 @@
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
             app:layout_constraintTop_toBottomOf="@id/btn_fixObj"
             tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="943dp" />
+            tools:layout_editor_absoluteY="943dp"
+          />
 
         <TextView
             android:id="@+id/texmargin"
@@ -389,7 +398,8 @@
             android:gravity="center"
             android:text=""
             app:layout_constraintStart_toStartOf="@id/line_right"
-            app:layout_constraintTop_toBottomOf="@id/btn_done" />
+            app:layout_constraintTop_toBottomOf="@id/btn_done"
+           />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

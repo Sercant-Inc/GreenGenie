@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Page4 extends Fragment {
     EditText water_billData, light_billData, gas_billData, petrol_billData;
     EditText water_data2, light_data2, gas_data2, petrol_data2;
+    EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2};
     public static ArrayList<Bill> bills = new ArrayList<Bill>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,6 +82,20 @@ public class Page4 extends Fragment {
         light_data2 = view.findViewById(R.id.light_data2);
         gas_data2 = view.findViewById(R.id.gas_data2);
         petrol_data2 = view.findViewById(R.id.petrol_data2);
+Button btn_newForm=view.findViewById(R.id.btn_newForm);
+
+        water_billData.setEnabled(false);
+        light_billData.setEnabled(false);
+        gas_billData.setEnabled(false);
+        petrol_billData.setEnabled(false);
+        water_data2.setEnabled(false);
+        light_data2.setEnabled(false);
+        gas_data2.setEnabled(false);
+        petrol_data2.setEnabled(false);
+//        for (EditText e:edittexts) {
+//            e.setEnabled(false);
+//
+//        }
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +103,28 @@ public class Page4 extends Fragment {
                 createBill(view);
             }
         });
+        btn_newForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change the text of the TextView
+
+//        for (EditText e:edittexts) {
+//            e.setEnabled(true);
+//
+//        }
+                water_billData.setEnabled(true);
+                light_billData.setEnabled(true);
+                gas_billData.setEnabled(true);
+                petrol_billData.setEnabled(true);
+                water_data2.setEnabled(true);
+                light_data2.setEnabled(true);
+                gas_data2.setEnabled(true);
+                petrol_data2.setEnabled(true);
+
+            }
+        });
+
+
         return view;
     }
 
@@ -135,6 +172,28 @@ public class Page4 extends Fragment {
             Toast toast0 = Toast.makeText(getActivity(), "Form created", Toast.LENGTH_LONG);
             toast0.show();
             Graphic.chart(Page3.graphic);
+
+//        for (EditText e:edittexts) {
+//            e.setEnabled(false);
+//            e.getText().clear();
+//        }
+            water_billData.setEnabled(false);
+            light_billData.setEnabled(false);
+            gas_billData.setEnabled(false);
+            petrol_billData.setEnabled(false);
+            water_data2.setEnabled(false);
+            light_data2.setEnabled(false);
+            gas_data2.setEnabled(false);
+            petrol_data2.setEnabled(false);
+
+            water_billData.getText().clear();
+            light_billData.getText().clear();
+            gas_billData.getText().clear();
+            petrol_billData.getText().clear();
+            water_data2.getText().clear();
+            light_data2.getText().clear();
+            gas_data2.getText().clear();
+            petrol_data2.getText().clear();
         } catch (Exception e) {
             Toast toast0 = Toast.makeText(getActivity(), "Error creating form", Toast.LENGTH_LONG);
             toast0.show();

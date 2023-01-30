@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.sergio.greengenie.LoginPage;
@@ -74,8 +75,8 @@ public class Page2 extends Fragment{
 
         // Get references to the ImageView and TextView
         TextView logout = view.findViewById(R.id.logout);
-
-
+        ImageView profileImage=view.findViewById(R.id.profileImage);
+        Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(profileImage);
         // Set an OnClickListener on the ImageView
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

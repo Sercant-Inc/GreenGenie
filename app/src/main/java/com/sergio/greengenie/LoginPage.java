@@ -133,13 +133,26 @@ public void toGoogle(){
 
         if(requestCode==100){
             Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
+
             try {
-                task.getResult(ApiException.class);
+                GoogleSignInAccount account=task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
                 HomeActivity();
             } catch (ApiException e) {
                 Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct){
+        AuthCredential credential=GoogleAuthProvider.getCredential(acct.getIdToken(),null);
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user=mAuth.getCurrentUser();
+                }
+            }
+        });
     }
 
     private void HomeActivity() {

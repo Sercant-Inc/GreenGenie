@@ -1,12 +1,16 @@
 package com.sergio.greengenie.Fragments;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.sergio.greengenie.R;
 
 /**
@@ -61,5 +65,49 @@ public class Page4 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_page4, container, false);
+    }
+    public void showAlertDialogButtonClicked(Page4 page4) {
+
+        // setup the alert builder
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getParentFragment().getContext());
+
+//        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
+        builder.setTitle("Fix your saving objective");
+        builder.setMessage("5%");
+        builder.setMessage("10%");
+        builder.setIcon(R.drawable.geniosinfondo);
+        builder.setCancelable(true);
+
+//        // un XML a medida para el diálogo
+//        builder.setView(getLayoutInflater().inflate(R.layout.alertdialog_view, null));
+
+        // add the buttons
+        builder.setPositiveButton("5%", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // do something like...
+
+
+            }
+        });
+
+        builder.setNegativeButton("10%", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.setNeutralButton("15%", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

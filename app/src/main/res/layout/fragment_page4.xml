@@ -70,7 +70,8 @@
 
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="water bill"
+            android:hint="water bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence"
             app:srcCompat="@drawable/water" />
@@ -91,7 +92,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="water price"
+            android:hint="water price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence2" />
 
@@ -123,7 +125,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="light bill"
+            android:hint="light bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence"
             app:srcCompat="@drawable/water" />
@@ -144,7 +147,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="light price"
+            android:hint="light price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence2" />
 
@@ -175,7 +179,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas bill"
+            android:hint="gas bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence"
             app:srcCompat="@drawable/water" />
@@ -196,7 +201,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas price"
+            android:hint="gas price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence2" />
 
@@ -227,7 +233,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="petrol bill"
+            android:hint="petrol bill"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence" />
 
@@ -247,7 +254,8 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:text="gas price"
+            android:hint="gas price"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence2" />
         <!--****************************PEOPLE****************************************-->
@@ -380,7 +388,8 @@
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
             app:layout_constraintTop_toBottomOf="@id/btn_fixObj"
             tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="943dp" />
+            tools:layout_editor_absoluteY="943dp"
+          />
 
         <TextView
             android:id="@+id/texmargin"
@@ -389,7 +398,8 @@
             android:gravity="center"
             android:text=""
             app:layout_constraintStart_toStartOf="@id/line_right"
-            app:layout_constraintTop_toBottomOf="@id/btn_done" />
+            app:layout_constraintTop_toBottomOf="@id/btn_done"
+           />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

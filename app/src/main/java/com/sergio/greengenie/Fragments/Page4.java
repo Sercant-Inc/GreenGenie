@@ -22,6 +22,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class Page4 extends Fragment {
+
     EditText water_billData, light_billData, gas_billData, petrol_billData;
     EditText water_data2, light_data2, gas_data2, petrol_data2;
     EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2};
@@ -137,36 +138,7 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
         String light2 = light_data2.getText().toString().trim();
         String gas2 = gas_data2.getText().toString().trim();
         String petrol2 = petrol_data2.getText().toString().trim();
-      /*  String vpassword=passwd.getText().toString().trim();
-        if(TextUtils.isEmpty(vpassword) ){
-            passwd.setError("Password can not be empty");
-            passwd.requestFocus();
-        }*/
-    /*   if(TextUtils.isEmpty(water) ){
-            water_billData.setError("Water can not be empty");
-        }
-       else if(TextUtils.isEmpty(light) ){
-            light_billData.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(gas) ){
-            gas_billData.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(petrol) ){
-            petrol_billData.setError("Water can not be empty");
-        }
-       else if(TextUtils.isEmpty(water2) ){
-            water_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(light2) ){
-            light_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(gas2) ){
-            gas_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(petrol2) ){
-            petrol_data2.setError("Water can not be empty");
-        }
-        else {*/
+
         try {
             bills.add(new Bill(Integer.parseInt(water), Integer.parseInt(light), Integer.parseInt(gas), Integer.parseInt(petrol), Integer.parseInt(water2), Integer.parseInt(light2), Integer.parseInt(gas2), Integer.parseInt(petrol2)));
             Toast toast0 = Toast.makeText(getActivity(), "Form created", Toast.LENGTH_LONG);

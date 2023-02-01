@@ -60,7 +60,6 @@ public class LoginPage extends AppCompatActivity {
         email=findViewById(R.id.txt_email);
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("36455779828-o34ac5130bus2vjiq8c3sf2329egskv5.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -131,30 +130,18 @@ public void toGoogle(){
     @Override
     public void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
 
         if(requestCode==100){
+            Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                GoogleSignInAccount cuenta=task.getResult(ApiException.class);
-                firebaseGoogleAuth(cuenta);
+                task.getResult(ApiException.class);
+                HomeActivity();
             } catch (ApiException e) {
                 Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void firebaseGoogleAuth(GoogleSignInAccount acct){
-        AuthCredential credencial=GoogleAuthProvider.getCredential(acct.getIdToken(),null);
-        mAuth.signInWithCredential(credencial).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    FirebaseUser user= mAuth.getCurrentUser();
-                    openMain();
-                }
-            }
-        });
-    }
     private void HomeActivity() {
         finish();
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);

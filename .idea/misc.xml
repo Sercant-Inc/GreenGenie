@@ -17,13 +17,13 @@
         <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/fragment_page1.xml" value="0.18541666666666667" />
         <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/fragment_page2.xml" value="0.18541666666666667" />
         <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/fragment_page3.xml" value="0.3625" />
-        <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/fragment_page4.xml" value="0.3625" />
+        <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/fragment_page4.xml" value="0.21875" />
         <entry key="..\:/Diurno/Interfaces/GreenGenie/app/src/main/res/layout/page_login.xml" value="0.34904714142427284" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

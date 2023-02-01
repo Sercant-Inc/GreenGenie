@@ -1,6 +1,7 @@
 package com.sergio.greengenie.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class Page4 extends Fragment {
+
     EditText water_billData, light_billData, gas_billData, petrol_billData;
     EditText water_data2, light_data2, gas_data2, petrol_data2;
     EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2};
@@ -74,28 +76,21 @@ public class Page4 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
         Button btn_done = view.findViewById(R.id.btn_done);
-        water_billData = view.findViewById(R.id.water_billData);
-        light_billData = view.findViewById(R.id.light_billData);
-        gas_billData = view.findViewById(R.id.gas_billData);
-        petrol_billData = view.findViewById(R.id.petrol_billData);
-        water_data2 = view.findViewById(R.id.water_data2);
-        light_data2 = view.findViewById(R.id.light_data2);
-        gas_data2 = view.findViewById(R.id.gas_data2);
-        petrol_data2 = view.findViewById(R.id.petrol_data2);
+        edittexts[0] = view.findViewById(R.id.water_billData);
+        edittexts[1]= view.findViewById(R.id.light_billData);
+        edittexts[2]= view.findViewById(R.id.gas_billData);
+        edittexts[3]= view.findViewById(R.id.petrol_billData);
+        edittexts[4]= view.findViewById(R.id.water_data2);
+        edittexts[5]= view.findViewById(R.id.light_data2);
+        edittexts[6]= view.findViewById(R.id.gas_data2);
+        edittexts[7]= view.findViewById(R.id.petrol_data2);
 Button btn_newForm=view.findViewById(R.id.btn_newForm);
 
-        water_billData.setEnabled(false);
-        light_billData.setEnabled(false);
-        gas_billData.setEnabled(false);
-        petrol_billData.setEnabled(false);
-        water_data2.setEnabled(false);
-        light_data2.setEnabled(false);
-        gas_data2.setEnabled(false);
-        petrol_data2.setEnabled(false);
-//        for (EditText e:edittexts) {
-//            e.setEnabled(false);
-//
-//        }
+        if(bills.size()!=0){
+        Graphic.chart(Page3.graphic);}
+        for (int i=0;i< edittexts.length;i++){
+            edittexts[i].setEnabled(false);
+        }
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,18 +103,11 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
             public void onClick(View v) {
                 // Change the text of the TextView
 
-//        for (EditText e:edittexts) {
-//            e.setEnabled(true);
-//
-//        }
-                water_billData.setEnabled(true);
-                light_billData.setEnabled(true);
-                gas_billData.setEnabled(true);
-                petrol_billData.setEnabled(true);
-                water_data2.setEnabled(true);
-                light_data2.setEnabled(true);
-                gas_data2.setEnabled(true);
-                petrol_data2.setEnabled(true);
+        for (int i=0;i< edittexts.length;i++) {
+            edittexts[i].setEnabled(true);
+
+        }
+
 
             }
         });
@@ -129,74 +117,31 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
     }
 
     public void createBill(View view) {
-        String water = water_billData.getText().toString().trim();
-        String light = light_billData.getText().toString().trim();
-        String gas = gas_billData.getText().toString().trim();
-        String petrol = petrol_billData.getText().toString().trim();
-        String water2 = water_data2.getText().toString().trim();
-        String light2 = light_data2.getText().toString().trim();
-        String gas2 = gas_data2.getText().toString().trim();
-        String petrol2 = petrol_data2.getText().toString().trim();
-      /*  String vpassword=passwd.getText().toString().trim();
-        if(TextUtils.isEmpty(vpassword) ){
-            passwd.setError("Password can not be empty");
-            passwd.requestFocus();
-        }*/
-    /*   if(TextUtils.isEmpty(water) ){
-            water_billData.setError("Water can not be empty");
-        }
-       else if(TextUtils.isEmpty(light) ){
-            light_billData.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(gas) ){
-            gas_billData.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(petrol) ){
-            petrol_billData.setError("Water can not be empty");
-        }
-       else if(TextUtils.isEmpty(water2) ){
-            water_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(light2) ){
-            light_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(gas2) ){
-            gas_data2.setError("Water can not be empty");
-        }
-        else if(TextUtils.isEmpty(petrol2) ){
-            petrol_data2.setError("Water can not be empty");
-        }
-        else {*/
+//        for (int i=0;i< edittexts.length;i++) {
+//            edittexts[i].getText().toString().trim();
+//        }
+        String water = edittexts[0].getText().toString().trim();
+        String light = edittexts[1].getText().toString().trim();
+        String gas = edittexts[2].getText().toString().trim();
+        String petrol = edittexts[3].getText().toString().trim();
+        String water2 = edittexts[4].getText().toString().trim();
+        String light2 = edittexts[5].getText().toString().trim();
+        String gas2 = edittexts[6].getText().toString().trim();
+        String petrol2 = edittexts[7].getText().toString().trim();
+
         try {
             bills.add(new Bill(Integer.parseInt(water), Integer.parseInt(light), Integer.parseInt(gas), Integer.parseInt(petrol), Integer.parseInt(water2), Integer.parseInt(light2), Integer.parseInt(gas2), Integer.parseInt(petrol2)));
             Toast toast0 = Toast.makeText(getActivity(), "Form created", Toast.LENGTH_LONG);
             toast0.show();
             Graphic.chart(Page3.graphic);
-
-//        for (EditText e:edittexts) {
-//            e.setEnabled(false);
-//            e.getText().clear();
-//        }
-            water_billData.setEnabled(false);
-            light_billData.setEnabled(false);
-            gas_billData.setEnabled(false);
-            petrol_billData.setEnabled(false);
-            water_data2.setEnabled(false);
-            light_data2.setEnabled(false);
-            gas_data2.setEnabled(false);
-            petrol_data2.setEnabled(false);
-
-            water_billData.getText().clear();
-            light_billData.getText().clear();
-            gas_billData.getText().clear();
-            petrol_billData.getText().clear();
-            water_data2.getText().clear();
-            light_data2.getText().clear();
-            gas_data2.getText().clear();
-            petrol_data2.getText().clear();
+            for (int i=0;i< edittexts.length;i++) {
+                edittexts[i].setEnabled(false);
+                edittexts[i].getText().clear();
+            }
         } catch (Exception e) {
             Toast toast0 = Toast.makeText(getActivity(), "Error creating form", Toast.LENGTH_LONG);
             toast0.show();
+
         }
 
 

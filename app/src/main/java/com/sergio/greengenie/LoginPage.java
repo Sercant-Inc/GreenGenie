@@ -82,7 +82,7 @@ public class LoginPage extends AppCompatActivity {
         });
 
 
-   }
+    }
 
 
     private void logIn() {
@@ -122,11 +122,11 @@ public class LoginPage extends AppCompatActivity {
 
     }
 
-public void toGoogle(){
-    Intent intg=gsc.getSignInIntent();
-    startActivityForResult(intg,100);
+    public void toGoogle(){
+        Intent intg=gsc.getSignInIntent();
+        startActivityForResult(intg,100);
 
-}
+    }
 
     @Override
     public void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){

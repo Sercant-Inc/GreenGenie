@@ -1,66 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="tips">
-        <item>PLAN THE LIGHTING. \n\n It is important to not spend more than desired on electricity. Also, if you paint the walls and ceiling a light color, you gain brightness and therefore use less electricity.</item>
-        <item>CHANGE THE LIGHT BULBS  \n\n Replacing all the light bulbs with low-consumption ones saves, for each of them, about 8€ a year. If you have 30 at home, that\'s about 240€ annually. A good amount, right? LEDs are even more efficient and are increasingly used in home decoration. Although their price is slightly higher, they not only consume less, but they also offer more durability (25,000 hours compared to the 5,000 of low-consumption ones), they reach their maximum brightness instantly, and they don\'t deteriorate from successive turn-ons and turn-offs.</item>
-        <item>CALCULATE YOUR CONSUMPTION A \n\n consumption meter helps to instantly know in euros what you consume. They are not very expensive (starting from 60€) and can lower the electricity bill by 45% (if heating is gas, then up to 20%). Some allow scheduling the power off.</item>
-        <item> CHECK THE FACILITIES.\n\n It is necessary for both safety reasons and to avoid excessive spending. In new houses, the review should be done every 10 years, while those over 25 years old should be studied every 5 years. Before doing so, request budgets.</item>
-        <item>TURN OFF THE LIGHTS.\n\n It is necessary for both safety reasons and to avoid excessive spending. Don\'t forget, small gestures are what save.</item>
-        <item>CLEAN THE LIGHT BULBS AND SCREENS.\n\n Keep the light bulbs clean, as dirt absorbs light and consumes more electricity to achieve a certain intensity. Do it often, always with the bulb turned off. Repeat the same operation with the screens of the lamps.</item>
-        <item>BEWARE OF VAMPIRES.\n\n Leaving appliances or computer with the pilot light on increases the electric bill between 5% and 16%. Instead of turning them off with the remote and leaving them on standby, plug them into a strip with a switch. This way, you can fully deactivate them just by turning it off.</item>
-        <item>WHAT IS THE COMFORT TEMPERATURE?\n\n It is estimated that 20ºC is the optimal temperature for the entire house. For each degree higher, consumption increases between 5% and 10%. At night and when you are not home, set it to 15ºC. Proper temperature regulation can save you over 100€ per year.</item>
-        <item>INSTALL A THERMOSTAT.\n\n It is simple and inexpensive (starting at 30€). Programmable thermostats allow you to adjust the temperature to your habits and set the time when the radiators turn on. Check their instructions to get the most out of them.</item>
-        <item>CHECK THE BOILER.\n\n A dusty or greasy boiler consumes more. Don\'t wait for it to break down to check it, as with regular maintenance you will not only extend its life, but also reduce the bill by 10%. It is ideal to check it once a year at the start of the season.</item>
-        <item>MAKE USE OF BLINDS.\n\n Raise them during the day so that sunlight can enter and warm the house naturally and lower them at night to protect the house from the cold. You can do the same with curtains (the thicker the better). Reinforce the insulation of windows with window seals.</item>
+        <item>PLAN THE LIGHTING.\n\nIt is important to not spend more than desired on electricity. Also, if you paint the walls and ceiling a light color, you gain brightness and therefore use less electricity.</item>
+        <item>CHANGE THE LIGHT BULBs\n\n.Replacing all the light bulbs with low-consumption ones saves, for each of them, about 8€ a year. If you have 30 at home, that\'s about 240€ annually. A good amount, right? LEDs are even more efficient and are increasingly used in home decoration. Although their price is slightly higher, they not only consume less, but they also offer more durability (25,000 hours compared to the 5,000 of low-consumption ones), they reach their maximum brightness instantly, and they don\'t deteriorate from successive turn-ons and turn-offs.</item>
+        <item>CALCULATE YOUR CONSUMPTION.\n\nA consumption meter helps to instantly know in euros what you consume. They are not very expensive (starting from 60€) and can lower the electricity bill by 45% (if heating is gas, then up to 20%). Some allow scheduling the power off.</item>
+        <item> CHECK THE FACILITIES.\n\nIt is necessary for both safety reasons and to avoid excessive spending. In new houses, the review should be done every 10 years, while those over 25 years old should be studied every 5 years. Before doing so, request budgets.</item>
+        <item>TURN OFF THE LIGHTS.\n\nIt is necessary for both safety reasons and to avoid excessive spending. Don\'t forget, small gestures are what save.</item>
+        <item>CLEAN THE LIGHT BULBS AND SCREENS.\n\nKeep the light bulbs clean, as dirt absorbs light and consumes more electricity to achieve a certain intensity. Do it often, always with the bulb turned off. Repeat the same operation with the screens of the lamps.</item>
+        <item>BEWARE OF VAMPIRES.\n\nLeaving appliances or computer with the pilot light on increases the electric bill between 5% and 16%. Instead of turning them off with the remote and leaving them on standby, plug them into a strip with a switch. This way, you can fully deactivate them just by turning it off.</item>
+        <item>WHAT IS THE COMFORT TEMPERATURE?\n\nIt is estimated that 20ºC is the optimal temperature for the entire house. For each degree higher, consumption increases between 5% and 10%. At night and when you are not home, set it to 15ºC. Proper temperature regulation can save you over 100€ per year.</item>
+        <item>INSTALL A THERMOSTAT.\n\nIt is simple and inexpensive (starting at 30€). Programmable thermostats allow you to adjust the temperature to your habits and set the time when the radiators turn on. Check their instructions to get the most out of them.</item>
+        <item>CHECK THE BOILER.\n\nA dusty or greasy boiler consumes more. Don\'t wait for it to break down to check it, as with regular maintenance you will not only extend its life, but also reduce the bill by 10%. It is ideal to check it once a year at the start of the season.</item>
+        <item>MAKE USE OF BLINDS.\n\nRaise them during the day so that sunlight can enter and warm the house naturally and lower them at night to protect the house from the cold. You can do the same with curtains (the thicker the better). Reinforce the insulation of windows with window seals.</item>
 
-        <item>ADAPT YOUR CLOTHING TO THE TIME OF YEAR.\n\n If it\'s winter, why are you walking around the house in short sleeves? Don\'t dress in December like in August and you will avoid "wasting" heating when it's not so cold or having it at an excessively high temperature. Close doors to quickly heat the room you want.</item>
-        <item>CONCENTRATE HEAT.\n\n If there are rooms you hardly use, you don\'t need to spend on heating them. Close the doors so that the heat is concentrated in the part of the house you use, and even close the valve of its plates. With this gesture you can save between 5% and 8% of energy.</item>
-        <item>INSULATE WITH RUGS.\n\n Rugs also help to provide warmth to "cold" floors such as marble or porcelain.</item>
-        <item>DO NOT COVER THE RADIATORS.\n\n Their ideal location is under windows because the air that filters helps distribute heat. That being said, avoid covering them with curtains or other objects as then they "work" harder to heat the same. Radiator covers are not recommended.</item>
-        <item>TURN OFF THE COMPUTER.\n\n If you are not going to use it for half an hour, it\'s best to turn it off because the hard drive won\'t wear out. When it comes to short intervals, turn off the screen, which is what consumes the most. Keep in mind that when energy-saving mode is activated, consumption is reduced to 15%.</item>
-        <item>TURN ON CEILING FANS ALL YEAR ROUND.\n\n Ceiling fans are also very useful in winter. As hot air tends to rise, by putting it in "winter" mode, the blades reverse their usual direction and move the accumulated air towards the floor.</item>
-        <item>USE SOLAR CHARGERS. \n\n For your mobile phone or laptop, a solar charger recharges batteries with zero energy cost. Conventional chargers consume between 0.03 W (the most efficient) and 0.5 W, and their main problem is that if they are plugged in without appliances, they continue to consume.</item>
-        <item>DO NOT WASTE WATER.\n\n The toilet is not a trash can. Do not throw papers there and then empty the tank. To avoid this, keep a small bucket in the bathroom. It is estimated that 30% of water consumption comes from the toilet and that each person flushes it a thousand times a year.</item>
-        <item>USE DUAL FLUSH SYSTEM.\n\n Double flush or interruption systems are the most suitable for reducing water consumption. If you have an old cistern, you can easily adapt them without having to change the entire system. They are available in hardware stores or plumbing stores.</item>
-        <item>BE CAREFUL WITH LEAKS.\n\n It is estimated that a dripping faucet wastes about 35,000 liters of water per year. When you detect that it is losing water, turn off the water supply when not in use. You can do the same if your toilet is leaking. To detect the leak, put a few drops of food coloring in the cistern.</item>
+        <item>ADAPT YOUR CLOTHING TO THE TIME OF YEAR.\n\nIf it\'s winter, why are you walking around the house in short sleeves? Don\'t dress in December like in August and you will avoid "wasting" heating when it\'s not so cold or having it at an excessively high temperature. Close doors to quickly heat the room you want.</item>
+        <item>CONCENTRATE HEAT.\n\nIf there are rooms you hardly use, you don\'t need to spend on heating them. Close the doors so that the heat is concentrated in the part of the house you use, and even close the valve of its plates. With this gesture you can save between 5% and 8% of energy.</item>
+        <item>INSULATE WITH RUGS.\n\nRugs also help to provide warmth to "cold" floors such as marble or porcelain.</item>
+        <item>DO NOT COVER THE RADIATORS.\n\nTheir ideal location is under windows because the air that filters helps distribute heat. That being said, avoid covering them with curtains or other objects as then they "work" harder to heat the same. Radiator covers are not recommended.</item>
+        <item>TURN OFF THE COMPUTER.\n\nIf you are not going to use it for half an hour, it\'s best to turn it off because the hard drive won\'t wear out. When it comes to short intervals, turn off the screen, which is what consumes the most. Keep in mind that when energy-saving mode is activated, consumption is reduced to 15%.</item>
+        <item>TURN ON CEILING FANS ALL YEAR ROUND.\n\nCeiling fans are also very useful in winter. As hot air tends to rise, by putting it in "winter" mode, the blades reverse their usual direction and move the accumulated air towards the floor.</item>
+        <item>USE SOLAR CHARGERS. \n\nFor your mobile phone or laptop, a solar charger recharges batteries with zero energy cost. Conventional chargers consume between 0.03 W (the most efficient) and 0.5 W, and their main problem is that if they are plugged in without appliances, they continue to consume.</item>
+        <item>DO NOT WASTE WATER.\n\nThe toilet is not a trash can. Do not throw papers there and then empty the tank. To avoid this, keep a small bucket in the bathroom. It is estimated that 30% of water consumption comes from the toilet and that each person flushes it a thousand times a year.</item>
+        <item>USE DUAL FLUSH SYSTEM.\n\nDouble flush or interruption systems are the most suitable for reducing water consumption. If you have an old cistern, you can easily adapt them without having to change the entire system. They are available in hardware stores or plumbing stores.</item>
+        <item>BE CAREFUL WITH LEAKS.\n\nIt is estimated that a dripping faucet wastes about 35,000 liters of water per year. When you detect that it is losing water, turn off the water supply when not in use. You can do the same if your toilet is leaking. To detect the leak, put a few drops of food coloring in the cistern.</item>
 
-        <item>CLOSE THE TAPS.\n\n While you soap up in the shower or brush your teeth, don\'t let the water run. 10 liters of water are wasted in a minute. Similarly, open the tap to a minimum. If you wash your hands, you don't need the 20-liter flow per minute, 6 liters per minute are enough.</item>
-        <item>BATHING IS BETTER.\n\n Showering instead of bathing can save up to 70 liters of water each time. If possible, install thermostatic taps and you will also save.</item>
-        <item>TEMPERATURE AT THE MOMENT.\n\n A dual control faucet takes almost a minute to reach the desired temperature, while a thermostatic one takes two seconds. This saves about 80,000 liters of water per year. It is possible to replace the ceramic cartridge with a thermostatic kit and not have to change the faucet.</item>
-        <item>INSTALL AERATORS.\n\n Installing an aerator on the faucet is very easy, as they are purchased at the hardware store and screwed onto the faucet pipe. This device mixes air with water without affecting water pressure and reduces consumption by 50%. There are also showerheads with this system.</item>
-        <item>FLOW RESTRICTORS.\n\n Flow restrictors are easily installed at the faucet outlet and prevent it from opening beyond a predetermined angle. They can also be installed in the shower. This way, the water consumption of the faucets goes from 15 to 8 liters per minute and that of the shower from 20 to 10 liters.</item>
-        <item>WATERING WISELY.\n\n Whether on the terrace or in the garden, bet on native plants (as they are adapted to the climate they need less water) and group them according to their water needs. Do not water them during sunny hours and, if possible, use rainwater to water the plants.</item>
-        <item>WASHING, COLD!.\n\n Washing in cold saves, as almost 90% of the energy consumed by a washing machine is used to heat the water.</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>CLOSE THE TAPS.\n\nWhile you soap up in the shower or brush your teeth, don\'t let the water run. 10 liters of water are wasted in a minute. Similarly, open the tap to a minimum. If you wash your hands, you don\'t need the 20-liter flow per minute, 6 liters per minute are enough.</item>
+        <item>BATHING IS BETTER.\n\nShowering instead of bathing can save up to 70 liters of water each time. If possible, install thermostatic taps and you will also save.</item>
+        <item>TEMPERATURE AT THE MOMENT.\n\nA dual control faucet takes almost a minute to reach the desired temperature, while a thermostatic one takes two seconds. This saves about 80,000 liters of water per year. It is possible to replace the ceramic cartridge with a thermostatic kit and not have to change the faucet.</item>
+        <item>INSTALL AERATORS.\n\nInstalling an aerator on the faucet is very easy, as they are purchased at the hardware store and screwed onto the faucet pipe. This device mixes air with water without affecting water pressure and reduces consumption by 50%. There are also showerheads with this system.</item>
+        <item>FLOW RESTRICTORS.\n\nFlow restrictors are easily installed at the faucet outlet and prevent it from opening beyond a predetermined angle. They can also be installed in the shower. This way, the water consumption of the faucets goes from 15 to 8 liters per minute and that of the shower from 20 to 10 liters.</item>
+        <item>WATERING WISELY.\n\nWhether on the terrace or in the garden, bet on native plants (as they are adapted to the climate they need less water) and group them according to their water needs. Do not water them during sunny hours and, if possible, use rainwater to water the plants.</item>
+        <item>WASHING, COLD!.\n\nWashing in cold saves, as almost 90% of the energy consumed by a washing machine is used to heat the water.</item>
+        <item>SAVE RESOURCES.\n\nFill both the washing machine and dishwasher to capacity. If you halve the number of times you use these appliances, you can save about 125 € a year. When running them at half-load, always use the economy programs.</item>
+        <item>MORE EFFICIENT APPLIANCES.\n\nIf you have to replace any white goods, opt for the most efficient ones: class A+ or A++. Over its lifespan, it can save more than 600 €, as these are estimated to be responsible for 40% of energy consumption.</item>
+        <item>BETTER TO MACHINE THAN BY HAND.\n\nRinsing dishes before putting them in the dishwasher or washing them by hand with hot water can be 60% more expensive than doing so at full load in an efficient dishwasher. Always choose the economy or low-temperature programs.</item>
+        <item>IRON LESS OFTEN.\n\nAccumulate more to iron and iron less often. This is the way to save energy. In addition, you can use the residual heat for items that are not very wrinkled and only need to be touched up.</item>
 
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>BE CAREFUL WITH THE DRYER.\n\nThe dryer is one of the appliances that consumes the most. Use it as little as possible, only when you can\'t hang your clothes, and don\'t mix types of clothing (like cotton with heavier fabrics). Choose the "iron point" cycle, which ends sooner.</item>
+        <item>MAXIMIZE THE USE OF YOUR REFRIGERATOR.\n\nEvery time you open it, you waste 7% of energy. Let your food cool down before putting it in the fridge and defrost it inside to take advantage of its cold temperature. Keep it full but with enough space for air to circulate.</item>
+        <item>COLD IN IT\'S PLACE.\n\nCheck that your refrigerator is located in a cool and well-ventilated place away from heat sources. Set the temperature of the refrigerated area to 5°C and the freezer to -18°C. For every degree you lower it, you increase energy consumption by 5%.</item>
+        <item>FREEZE OR VACUUM SEAL.\n\nUse the freezer to not waste anything. If you cook too much, freeze the leftovers in portions. Always indicate the date of freezing and what it is about. You can also vacuum seal in weekly portions. You will extend the life of food up to five times.</item>
+        <item>TIME TO COOK.\n\nWhen cooking, choose pans and casseroles that are the same or larger size than the burners on the cooking area: you\'ll avoid wasting their heat. If you get the size right, you\'ll reduce energy consumption by 20%. If you cover pots and pans when cooking, you\'ll reduce cooking times and save energy.</item>
+        <item>MICROWAVE BETTER THAN OVEN.\n\nThe microwave uses much less energy than an oven. But if you are going to use the latter, when it is in operation, do not open it much.</item>
+        <item>TAKE ADVANTAGE OF RESIDUAL HEAT.\n\n On electric stoves, except for induction ones, if you turn off the heat between two and five minutes before finishing a dish, you finish cooking it using the residual heat. Using a pressure cooker or steaming also reduces consumption and is healthy.</item>
+        <item>Check your pantry, don\'t over-fill it and regularly check the expiration dates.</item>
+        <item>TO GO SHOPPING...\n\nMake a list of your needs. To make it, you should decide on the weekly menu in advance.</item>
+        <item>SET A BUDGET.\n\nIt\'s not about adding up each item in the cart one by one, but not exceeding an approximate amount. This way you will prioritize what you really need and leave the superfluous only if you have budget for it. It\'s not a bad idea to write down your expenses month by month.</item>
 
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-
-
-
-
-
+        <item>BETTER AT A GOOD TIME.\n\nIf possible, avoid peak hours. Set a time limit, as it has been proven that the longer you spend in a supermarket, the more you buy. Oh, and a classic: avoid going hungry.</item>
+        <item>SEARCH, COMPARE...\n\nCompare prices between stores because you can save up to 200 euros compared to the previous year. Entering the first store without checking prices increases spending by 40%</item>
+        <item>BEWARE OF SALES PROMOTIONS.\n\nGo by the prices, not by the sales offers, as sometimes the sale products are more expensive than others in the same range. For products that you always use, you can take advantage of 3 x 2 promotions (calculate the actual price you pay per unit to see if it is worth it).</item>
+        <item>SEASONAL PRODUCTS.\n\nSeasonal products are more economical (up to 15%) and retain their nutritional properties.</item>
+        <item>LOOK OUT FOR YOUR WALLET AND YOUR HEALTH.\n\nLimit the consumption of packaged and precooked products (less healthy, they are 30% more expensive). Dedicate a day to cooking and freezing and you will save money and health. Plan menus in which you make the most of leftover fruit and vegetables, such as omelets, salads, or rice.</item>
+        <item>ONLY THE RIGHT AMOUNT.\n\nDon\'t buy fruit and vegetables in larger packages than you actually need. This way, you not only reduce plastic, you also prevent the fruit from going bad and you can choose each piece individually. Always look at the price per kilogram, not per unit (it\'s misleading).</item>
+        <item>HAVE YOUR OWN VEGETABLE GARDEN.\n\nPlant some potted herbs if you live in a small apartment, but if your house has a garden or terrace, take advantage of it to grow your own fruits and vegetables. You will save money and gain satisfaction.</item>
+        <item>LOYALTY CARDS.\n\nBy becoming a customer cardholder of the establishments you visit the most, you will have access to everything from preferred offers to discount vouchers (between 15 and 20%), including invitations to educational activities. Not just for food, but also for decoration, like Ikea Family.</item>
+        <item>Take a shower with your girlfriend, this will save water ... or not</item>
     </string-array>
 </resources>

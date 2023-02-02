@@ -23,12 +23,10 @@
     <string name="btnFix">Fix Objective</string>
     <string name="btnNewForm">New Form</string>
     <string name="LogOut">Log Out</string>
-    <string name="editProfile">editProfile</string>
+    <string name="editProfile">Edit Profile</string>
     <string name="nameProfile">Profile Name</string>
     <string name="emailProfile">Profile email</string>
     <string name="spinner">Vehicle Type</string>
-
-
 
 
     <string name="text_policy">POLÍTICA DE PRIVACIDAD \n\n
@@ -68,7 +66,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="genie_tips">HI!!! I´m GreenGenie!! \n\n
         I´m going to be your assistant to help you saving money, and... being ecofriendly!!</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>

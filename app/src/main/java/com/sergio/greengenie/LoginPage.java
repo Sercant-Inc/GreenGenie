@@ -40,7 +40,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginPage extends AppCompatActivity {
     private static final int RC_SIGN_IN = 2;
     Button b_google;
-    TextView forgor;
     Button login;
     TextInputEditText passwd;
     TextInputEditText email;
@@ -50,6 +49,8 @@ public class LoginPage extends AppCompatActivity {
     private String TAG;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+    TextView forgor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +62,9 @@ public class LoginPage extends AppCompatActivity {
         email=findViewById(R.id.txt_email);
         forgor=findViewById(R.id.txtforgot_password);
 
+
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("36455779828-o34ac5130bus2vjiq8c3sf2329egskv5.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -81,15 +84,14 @@ public class LoginPage extends AppCompatActivity {
 
 
         });
-
         forgor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ToForgor();
             }
         });
-   }
 
+    }
 
 
     private void logIn() {
@@ -129,38 +131,49 @@ public class LoginPage extends AppCompatActivity {
 
     }
 
-public void toGoogle(){
-    Intent intg=gsc.getSignInIntent();
-    startActivityForResult(intg,100);
+    public void toGoogle(){
+        Intent intg=gsc.getSignInIntent();
+        startActivityForResult(intg,100);
 
-}
-
+    }
 
     @Override
     public void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
+        Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
 
         if(requestCode==100){
-            Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                task.getResult(ApiException.class);
-                HomeActivity();
+                GoogleSignInAccount cuenta=task.getResult(ApiException.class);
+                firebaseGoogleAuth(cuenta);
             } catch (ApiException e) {
                 Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
+    public void firebaseGoogleAuth(GoogleSignInAccount acct){
+        AuthCredential credencial=GoogleAuthProvider.getCredential(acct.getIdToken(),null);
+        mAuth.signInWithCredential(credencial).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    FirebaseUser user= mAuth.getCurrentUser();
+                    openMain();
+                }
+            }
+        });
+    }
     private void HomeActivity() {
         finish();
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
+    private void ToForgor(){
+        Intent intent=new Intent(getApplicationContext(),ForgotActivity.class);
+        startActivity(intent);
+    }
 
-private void ToForgor(){
-    Intent intent=new Intent(getApplicationContext(),Forgot.class);
-    startActivity(intent);
-}
     @Override
     public void onStart() {
         super.onStart();

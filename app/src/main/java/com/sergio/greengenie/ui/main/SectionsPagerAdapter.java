@@ -10,8 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.sergio.greengenie.Fragments.Page1;
 import com.sergio.greengenie.Fragments.Page2;
-import com.sergio.greengenie.Fragments.Page3;
-import com.sergio.greengenie.Fragments.Page4;
 import com.sergio.greengenie.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -31,10 +29,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return new Page1();
             case 1:
                 return new Page2();
-            case 2:
-                return new Page3();
-            case 3:
-                return new Page4();
             default:
                 return null;
         }
@@ -51,7 +45,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 4 total pages.
-        return 4;
+        // Show 2 total pages.
+        return 2;
     }
 }

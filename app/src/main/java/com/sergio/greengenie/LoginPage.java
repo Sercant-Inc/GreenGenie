@@ -40,6 +40,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginPage extends AppCompatActivity {
     private static final int RC_SIGN_IN = 2;
     Button b_google;
+    TextView forgor;
     Button login;
     TextInputEditText passwd;
     TextInputEditText email;
@@ -58,6 +59,7 @@ public class LoginPage extends AppCompatActivity {
         login=findViewById(R.id.login);
         passwd=findViewById(R.id.text_password);
         email=findViewById(R.id.txt_email);
+        forgor=findViewById(R.id.txtforgot_password);
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -80,8 +82,14 @@ public class LoginPage extends AppCompatActivity {
 
         });
 
-
+        forgor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToForgor();
+            }
+        });
    }
+
 
 
     private void logIn() {
@@ -127,6 +135,7 @@ public void toGoogle(){
 
 }
 
+
     @Override
     public void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
@@ -148,7 +157,10 @@ public void toGoogle(){
         startActivity(intent);
     }
 
-
+private void ToForgor(){
+    Intent intent=new Intent(getApplicationContext(),Forgot.class);
+    startActivity(intent);
+}
     @Override
     public void onStart() {
         super.onStart();

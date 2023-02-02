@@ -4,78 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgotActivity">
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lineleft"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04" />
+    tools:context=".Forgot">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lineright"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/line_left"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/line_right"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90" />
-
-
-    <ImageView
-        android:id="@+id/logoname"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="88dp"
-        android:src="@drawable/nombreapp"
+    <TextView
+        android:id="@+id/mens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_font"
+        android:textSize="20dp"
+        android:layout_margin="24dp"
+        android:text="Te enviaremos un mensaje a este correo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="@+id/lineleft"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/recover_email"
+        android:id="@+id/mail_forgot"
         style="@style/TextInputLayout"
-        android:text="Email"
-        app:layout_constraintEnd_toEndOf="@id/line_right"
-        app:layout_constraintStart_toStartOf="@id/line_left"
-        app:layout_constraintTop_toBottomOf="@+id/logoname"
         android:layout_marginTop="8dp"
+        android:text="Email"
+        android:layout_margin="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mens"
         app:startIconDrawable="@drawable/ic_envelop">
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_recover_email"
+            android:id="@+id/txt_email_forgor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
             android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/send"
         android:layout_width="0dp"
+        android:layout_margin="24dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:background="@drawable/bordes_redondos"
-        android:text="Recover"
+        android:text="SEND"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@id/line_right"
-        app:layout_constraintStart_toStartOf="@id/line_left"
-        app:layout_constraintTop_toBottomOf="@+id/recover_email" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail_forgot" />
 </androidx.constraintlayout.widget.ConstraintLayout>

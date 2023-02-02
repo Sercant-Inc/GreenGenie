@@ -49,6 +49,8 @@ public class LoginPage extends AppCompatActivity {
     private String TAG;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+    TextView forgor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,8 @@ public class LoginPage extends AppCompatActivity {
         login=findViewById(R.id.login);
         passwd=findViewById(R.id.text_password);
         email=findViewById(R.id.txt_email);
+        forgor=findViewById(R.id.txtforgot_password);
+
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("36455779828-o34ac5130bus2vjiq8c3sf2329egskv5.apps.googleusercontent.com")
@@ -80,7 +84,12 @@ public class LoginPage extends AppCompatActivity {
 
 
         });
-
+        forgor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToForgor();
+            }
+        });
 
     }
 
@@ -160,7 +169,10 @@ public class LoginPage extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
-
+    private void ToForgor(){
+        Intent intent=new Intent(getApplicationContext(),ForgotActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onStart() {

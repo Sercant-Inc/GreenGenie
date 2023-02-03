@@ -24,9 +24,8 @@ import java.util.ArrayList;
  */
 public class Page4 extends Fragment {
 
-    EditText water_billData, light_billData, gas_billData, petrol_billData;
-    EditText water_data2, light_data2, gas_data2, petrol_data2;
-    EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2};
+    EditText water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2,house_billData,home_billData;
+    EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2,house_billData,home_billData};
     public static ArrayList<Bill> bills = new ArrayList<Bill>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -84,6 +83,8 @@ public class Page4 extends Fragment {
         edittexts[5]= view.findViewById(R.id.light_data2);
         edittexts[6]= view.findViewById(R.id.gas_data2);
         edittexts[7]= view.findViewById(R.id.petrol_data2);
+        edittexts[8]= view.findViewById(R.id.house_billData);
+        edittexts[9]= view.findViewById(R.id.home_billData);
 Button btn_newForm=view.findViewById(R.id.btn_newForm);
 
         if(bills.size()!=0){
@@ -128,10 +129,11 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
         String light2 = edittexts[5].getText().toString().trim();
         String gas2 = edittexts[6].getText().toString().trim();
         String petrol2 = edittexts[7].getText().toString().trim();
-
+        String house = edittexts[8].getText().toString().trim();
+        String  home= edittexts[9].getText().toString().trim();
         try {
-            bills.add(new Bill(Integer.parseInt(water), Integer.parseInt(light), Integer.parseInt(gas), Integer.parseInt(petrol), Integer.parseInt(water2), Integer.parseInt(light2), Integer.parseInt(gas2), Integer.parseInt(petrol2)));
-            Toast toast0 = Toast.makeText(getActivity(), "Form created", Toast.LENGTH_LONG);
+            bills.add(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol) ,Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2),Integer.parseInt(house),Float.parseFloat(home)));
+            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
             toast0.show();
             Graphic.chart(Page3.graphic);
             for (int i=0;i< edittexts.length;i++) {
@@ -139,7 +141,7 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
                 edittexts[i].getText().clear();
             }
         } catch (Exception e) {
-            Toast toast0 = Toast.makeText(getActivity(), "Error creating form", Toast.LENGTH_LONG);
+            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
             toast0.show();
 
         }

@@ -38,28 +38,16 @@
             app:layout_constraintTop_toTopOf="@+id/line_top"
             app:srcCompat="@drawable/greengenie" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="290dp"
-            android:layout_height="422dp"
-
-            android:layout_marginBottom="424dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/bocadillo" />
-
         <TextView
             android:id="@+id/textView"
-            android:layout_width="226dp"
-            android:layout_height="151dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="172dp"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:autoSizeMaxTextSize="@dimen/heigh_adjust"
+            android:gravity="center"
             android:text="@string/genie_tips"
             android:textColor="@color/black"
-            android:gravity="center"
-            android:autoSizeMaxTextSize="@dimen/heigh_adjust"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="@+id/imageView4" />
+            tools:layout_editor_absoluteX="-2dp"
+            tools:layout_editor_absoluteY="16dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

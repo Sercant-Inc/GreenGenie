@@ -330,6 +330,21 @@
             app:layout_constraintTop_toBottomOf="@id/petrol_dataobj1"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             />
+        <Button
+            android:id="@+id/btn_fix"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:text="@string/btnFix"
+            app:layout_constraintEnd_toEndOf="@id/line_right"
+            app:layout_constraintStart_toStartOf="@id/line_left"
+            app:layout_constraintTop_toBottomOf="@id/petrol_dataobj2"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="943dp"
+            />
+
+
         <TextView
             android:id="@+id/texmargin"
             android:layout_width="wrap_content"
@@ -338,7 +353,9 @@
             android:text=""
             app:layout_constraintStart_toStartOf="@id/line_left"
             app:layout_constraintEnd_toStartOf="@id/line_right"
-            app:layout_constraintTop_toBottomOf="@id/petrol_dataobj2"/>
+            app:layout_constraintTop_toBottomOf="@id/btn_fix"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

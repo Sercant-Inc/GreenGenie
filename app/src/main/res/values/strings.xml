@@ -20,7 +20,10 @@
     <string name="house_sentc">Introduce the surface of your house</string>
 
     <string name="btnDone">Done</string>
+    <string name="btnCancel">Cancel</string>
     <string name="btnFix">Fix Objective</string>
+    <string name="btnDelete">Delete</string>
+    <string name="btnEdit">Edit</string>
     <string name="btnNewForm">New Form</string>
     <string name="LogOut">Log Out</string>
     <string name="editProfile">Edit Profile</string>
@@ -62,7 +65,49 @@
     GreenGenie Se reserva el derecho de cambiar los términos de la presente Política de Privacidad en cualquier momento. \n\n
 
     Esta politica de privacidad se han generado en politicadeprivacidadplantilla.com.</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name ="Policy_eng">PRIVACY POLICY \n\n
+
+The present Privacy Policy sets the terms in which GreenGenie uses and protects the information provided by its users when using its website. This company is committed to the security of its users\' data. When we ask you to fill in personal information fields that can identify you, we do so by ensuring that it will only be used in accordance with the terms of this document. However, this Privacy Policy may change over time or be updated, so we recommend and emphasize that you continuously check this page to ensure that you agree with such changes.\n\n
+
+Information Collected\n\n
+
+Our website may collect personal information such as Name, contact information such as your email address and demographic information. Similarly, specific information may be required to process an order or to make a delivery or billing when necessary.\n\n
+
+Use of Collected Information\n\n
+
+Our website uses the information to provide the best possible service, particularly to keep a record of users, orders if applicable, and improve our products and services. Periodic emails may be sent through our site with special offers, new products and other advertising information that we consider relevant to you or that can provide some benefit, these emails will be sent to the address you provide and can be canceled at any time.\n\n
+
+GreenGenie is highly committed to complying with the commitment to keep your information safe. We use the most advanced systems and constantly update them to ensure that there is no unauthorized access.\n\n
+
+Cookies\n\n
+
+A cookie refers to a file that is sent with the purpose of requesting permission to be stored on your computer. Upon accepting such file, a cookie is created and it serves to keep information about web traffic and also facilitates future visits to a recurring website. Another function of cookies is that they allow the website to recognize you individually and therefore provide you with the best personalized service from its website.\n\n
+
+Our website uses cookies to identify pages that are visited and their frequency. This information is only used for statistical analysis and the information is then permanently deleted. You can delete cookies at any time from your computer. However, cookies help to provide a better service from websites, they do not give access to information from your computer or you, unless you want it and provide it directly. You can accept or reject the use of cookies, however most browsers accept cookies automatically as it serves to have a better web service. You can also change the settings on your computer to decline cookies. If they are declined, it is possible that you will not be able to use some of our services.\n\n
+
+Third-party links\n\n
+
+This website may contain links to other sites that may be of interest to you. Once you click on these links and leave our page, we no longer have control over the information you provide to these third-party sites. Therefore, we are not responsible for the protection and privacy of any information that you provide while visiting such sites. These third-party sites have their own privacy policies, so it is advisable to consult them before providing any personal information.\n\n
+
+Controlling your personal information\n\n
+
+You may choose to restrict the collection or use of your personal information by contacting us at the address provided below.\n\n
+
+GreenGenie Security\n\n
+
+We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online. \n\n
+    Control of Your Personal Information\n\n
+
+At any time, you can restrict the collection or use of personal information provided to our website. Whenever you are asked to fill out a form, such as a user registration form, you can choose to receive or not to receive information by email. If you have chosen to receive our newsletter or advertising, you can cancel it at any time.\n\n
+
+This company will not sell, transfer, or distribute personal information that is collected without your consent, unless required by a court order.\n\n
+
+GreenGenie reserves the right to change the terms of this Privacy Policy at any time.\n\n
+
+This privacy policy was generated on politicadeprivacidadplantilla.com.</string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="genie_tips">HI!!! I´m GreenGenie!! \n\n
         I´m going to be your assistant to help you saving money, and... being ecofriendly!!</string>

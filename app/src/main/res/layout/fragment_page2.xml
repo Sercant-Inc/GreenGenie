@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="50px"
-            android:background="#9F9F9F"
+            android:background="@color/transparent"
             android:entries="@array/valores" />
     </LinearLayout>
 

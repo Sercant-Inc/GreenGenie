@@ -23,9 +23,9 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class Page4 extends Fragment {
-
-    EditText water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2,house_billData,home_billData;
-    EditText[] edittexts ={ water_billData, light_billData, gas_billData, petrol_billData,water_data2, light_data2, gas_data2, petrol_data2,house_billData,home_billData};
+    Button btn_done, btn_delete, btn_edit, btn_cancel, btn_newForm;
+    EditText water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData;
+    EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
     public static ArrayList<Bill> bills = new ArrayList<Bill>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,22 +74,31 @@ public class Page4 extends Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
-        Button btn_done = view.findViewById(R.id.btn_done);
-        edittexts[0] = view.findViewById(R.id.water_billData);
-        edittexts[1]= view.findViewById(R.id.light_billData);
-        edittexts[2]= view.findViewById(R.id.gas_billData);
-        edittexts[3]= view.findViewById(R.id.petrol_billData);
-        edittexts[4]= view.findViewById(R.id.water_data2);
-        edittexts[5]= view.findViewById(R.id.light_data2);
-        edittexts[6]= view.findViewById(R.id.gas_data2);
-        edittexts[7]= view.findViewById(R.id.petrol_data2);
-        edittexts[8]= view.findViewById(R.id.house_billData);
-        edittexts[9]= view.findViewById(R.id.home_billData);
-Button btn_newForm=view.findViewById(R.id.btn_newForm);
+        btn_done = view.findViewById(R.id.btn_done);
+        btn_edit = view.findViewById(R.id.btn_edit);
+        btn_cancel = view.findViewById(R.id.btn_cancel);
+        btn_delete = view.findViewById(R.id.btn_delete);
+        btn_done.setVisibility(View.GONE);
+        btn_cancel.setVisibility(View.GONE);
 
-        if(bills.size()!=0){
-        Graphic.chart(Page3.graphic);}
-        for (int i=0;i< edittexts.length;i++){
+
+        edittexts[0] = view.findViewById(R.id.water_billData);
+        edittexts[1] = view.findViewById(R.id.light_billData);
+        edittexts[2] = view.findViewById(R.id.gas_billData);
+        edittexts[3] = view.findViewById(R.id.petrol_billData);
+        edittexts[4] = view.findViewById(R.id.water_data2);
+        edittexts[5] = view.findViewById(R.id.light_data2);
+        edittexts[6] = view.findViewById(R.id.gas_data2);
+        edittexts[7] = view.findViewById(R.id.petrol_data2);
+        edittexts[8] = view.findViewById(R.id.house_billData);
+        edittexts[9] = view.findViewById(R.id.home_billData);
+        btn_newForm = view.findViewById(R.id.btn_newForm);
+
+
+        if (bills.size() != 0) {
+            Graphic.chart(Page3.graphic);
+        }
+        for (int i = 0; i < edittexts.length; i++) {
             edittexts[i].setEnabled(false);
         }
         btn_done.setOnClickListener(new View.OnClickListener() {
@@ -99,15 +108,26 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
                 createBill(view);
             }
         });
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change the text of the TextView
+                for (int i = 0; i < edittexts.length; i++) {
+                    edittexts[i].setEnabled(false);
+                    edittexts[i].getText().clear();
+                }
+                visibility2();
+            }
+        });
         btn_newForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
+                visibility1();
+                for (int i = 0; i < edittexts.length; i++) {
+                    edittexts[i].setEnabled(true);
 
-        for (int i=0;i< edittexts.length;i++) {
-            edittexts[i].setEnabled(true);
-
-        }
+                }
 
 
             }
@@ -130,16 +150,18 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
         String gas2 = edittexts[6].getText().toString().trim();
         String petrol2 = edittexts[7].getText().toString().trim();
         String house = edittexts[8].getText().toString().trim();
-        String  home= edittexts[9].getText().toString().trim();
+        String home = edittexts[9].getText().toString().trim();
         try {
-            bills.add(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol) ,Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2),Integer.parseInt(house),Float.parseFloat(home)));
+            bills.add(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home)));
             Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
             toast0.show();
             Graphic.chart(Page3.graphic);
-            for (int i=0;i< edittexts.length;i++) {
+            for (int i = 0; i < edittexts.length; i++) {
                 edittexts[i].setEnabled(false);
                 edittexts[i].getText().clear();
             }
+            visibility2();
+
         } catch (Exception e) {
             Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
             toast0.show();
@@ -147,8 +169,21 @@ Button btn_newForm=view.findViewById(R.id.btn_newForm);
         }
 
 
-        //  }
+    }
 
+    public void visibility1() {
+        btn_done.setVisibility(View.VISIBLE);
+        btn_cancel.setVisibility(View.VISIBLE);
+        btn_edit.setVisibility(View.GONE);
+        btn_delete.setVisibility(View.GONE);
+        btn_newForm.setVisibility(View.GONE);
+    }
 
+    public void visibility2() {
+        btn_done.setVisibility(View.GONE);
+        btn_cancel.setVisibility(View.GONE);
+        btn_edit.setVisibility(View.VISIBLE);
+        btn_delete.setVisibility(View.VISIBLE);
+        btn_newForm.setVisibility(View.VISIBLE);
     }
 }

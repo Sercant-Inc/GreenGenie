@@ -81,7 +81,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="water bill"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence"
             app:srcCompat="@drawable/water" />
@@ -103,7 +103,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="water price"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence2" />
 
@@ -158,7 +158,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="light price"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence2" />
 
@@ -190,7 +190,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="gas bill"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence"
             app:srcCompat="@drawable/water" />
@@ -212,7 +212,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="gas price"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence2" />
 
@@ -244,7 +244,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="petrol bill"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence" />
 
@@ -265,7 +265,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="gas price"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence2" />
         <!--****************************PEOPLE****************************************-->

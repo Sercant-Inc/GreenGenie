@@ -16,5 +16,9 @@
     <color name="color_icon_personal_selected">#29862C</color>
     <color name="color_icon_form_selected">#00EFECEC</color>
     <color name="color_icon_add_unselected">#00EFECEC</color>
+    <color name="yellow_chart">#ffe07d</color>
+    <color name="BLUE_chart">#a3e0fb</color>
+    <color name="red_chart">#e6646e</color>
+    <color name="gray_chart">#7a7777</color>
 
 </resources>

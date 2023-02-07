@@ -8,6 +8,9 @@ public class Bill {
     private float water2;
     private float light2;
     private float gas2;
+    private float petrol2;
+    private int house;
+    private float home;
 
     public float getWater() {
         return water;
@@ -23,6 +26,35 @@ public class Bill {
 
     public void setLight(float light) {
         this.light = light;
+    }
+
+    public int getHouse() {
+        return house;
+    }
+
+    public void setHouse(int house) {
+        this.house = house;
+    }
+
+    public Bill(float water, float light, float gas, float petrol, float water2, float light2, float gas2, float petrol2, int house, float home) {
+        this.water = water;
+        this.light = light;
+        this.gas = gas;
+        this.petrol = petrol;
+        this.water2 = water2;
+        this.light2 = light2;
+        this.gas2 = gas2;
+        this.petrol2 = petrol2;
+        this.house = house;
+        this.home = home;
+    }
+
+    public float getHome() {
+        return home;
+    }
+
+    public void setHome(float home) {
+        this.home = home;
     }
 
     public float getGas() {
@@ -73,17 +105,6 @@ public class Bill {
         this.petrol2 = petrol2;
     }
 
-    private float petrol2;
 
 
-    public Bill(float water, float light, float gas, float petrol, float water2, float light2, float gas2, float petrol2) {
-        this.water = water;
-        this.light = light;
-        this.gas = gas;
-        this.petrol = petrol;
-        this.water2 = water2;
-        this.light2 = light2;
-        this.gas2 = gas2;
-        this.petrol2 = petrol2;
-    }
 }

@@ -1,0 +1,28 @@
+
+public interface AlumnoInterface {
+    public AlumnoInterface getAlumnoPorNUMEXPDTE(String NUMEXPDTE);
+    public java.util.Collection getAlumnoPorCiclo(String ciclo);
+    public java.util.Collection getAlumnoPorNombre(String nombre);
+    
+    public void delete();
+    
+    public AlumnoInterface getNuevoAlumno(String NUMEXPDTE,String nombre,String dni,String Ciclo,java.util.Date fecha);
+    
+    public String getNUMEXPDTE();
+    public String getNombre();
+    public String getCiclo();
+    public String getDni();
+    public java.util.Date getFecha();
+    
+    public void setNombre(String nombre);
+    public void setCiclo(String ciclo);
+    public void setDni(String dni);
+    public void setFecha(java.util.Date fecha);
+    
+}
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <issue id="Deprecated">
+    <ignore path="src/**"/>
+  </issue>
+</lint

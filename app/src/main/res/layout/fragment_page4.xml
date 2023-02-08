@@ -26,7 +26,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.20" />
-        <Button
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/linerightEnd"
+            app:layout_constraintStart_toStartOf="@id/line_right"
+            app:layout_constraintTop_toBottomOf="@id/btn_newForm">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spinnerBill" />
+
+            <Spinner
+                android:id="@+id/spinnerForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="50px"
+                android:background="@color/transparent"
+                android:entries="@array/bills" />
+        </LinearLayout>
+
+    <Button
             android:id="@+id/btn_newForm"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -50,7 +76,7 @@
             app:flow_horizontalAlign="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_newForm"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:srcCompat="@drawable/water" />
 
         <TextView

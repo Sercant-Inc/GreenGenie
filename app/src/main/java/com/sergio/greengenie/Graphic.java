@@ -2,6 +2,8 @@ package com.sergio.greengenie;
 
 import android.graphics.Color;
 
+import androidx.core.content.ContextCompat;
+
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -51,11 +53,10 @@ public class Graphic {
         BarDataSet set2 = new BarDataSet(entriesGroup2, "Light");
         BarDataSet set3 = new BarDataSet(entriesGroup3, "Gas");
         BarDataSet set4 = new BarDataSet(entriesGroup4, "Fuel");
-
-        set1.setColor(Color.YELLOW);
-        set2.setColor(Color.BLUE);
-        set3.setColor(Color.RED);
-        set4.setColor(Color.GRAY);
+        set1.setColor(ContextCompat.getColor(graphic.getContext(), R.color.azul_claro));
+        set2.setColor(ContextCompat.getColor(graphic.getContext(), R.color.yellow_chart));
+        set3.setColor(ContextCompat.getColor(graphic.getContext(), R.color.red_chart));
+        set4.setColor(ContextCompat.getColor(graphic.getContext(), R.color.gray_chart));
         set1.setDrawValues(false);//numeros encima de las barras
         set2.setDrawValues(false);
         set3.setDrawValues(false);

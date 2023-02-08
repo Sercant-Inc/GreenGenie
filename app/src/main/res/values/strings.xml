@@ -25,6 +25,7 @@
     <string name="btnDelete">Delete</string>
     <string name="btnEdit">Edit</string>
     <string name="btnNewForm">New Form</string>
+    <string name="spinnerBill">Select month</string>
     <string name="LogOut">Log Out</string>
     <string name="editProfile">Edit Profile</string>
     <string name="nameProfile">Profile Name</string>

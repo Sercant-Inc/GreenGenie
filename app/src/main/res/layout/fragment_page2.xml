@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.Page2">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/line_left"
@@ -20,44 +26,17 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
 
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="40dp"
-        android:text="Log Out"
-        android:textStyle="bold"
-        android:textColor="@color/verde"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@id/line_right"
-        app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
-
-
-    <TextView
-        android:id="@+id/editProfile"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/editProfile"
-        android:textColor="@color/verde"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@id/line_right"
-        app:layout_constraintTop_toBottomOf="@+id/logout">
-
-    </TextView>
 
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintStart_toStartOf="@id/line_left"
-        app:layout_constraintTop_toBottomOf="@id/logout"
-        tools:src="@drawable/geniosinfondo"
-
-        />
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/geniosinfondo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
@@ -104,13 +83,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/userEmail"
         android:layout_marginTop="40dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/line_right"
         app:layout_constraintStart_toStartOf="@id/line_left"
-        app:layout_constraintEnd_toStartOf="@id/line_right">
+        app:layout_constraintTop_toBottomOf="@id/userEmail">
 
         <TextView
             android:layout_width="wrap_content"
@@ -127,6 +107,32 @@
             android:background="@color/transparent"
             android:entries="@array/valores" />
     </LinearLayout>
+    <Button
+        android:id="@+id/btnedit"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_edit"
+        android:text="edit"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/line_bottom"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"></Button>
+
+
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_logout"
+        android:text="Log Out"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/line_bottom"
+        app:layout_constraintEnd_toStartOf="@id/line_right"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

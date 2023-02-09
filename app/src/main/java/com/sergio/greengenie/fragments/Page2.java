@@ -83,10 +83,10 @@ public class Page2 extends Fragment{
         View view = inflater.inflate(R.layout.fragment_page2, container, false);
 
         // Get references to the ImageView and TextView
-        TextView logout = view.findViewById(R.id.logout);
+        Button btnlogout = view.findViewById(R.id.btnlogout);
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
         if (!selected_image){
-        Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(foto_gallery);}
+        Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);}
         else{
             Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
         }
@@ -100,7 +100,7 @@ public class Page2 extends Fragment{
             }
         });
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView

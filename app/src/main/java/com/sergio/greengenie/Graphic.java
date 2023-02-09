@@ -1,5 +1,7 @@
 package com.sergio.greengenie;
 
+import static com.sergio.greengenie.Fragments.Page3.graphic;
+
 import android.graphics.Color;
 import android.util.Log;
 import android.widget.Toast;
@@ -30,28 +32,34 @@ import java.util.List;
 
 public class Graphic {
     private static final String TAG = "My App";
-   static BarChart graphic = Page3.graphic;
-   static ArrayList<Bill> bills = new ArrayList<Bill>();
-    public static void chart(FirebaseFirestore db) {
+    ArrayList<Bill> bills = new ArrayList<>();
+    // static BarChart graphic = Page3.graphic;
 
-        db.collection("bills")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Bill bill = document.toObject(Bill.class);
-                                bills.add(bill);
-                                Log.d(TAG, bill.getLight()+"");
-                                // do something with the retrieved bill object
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
+    public void firebase(FirebaseFirestore db) {
+       // BarChart graphic = com.sergio.greengenie.Fragments.Page3.graphic;
+        // bills =firebase(db,bills);
+        //ArrayList<Bill> bills = new ArrayList<>();
+        boolean t = false;
+        db.collection("bills").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Bill bill = document.toObject(Bill.class);
+                        bills.add(bill);
+                        Log.d("Firebase", document.getId() + " => " + document.getData());
+                        chart();
                     }
-                });
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.getException());
+                }
+            }
 
+        });
+    }
+
+    public void chart() {
+        Log.d("Firebase", bills.size() + "");
         // Declaración de arrays con los meses y los valores de cada grupo
         //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -59,7 +67,7 @@ public class Graphic {
         ArrayList<Float> light = new ArrayList<>();
         ArrayList<Float> gas = new ArrayList<>();
         ArrayList<Float> fuel = new ArrayList<>();
-        for (Bill f : Page4.bills) {
+        for (Bill f : bills) {
             water.add(f.getWater());
             light.add(f.getLight());
             gas.add(f.getGas());
@@ -137,5 +145,9 @@ public class Graphic {
 
         graphic.invalidate(); // refresh
 
+    }
+    public void addBill(Bill bill){
+        bills.add(bill);
+        chart();
     }
 }

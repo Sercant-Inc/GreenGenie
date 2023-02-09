@@ -48,7 +48,7 @@ public class Bill {
         this.house = house;
         this.home = home;
     }
-
+public Bill(){}
     public float getHome() {
         return home;
     }

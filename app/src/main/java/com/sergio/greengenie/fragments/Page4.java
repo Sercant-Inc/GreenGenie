@@ -20,6 +20,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.sergio.greengenie.Bill;
@@ -38,12 +39,12 @@ import java.util.HashMap;
  */
 public class Page4 extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    Graphic graphic;
+    Graphic graphic=new Graphic();
     Button btn_done, btn_delete, btn_edit, btn_cancel, btn_newForm;
     EditText water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData;
     EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
 
-    public static ArrayList<Bill> bills = new ArrayList<Bill>();
+    //public static ArrayList<Bill> bills = new ArrayList<Bill>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -91,7 +92,7 @@ public class Page4 extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-
+        graphic.firebase(db);
 
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
         btn_done = view.findViewById(R.id.btn_done);
@@ -115,9 +116,6 @@ public class Page4 extends Fragment {
         btn_newForm = view.findViewById(R.id.btn_newForm);
 
 
-        if (bills.size() != 0) {
-            graphic.chart(db);
-        }
         for (int i = 0; i < edittexts.length; i++) {
             edittexts[i].setEnabled(false);
         }
@@ -173,13 +171,13 @@ public class Page4 extends Fragment {
         String home = edittexts[9].getText().toString().trim();
         try {
             // bills.add(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home)));
-            bills.add(new Bill(2, 2, 2, 2, 2, 2, 2, 2, 2, 2));
+          //  bills.add(new Bill(2, 2, 2, 2, 2, 2, 2, 2, 2, 2));
 
 
-            firebase(new Bill(2, 2, 2, 2, 2, 2, 2, 2, 2, 2));
+            firebase(new Bill(2, 12, 15, 2, 2, 2, 2, 2, 2, 2));
             Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
             toast0.show();
-            graphic.chart(db);
+           // graphic.chart(db);
 
             for (int i = 0; i < edittexts.length; i++) {
                 edittexts[i].setEnabled(false);
@@ -216,10 +214,12 @@ public class Page4 extends Fragment {
         db.collection("bills").add(bill)
                 .addOnSuccessListener(documentReference -> {
                     Log.d("Firestore", "DocumentSnapshot added with ID: " + documentReference.getId());
+
                 })
                 .addOnFailureListener(e -> {
                     Log.w("Firestore", "Error adding document", e);
                 });
+        graphic.addBill(bill);
     }
 
 }

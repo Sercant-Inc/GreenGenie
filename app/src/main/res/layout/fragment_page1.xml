@@ -7,7 +7,7 @@
     tools:context=".Fragments.Page1"
     android:background="@android:color/white">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,37 +17,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Noborrarcodigoxml">
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_right"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.94" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.11" />
+
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="457dp"
-            android:layout_height="711dp"
-            app:layout_constraintEnd_toStartOf="@+id/line_right"
-            app:layout_constraintTop_toTopOf="@+id/line_top"
+            android:layout_width="409dp"
+            android:layout_height="677dp"
+            android:layout_marginTop="104dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/greengenie" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_width="357dp"
+            android:layout_height="251dp"
             android:autoSizeMaxTextSize="@dimen/heigh_adjust"
             android:gravity="center"
             android:text="@string/genie_tips"
             android:textColor="@color/black"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

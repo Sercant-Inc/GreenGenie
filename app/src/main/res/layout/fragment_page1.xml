@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.Page1"
-    android:background="@android:color/white">
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -32,11 +32,13 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="457dp"
-            android:layout_height="711dp"
+            android:layout_width="247dp"
+            android:layout_height="432dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="68dp"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             app:layout_constraintTop_toTopOf="@+id/line_top"
-            app:srcCompat="@drawable/greengenie" />
+            app:srcCompat="@drawable/geniosinfondo" />
 
         <TextView
             android:id="@+id/textView"

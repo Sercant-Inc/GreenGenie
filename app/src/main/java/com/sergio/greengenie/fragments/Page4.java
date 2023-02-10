@@ -170,11 +170,8 @@ public class Page4 extends Fragment {
         String house = edittexts[8].getText().toString().trim();
         String home = edittexts[9].getText().toString().trim();
         try {
-            // bills.add(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home)));
-          //  bills.add(new Bill(2, 2, 2, 2, 2, 2, 2, 2, 2, 2));
-
-
-            firebase(new Bill(2, 12, 15, 2, 2, 2, 2, 2, 2, 2));
+             firebase(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home)));
+           // firebase(new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20));
             Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
             toast0.show();
            // graphic.chart(db);

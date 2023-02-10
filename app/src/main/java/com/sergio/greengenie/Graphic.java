@@ -1,7 +1,13 @@
 package com.sergio.greengenie;
 
-import android.graphics.Color;
+import static com.sergio.greengenie.Fragments.Page3.graphic;
 
+import android.graphics.Color;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -11,22 +17,57 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.sergio.greengenie.Fragments.Page4;
+import com.sergio.greengenie.Fragments.Page3;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Graphic {
+    private static final String TAG = "My App";
+    ArrayList<Bill> bills = new ArrayList<>();
+    // static BarChart graphic = Page3.graphic;
 
-    public static void chart(BarChart graphic) {
+    public void firebase(FirebaseFirestore db) {
+       // BarChart graphic = com.sergio.greengenie.Fragments.Page3.graphic;
+        // bills =firebase(db,bills);
+        //ArrayList<Bill> bills = new ArrayList<>();
+        boolean t = false;
+        db.collection("bills").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Bill bill = document.toObject(Bill.class);
+                        bills.add(bill);
+                        Log.d("Firebase", document.getId() + " => " + document.getData());
+                        chart();
+                    }
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.getException());
+                }
+            }
+
+        });
+    }
+
+    public void chart() {
+        Log.d("Firebase", bills.size() + "");
         // Declaración de arrays con los meses y los valores de cada grupo
         //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        ArrayList<Float> water= new ArrayList<>();
-        ArrayList<Float> light= new ArrayList<>();
-        ArrayList<Float> gas= new ArrayList<>();
-        ArrayList<Float> fuel= new ArrayList<>();
-        for (Bill f: Page4.bills) {
+        ArrayList<Float> water = new ArrayList<>();
+        ArrayList<Float> light = new ArrayList<>();
+        ArrayList<Float> gas = new ArrayList<>();
+        ArrayList<Float> fuel = new ArrayList<>();
+        for (Bill f : bills) {
             water.add(f.getWater());
             light.add(f.getLight());
             gas.add(f.getGas());
@@ -100,9 +141,13 @@ public class Graphic {
         graphic.groupBars(xaxis.getAxisMinimum(), groupSpace, barSpace); // perform the "explicit" grouping
         xaxis.setAxisMaximum(xaxis.getAxisMinimum() + graphic.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);//x axis size
         graphic.setVisibleXRangeMaximum(xaxis.getAxisMaximum() / groupCount * (Math.min(groupCount, groupsVisible)));//
-        graphic.moveViewToX(graphic.getXAxis().getAxisMaximum() /groupCount* (groupCount - groupsVisible));
+        graphic.moveViewToX(graphic.getXAxis().getAxisMaximum() / groupCount * (groupCount - groupsVisible));
 
         graphic.invalidate(); // refresh
 
+    }
+    public void addBill(Bill bill){
+        bills.add(bill);
+        chart();
     }
 }

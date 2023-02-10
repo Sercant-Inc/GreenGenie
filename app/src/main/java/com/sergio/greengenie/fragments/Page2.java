@@ -35,6 +35,7 @@ public class Page2 extends Fragment{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final int PICK_IMAGE = 1;
+    private static boolean selected_image = false;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -82,11 +83,15 @@ public class Page2 extends Fragment{
         View view = inflater.inflate(R.layout.fragment_page2, container, false);
 
         // Get references to the ImageView and TextView
-        TextView logout = view.findViewById(R.id.logout);
-        ImageView profileImage=view.findViewById(R.id.profileImage);
-        Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(profileImage);
-        // Set an OnClickListener on the ImageView
+        Button btnlogout = view.findViewById(R.id.btnlogout);
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
+        if (!selected_image){
+        Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);}
+        else{
+            Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
+        }
+        // Set an OnClickListener on the ImageView
+
 
         foto_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +100,7 @@ public class Page2 extends Fragment{
             }
         });
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
@@ -120,6 +125,7 @@ public class Page2 extends Fragment{
             imageUri = data.getData();
             //foto_gallery.setImageURI(imageUri);
             Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
+            selected_image=true;
         }
     }
 

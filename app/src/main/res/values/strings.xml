@@ -7,6 +7,7 @@
     <string name="user">Profile</string>
     <string name="data">Data</string>
     <string name="form">Form</string>
+    <string name="save">Save</string>
 
     <string name="water_sentc">Introduce the amount of your last water bill</string>
     <string name="water_sentc2">Introduce the price of your last water bill</string>

@@ -19,9 +19,11 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.sergio.greengenie.Fragments.Page4;
@@ -36,11 +38,14 @@ public class Graphic {
     // static BarChart graphic = Page3.graphic;
 
     public void firebase(FirebaseFirestore db) {
-       // BarChart graphic = com.sergio.greengenie.Fragments.Page3.graphic;
-        // bills =firebase(db,bills);
-        //ArrayList<Bill> bills = new ArrayList<>();
-        boolean t = false;
-        db.collection("bills").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+bills.clear();
+        db.collection("bills")
+//                .whereEqualTo("userId", currentUserId)
+                .orderBy("date", Query.Direction.ASCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()  {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -48,7 +53,9 @@ public class Graphic {
                         Bill bill = document.toObject(Bill.class);
                         bills.add(bill);
                         Log.d("Firebase", document.getId() + " => " + document.getData());
-                        chart();
+                        if (task.getResult().size() == bills.size()) {
+                            chart();
+                        }
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());

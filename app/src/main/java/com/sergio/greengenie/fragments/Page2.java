@@ -36,25 +36,17 @@ public class Page2 extends Fragment{
     private static final String ARG_PARAM2 = "param2";
     private static final int PICK_IMAGE = 1;
     private static boolean selected_image = false;
-
-    // TODO: Rename and change types of parameters
+    boolean estadoBoton;
     private String mParam1;
     private String mParam2;
     Uri imageUri;
+
+    Button btnedit;
     ImageView foto_gallery;
     public Page2() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Page2.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Page2 newInstance(String param1, String param2) {
         Page2 fragment = new Page2();
         Bundle args = new Bundle();
@@ -67,7 +59,7 @@ public class Page2 extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        estadoBoton=true;
 
 
         if (getArguments() != null) {
@@ -84,6 +76,8 @@ public class Page2 extends Fragment{
 
         // Get references to the ImageView and TextView
         Button btnlogout = view.findViewById(R.id.btnlogout);
+        btnedit= view.findViewById(R.id.btnedit);
+        estadoBoton= true;
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
         if (!selected_image){
         Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);}
@@ -91,6 +85,23 @@ public class Page2 extends Fragment{
             Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
         }
         // Set an OnClickListener on the ImageView
+        btnedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            //boolean = false;
+            public void onClick(View v) {
+                    if(estadoBoton){
+                        btnedit.setText("SAVE");
+                        estadoBoton= false;
+                    }
+                    else{
+                        btnedit.setText("EDIT");
+                        estadoBoton=true;
+                    }
+
+                }
+
+        });
+
 
 
         foto_gallery.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +109,17 @@ public class Page2 extends Fragment{
             public void onClick(View v) {
                 openGallery();
             }
+
+
         });
+
+
+
+
+
+
+
+
 
         btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +130,16 @@ public class Page2 extends Fragment{
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+
+
+
+
             }
         });
 
         return view;
+
+
     }
     private void openGallery(){
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
@@ -128,6 +155,8 @@ public class Page2 extends Fragment{
             selected_image=true;
         }
     }
+
+
 
 
 

@@ -1,5 +1,10 @@
 package com.sergio.greengenie;
 
+import com.google.firebase.firestore.ServerTimestamp;
+
+import java.util.Date;
+
+
 public class Bill {
     private float water;
     private float light;
@@ -11,6 +16,16 @@ public class Bill {
     private float petrol2;
     private int house;
     private float home;
+    @ServerTimestamp
+    private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public float getWater() {
         return water;

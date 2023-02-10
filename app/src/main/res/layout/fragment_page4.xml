@@ -84,8 +84,10 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
             android:gravity="center"
             android:text="@string/water_sentc"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/txt_form"
             app:srcCompat="@drawable/water" />
@@ -116,6 +118,7 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/water_sentc2"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_billData" />
 
@@ -147,6 +150,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/light_sentc"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/water_data2"
             app:srcCompat="@drawable/water" />
@@ -169,7 +173,7 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/light_sentc2"
-
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_billData" />
 
@@ -200,6 +204,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/light_sentc"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/light_data2"
             app:srcCompat="@drawable/gas" />
@@ -222,6 +227,7 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/gas_sentc2"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_billData" />
 
@@ -253,6 +259,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/petrol_sentc"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/gas_data2" />
 
@@ -273,6 +280,7 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/gas_sentc2"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_billData" />
 
@@ -302,6 +310,8 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/people_sentc"
+
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/petrol_data2" />
 
@@ -311,6 +321,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
+            android:inputType="number"
             android:hint="people living"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/family_sentence" />
@@ -331,6 +342,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/house_sentc"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/house_billData" />
 
@@ -341,6 +353,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="people living"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/home_sentence" />
 

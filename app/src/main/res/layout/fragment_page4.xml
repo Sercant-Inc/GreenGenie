@@ -352,7 +352,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="square meters"
+            android:hint="m²"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/home_sentence" />

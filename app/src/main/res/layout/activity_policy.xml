@@ -56,7 +56,8 @@
             app:layout_constraintEnd_toEndOf="@id/line_right"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/line_left"
-            app:layout_constraintTop_toBottomOf="@id/logoname"/>
+            app:layout_constraintTop_toBottomOf="@id/logoname"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

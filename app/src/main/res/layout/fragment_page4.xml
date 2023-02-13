@@ -126,7 +126,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="water price"
+            android:hint="€/m³"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence2" />
@@ -179,7 +179,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="light price"
+            android:hint=" €/kWh"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence2" />
@@ -231,7 +231,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="gas price"
+            android:hint="€/kWh"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence2" />
@@ -283,7 +283,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="gas price"
+            android:hint="€/L"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence2" />
@@ -313,7 +313,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:inputType="number"
-            android:hint="people living"
+            android:hint="number of people"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/family_sentence" />
 
@@ -342,7 +342,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="people living"
+            android:hint="m²"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/home_sentence" />

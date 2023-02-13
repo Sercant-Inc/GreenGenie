@@ -13,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -40,8 +42,9 @@ public class Page2 extends Fragment{
     private String mParam1;
     private String mParam2;
     Uri imageUri;
-
+    EditText txt_profileName,txt_profileEmail;
     Button btnedit;
+    Spinner spinner;
     ImageView foto_gallery;
     public Page2() {
         // Required empty public constructor
@@ -73,28 +76,43 @@ public class Page2 extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_page2, container, false);
+        txt_profileName=view.findViewById(R.id.txt_profileName);
+        txt_profileEmail=view.findViewById(R.id.txt_profileEmail);
+        spinner= view.findViewById(R.id.spinner);
+        spinner.setSelection(1);
+        spinner.setEnabled(false);
+        txt_profileName.setEnabled(false);
+        txt_profileEmail.setEnabled(false);
 
         // Get references to the ImageView and TextView
         Button btnlogout = view.findViewById(R.id.btnlogout);
         btnedit= view.findViewById(R.id.btnedit);
         estadoBoton= true;
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
-        if (!selected_image){
-        Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);}
-        else{
-            Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
-        }
-        // Set an OnClickListener on the ImageView
+
+            if (!selected_image) {
+                Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);
+            } else {
+                Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
+            }
+            // Set an OnClickListener on the ImageView
+
         btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
             //boolean = false;
             public void onClick(View v) {
                     if(estadoBoton){
                         btnedit.setText("SAVE");
+                        txt_profileName.setEnabled(true);
+                        txt_profileEmail.setEnabled(true);
+                        spinner.setEnabled(true);
                         estadoBoton= false;
                     }
                     else{
                         btnedit.setText("EDIT");
+                        txt_profileName.setEnabled(false);
+                        txt_profileEmail.setEnabled(false);
+                        spinner.setEnabled(false);
                         estadoBoton=true;
                     }
 
@@ -104,23 +122,20 @@ public class Page2 extends Fragment{
 
 
 
+
         foto_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openGallery();
+                if(btnedit.getText().equals("SAVE")){
+
+                    openGallery();
+
+                }
+
             }
 
 
         });
-
-
-
-
-
-
-
-
-
         btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

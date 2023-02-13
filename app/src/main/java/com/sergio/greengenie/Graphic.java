@@ -34,8 +34,16 @@ import java.util.List;
 
 public class Graphic {
     private static final String TAG = "My App";
-    ArrayList<Bill> bills = new ArrayList<>();
-    // static BarChart graphic = Page3.graphic;
+  private  ArrayList<Bill> bills = new ArrayList<>();
+
+    public ArrayList<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(ArrayList<Bill> bills) {
+        this.bills = bills;
+    }
+// static BarChart graphic = Page3.graphic;
 
     public void firebase(FirebaseFirestore db) {
         bills.clear();
@@ -146,6 +154,7 @@ public class Graphic {
         graphic.groupBars(xaxis.getAxisMinimum(), groupSpace, barSpace); // perform the "explicit" grouping
         xaxis.setAxisMaximum(xaxis.getAxisMinimum() + graphic.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);//x axis size
         graphic.setVisibleXRangeMaximum(xaxis.getAxisMaximum() / groupCount * (Math.min(groupCount, groupsVisible)));//
+        graphic.setVisibleXRangeMinimum(xaxis.getAxisMaximum() / (Math.min(groupCount, groupsVisible)));
         graphic.moveViewToX(graphic.getXAxis().getAxisMaximum() / groupCount * (groupCount - groupsVisible));
 
         graphic.invalidate(); // refresh

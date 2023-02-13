@@ -5,8 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,7 +47,8 @@ public class Page4 extends Fragment {
     Button btn_done, btn_delete, btn_edit, btn_cancel, btn_newForm;
     EditText water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData;
     EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
-
+    Spinner formSpinner;
+    LinearLayout linearLayout;
     //public static ArrayList<Bill> bills = new ArrayList<Bill>();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -52,7 +56,7 @@ public class Page4 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "TAG";
-
+    private ArrayList<Bill> bills = graphic.getBills();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -92,10 +96,34 @@ public class Page4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         // Inflate the layout for this fragment
         graphic.firebase(db);
 
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
+        linearLayout = view.findViewById(R.id.linearLayout);
+
+        formSpinner = (Spinner) view.findViewById(R.id.spinnerForm);
+        formSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Actualiza un valor con la posición seleccionada
+                int selectedPosition = position;
+                bills = graphic.getBills();
+                try {
+
+                    loadbill(bills.get(position));
+                } catch (java.lang.IndexOutOfBoundsException e) {
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Se llama cuando no hay ningún elemento seleccionado
+            }
+        });
+
         btn_done = view.findViewById(R.id.btn_done);
         btn_edit = view.findViewById(R.id.btn_edit);
         btn_cancel = view.findViewById(R.id.btn_cancel);
@@ -156,9 +184,24 @@ public class Page4 extends Fragment {
         return view;
     }
 
+    private void loadbill(Bill bill) {
+        edittexts[0].setText(bill.getWater() + "");
+        edittexts[1].setText(bill.getLight() + "");
+        edittexts[2].setText(bill.getGas() + "");
+        edittexts[3].setText(bill.getPetrol() + "");
+        edittexts[4].setText(bill.getWater2() + "");
+        edittexts[5].setText(bill.getLight2() + "");
+        edittexts[6].setText(bill.getGas2() + "");
+        edittexts[7].setText(bill.getPetrol2() + "");
+        edittexts[8].setText(bill.getHouse() + "");
+        edittexts[9].setText(bill.getHome() + "");
+
+    }
+
+
     public void createBill(View view) {
-//        for (int i=0;i< edittexts.length;i++) {
-//            edittexts[i].getText().toString().trim();
+//        for (int i = 0; i < edittexts.length; i++) {
+//            edittexts[i].getText().clear();
 //        }
         String water = edittexts[0].getText().toString().trim();
         String light = edittexts[1].getText().toString().trim();
@@ -198,6 +241,7 @@ public class Page4 extends Fragment {
         btn_edit.setVisibility(View.GONE);
         btn_delete.setVisibility(View.GONE);
         btn_newForm.setVisibility(View.GONE);
+        linearLayout.setVisibility(View.GONE);
     }
 
     public void visibility2() {
@@ -206,6 +250,7 @@ public class Page4 extends Fragment {
         btn_edit.setVisibility(View.VISIBLE);
         btn_delete.setVisibility(View.VISIBLE);
         btn_newForm.setVisibility(View.VISIBLE);
+        linearLayout.setVisibility(View.VISIBLE);
     }
 
     public void firebase(Bill bill) {

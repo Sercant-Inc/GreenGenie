@@ -38,35 +38,33 @@ public class Graphic {
     // static BarChart graphic = Page3.graphic;
 
     public void firebase(FirebaseFirestore db) {
-//        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-bills.clear();
+        bills.clear();
         db.collection("bills")
-//                .whereEqualTo("userId", currentUserId)
+                .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .orderBy("date", Query.Direction.ASCENDING)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()  {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Bill bill = document.toObject(Bill.class);
-                        bills.add(bill);
-                        Log.d("Firebase", document.getId() + " => " + document.getData());
-                        if (task.getResult().size() == bills.size()) {
-                            chart();
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Bill bill = document.toObject(Bill.class);
+                                bills.add(bill);
+                                Log.d("Firestore", document.getId() + " => " + document.getData());
+                                if (task.getResult().size() == bills.size()) {
+                                    chart();
+                                }
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
-                }
-            }
 
-        });
+                });
     }
 
     public void chart() {
-        Log.d("Firebase", bills.size() + "");
+        Log.d("Firestore", bills.size() + "");
         // Declaración de arrays con los meses y los valores de cada grupo
         //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -153,7 +151,8 @@ bills.clear();
         graphic.invalidate(); // refresh
 
     }
-    public void addBill(Bill bill){
+
+    public void addBill(Bill bill) {
         bills.add(bill);
         chart();
     }

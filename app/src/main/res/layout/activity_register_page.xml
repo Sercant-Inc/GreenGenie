@@ -97,16 +97,6 @@
         android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_locker">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/sweet_grey"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword"
             android:layout_width="match_parent"

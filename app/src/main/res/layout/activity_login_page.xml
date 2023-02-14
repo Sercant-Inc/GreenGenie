@@ -65,59 +65,63 @@
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwd"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="@id/line_right"
-        app:layout_constraintStart_toStartOf="@id/line_left"
-        app:passwordToggleEnabled="true"
+        style="@style/TextinputLayout2"
+        android:layout_marginTop="72dp"
         android:background="@color/transparent"
-        app:startIconDrawable="@drawable/ic_locker"
         android:textColor="@color/black"
-        style="@style/TextinputLayout2">
+        app:layout_constraintEnd_toEndOf="@id/line_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/line_left"
+        app:layout_constraintTop_toBottomOf="@+id/logoname"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_locker">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:singleLine="true"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:hint="Password"/>
+            android:singleLine="true" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/txtforgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="openForgot"
         android:text="Forgot your password?"
         android:textColor="@color/verde"
+        app:layout_constraintBottom_toTopOf="@+id/login"
+
         app:layout_constraintEnd_toStartOf="@+id/lineright"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/passwd"
-        android:onClick="openForgot"/>
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="@+id/lineleft" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bordes_redondos"
+        android:onClick="openMain"
         android:text="Log in"
-        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@id/lineright"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/passwd"
-        android:onClick="openMain"/>
+        app:layout_constraintTop_toBottomOf="@+id/logoname" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/linercenteright"

@@ -28,6 +28,8 @@ public class RegisterPage extends AppCompatActivity {
     TextInputEditText password;
     TextInputEditText c_password;
     FirebaseAuth mAuth;
+    TextInputLayout tiuser;
+    TextInputLayout tipasswd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

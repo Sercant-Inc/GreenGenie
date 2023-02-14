@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,25 +17,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
 import com.sergio.greengenie.Bill;
 import com.sergio.greengenie.Graphic;
-import com.sergio.greengenie.Fragments.Page3;
 
 import com.sergio.greengenie.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,6 +43,8 @@ public class Page4 extends Fragment {
     EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
     Spinner formSpinner;
     LinearLayout linearLayout;
+    String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    ArrayAdapter<CharSequence> adapter;
     //public static ArrayList<Bill> bills = new ArrayList<Bill>();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -56,7 +52,7 @@ public class Page4 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "TAG";
-    private ArrayList<Bill> bills = graphic.getBills();
+    private ArrayList<Bill> bills = new ArrayList<Bill> ();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -98,18 +94,17 @@ public class Page4 extends Fragment {
 
 
         // Inflate the layout for this fragment
-        graphic.firebase(db);
 
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
         linearLayout = view.findViewById(R.id.linearLayout);
 
         formSpinner = (Spinner) view.findViewById(R.id.spinnerForm);
+
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
+        formSpinner.setAdapter(adapter);
         formSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Actualiza un valor con la posición seleccionada
-                int selectedPosition = position;
-                bills = graphic.getBills();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 try {
 
                     loadbill(bills.get(position));
@@ -119,11 +114,11 @@ public class Page4 extends Fragment {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Se llama cuando no hay ningún elemento seleccionado
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
-
+        loadfirebase();
         btn_done = view.findViewById(R.id.btn_done);
         btn_edit = view.findViewById(R.id.btn_edit);
         btn_cancel = view.findViewById(R.id.btn_cancel);
@@ -152,7 +147,11 @@ public class Page4 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
+
                 createBill(view);
+                adapter.add(months[bills.size() - 1]);
+                adapter.notifyDataSetChanged();
+                formSpinner.setSelection(bills.size() - 1);
             }
         });
         btn_cancel.setOnClickListener(new View.OnClickListener() {
@@ -170,8 +169,11 @@ public class Page4 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
+
+
                 visibility1();
                 for (int i = 0; i < edittexts.length; i++) {
+                    edittexts[i].getText().clear();
                     edittexts[i].setEnabled(true);
 
                 }
@@ -200,9 +202,7 @@ public class Page4 extends Fragment {
 
 
     public void createBill(View view) {
-//        for (int i = 0; i < edittexts.length; i++) {
-//            edittexts[i].getText().clear();
-//        }
+
         String water = edittexts[0].getText().toString().trim();
         String light = edittexts[1].getText().toString().trim();
         String gas = edittexts[2].getText().toString().trim();
@@ -213,24 +213,24 @@ public class Page4 extends Fragment {
         String petrol2 = edittexts[7].getText().toString().trim();
         String house = edittexts[8].getText().toString().trim();
         String home = edittexts[9].getText().toString().trim();
-        try {
-            firebase(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid()));
-            // firebase(new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
-            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
-            toast0.show();
-            // graphic.chart(db);
+//        try {
+        addtofirebase(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid()));
+        // firebase(new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
+        Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
+        toast0.show();
+        // graphic.chart(db);
 
-            for (int i = 0; i < edittexts.length; i++) {
-                edittexts[i].setEnabled(false);
-                edittexts[i].getText().clear();
-            }
-            visibility2();
-
-        } catch (Exception e) {
-            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
-            toast0.show();
-
+        for (int i = 0; i < edittexts.length; i++) {
+            edittexts[i].setEnabled(false);
+            edittexts[i].getText().clear();
         }
+        visibility2();
+
+//        } catch (Exception e) {
+//            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
+//            toast0.show();
+//
+//        }
 
 
     }
@@ -253,7 +253,7 @@ public class Page4 extends Fragment {
         linearLayout.setVisibility(View.VISIBLE);
     }
 
-    public void firebase(Bill bill) {
+    public void addtofirebase(Bill bill) {
         db.collection("bills").add(bill)
                 .addOnSuccessListener(documentReference -> {
                     Log.d("Firestore", "DocumentSnapshot added with ID: " + documentReference.getId());
@@ -262,7 +262,43 @@ public class Page4 extends Fragment {
                 .addOnFailureListener(e -> {
                     Log.w("Firestore", "Error adding document", e);
                 });
-        graphic.addBill(bill);
+        bills.add(bill);
+        graphic.chart(bills);
     }
 
+    public void loadfirebase() {
+        bills.clear();
+        db.collection("bills")
+                .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .orderBy("date", Query.Direction.ASCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Bill bill = document.toObject(Bill.class);
+                                bills.add(bill);
+                                Log.d("Firestore", document.getId() + " => " + document.getData());
+                                if (task.getResult().size() == bills.size()) {
+                                    graphic.chart(bills);
+                                    for (int x = 0; x <= bills.size() - 1; x++) {
+                                        try {
+                                            adapter.remove(adapter.getItem(x));
+                                        } catch (java.lang.IndexOutOfBoundsException e) {
+
+                                        }
+                                        adapter.insert(months[x], x);
+                                        formSpinner.setSelection(bills.size() - 1);
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+
+                });
+    }
 }

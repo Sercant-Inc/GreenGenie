@@ -75,7 +75,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+            android:id="@+id/passwd"
             app:layout_constraintTop_toBottomOf="@+id/username"
             app:layout_constraintEnd_toEndOf="@id/line_right"
             app:layout_constraintStart_toStartOf="@id/line_left"
@@ -110,7 +110,7 @@
             app:layout_constraintEnd_toStartOf="@+id/lineright"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/lineleft"
-            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/passwd"
             android:onClick="openForgot"/>
 
         <Button
@@ -126,7 +126,7 @@
             app:layout_constraintEnd_toEndOf="@id/lineright"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/lineleft"
-            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/passwd"
             android:onClick="openMain"/>
 
         <androidx.constraintlayout.widget.Guideline
@@ -153,7 +153,7 @@
             app:layout_constraintEnd_toStartOf="@+id/linercenterleft"
             app:layout_constraintHorizontal_bias="0.615"
             app:layout_constraintStart_toStartOf="@+id/lineleft"
-            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/passwd"
             style="@style/buttonoutlined"
             android:onClick="openRegister"/>
 
@@ -167,7 +167,7 @@
             app:layout_constraintEnd_toStartOf="@+id/lineright"
             app:layout_constraintHorizontal_bias="0.961"
             app:layout_constraintStart_toStartOf="@+id/linercenteright"
-            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/passwd"
             style="@style/buttonoutlined"/>
 
         <TextView

@@ -42,6 +42,8 @@ public class LoginPage extends AppCompatActivity {
     Button b_google;
     Button login;
     TextInputEditText passwd;
+    TextInputLayout tiuser;
+    TextInputLayout tipasswd;
     TextInputEditText email;
     private FirebaseAuth mAuth;
     private static final int REQ_ONE_TAP = 2;
@@ -61,6 +63,8 @@ public class LoginPage extends AppCompatActivity {
         passwd=findViewById(R.id.text_password);
         email=findViewById(R.id.txt_email);
         forgor=findViewById(R.id.txtforgot_password);
+        tiuser=findViewById(R.id.username);
+        tipasswd=findViewById(R.id.passwd);
 
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -98,11 +102,11 @@ public class LoginPage extends AppCompatActivity {
         String vemail=email.getText().toString().trim();
         String vpassword=passwd.getText().toString().trim();
         if(TextUtils.isEmpty(vpassword) ){
-            passwd.setError("Password can not be empty");
+            tipasswd.setError("Password can not be empty"+"/n"+"Password must be 6 characters minimum");
             passwd.requestFocus();
-        }
+        }else
         if(TextUtils.isEmpty(vemail) ){
-            email.setError("Email can not be empty");
+            tiuser.setError("Email can not be empty");
             email.requestFocus();
         }
         else if(Patterns.EMAIL_ADDRESS.matcher(vemail).matches()){

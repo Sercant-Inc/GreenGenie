@@ -52,11 +52,10 @@
             android:id="@+id/txt_profileName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/sweet_grey"
             android:hint="@string/nameProfile"
             android:inputType="textEmailAddress"
             android:singleLine="true"
-            android:textColor="@color/black" />
+             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,11 +73,9 @@
             android:id="@+id/txt_profileEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/sweet_grey"
             android:hint="@string/emailProfile"
             android:inputType="textEmailAddress"
-            android:singleLine="true"
-            android:textColor="@color/black" />
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

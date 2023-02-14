@@ -109,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
-            android:hint="Password"
+            android:hint="Password:  6 characters min"
             android:inputType="textPassword"
             android:singleLine="true"
             android:textColor="@color/black" />

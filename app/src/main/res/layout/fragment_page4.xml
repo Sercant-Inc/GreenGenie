@@ -159,7 +159,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="light bill"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence"
             app:srcCompat="@drawable/water" />
@@ -383,29 +383,16 @@
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="24dp"
-            android:textSize="12dp"
             android:background="@drawable/bordes_redondos"
             android:text="@string/btnEdit"
-            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@id/linerightEnd"
-            app:layout_constraintStart_toStartOf="@id/linercenteright"
-            app:layout_constraintTop_toBottomOf="@id/home_billData"
-            tools:layout_editor_absoluteX="243dp"
-            tools:layout_editor_absoluteY="810dp" />
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="12dp"
-            android:background="@drawable/bordes_redondos"
-            android:text="@string/btnDelete"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="@id/linercenterleft"
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
-            app:layout_constraintTop_toBottomOf="@id/home_billData"/>
+            app:layout_constraintTop_toBottomOf="@id/home_billData"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="943dp" />
+
 
         <Button
             android:id="@+id/btn_done"

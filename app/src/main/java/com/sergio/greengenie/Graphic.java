@@ -34,36 +34,8 @@ import java.util.List;
 
 public class Graphic {
     private static final String TAG = "My App";
-    ArrayList<Bill> bills = new ArrayList<>();
-    // static BarChart graphic = Page3.graphic;
 
-    public void firebase(FirebaseFirestore db) {
-        bills.clear();
-        db.collection("bills")
-                .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .orderBy("date", Query.Direction.ASCENDING)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Bill bill = document.toObject(Bill.class);
-                                bills.add(bill);
-                                Log.d("Firestore", document.getId() + " => " + document.getData());
-                                if (task.getResult().size() == bills.size()) {
-                                    chart();
-                                }
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-
-                });
-    }
-
-    public void chart() {
+    public void chart( ArrayList<Bill> bills) {
         Log.d("Firestore", bills.size() + "");
         // Declaración de arrays con los meses y los valores de cada grupo
         //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
@@ -146,14 +118,12 @@ public class Graphic {
         graphic.groupBars(xaxis.getAxisMinimum(), groupSpace, barSpace); // perform the "explicit" grouping
         xaxis.setAxisMaximum(xaxis.getAxisMinimum() + graphic.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);//x axis size
         graphic.setVisibleXRangeMaximum(xaxis.getAxisMaximum() / groupCount * (Math.min(groupCount, groupsVisible)));//
+        graphic.setVisibleXRangeMinimum(xaxis.getAxisMaximum() / (Math.min(groupCount, groupsVisible)));
         graphic.moveViewToX(graphic.getXAxis().getAxisMaximum() / groupCount * (groupCount - groupsVisible));
 
         graphic.invalidate(); // refresh
 
     }
 
-    public void addBill(Bill bill) {
-        bills.add(bill);
-        chart();
-    }
+
 }

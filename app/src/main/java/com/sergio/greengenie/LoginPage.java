@@ -102,9 +102,9 @@ public class LoginPage extends AppCompatActivity {
         String vemail=email.getText().toString().trim();
         String vpassword=passwd.getText().toString().trim();
         if(TextUtils.isEmpty(vpassword) ){
-            tiuser.setError("Password can not be empty");
+            tipasswd.setError("Password can not be empty"+"/n"+"Password must be 6 characters minimum");
             passwd.requestFocus();
-        }
+        }else
         if(TextUtils.isEmpty(vemail) ){
             tiuser.setError("Email can not be empty");
             email.requestFocus();

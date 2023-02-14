@@ -102,7 +102,7 @@ public class LoginPage extends AppCompatActivity {
         String vemail=email.getText().toString().trim();
         String vpassword=passwd.getText().toString().trim();
         if(TextUtils.isEmpty(vpassword) ){
-            tipasswd.setError("Password can not be empty"+"/n"+"Password must be 6 characters minimum");
+            tipasswd.setError("Password must be 6 characters minimum");
             passwd.requestFocus();
         }else
         if(TextUtils.isEmpty(vemail) ){
@@ -128,7 +128,7 @@ public class LoginPage extends AppCompatActivity {
                         }
                     });
         }else {
-            email.setError("Email is not in the right format");
+            tiuser.setError("Email is not in the right format");
             email.requestFocus();
         }
 

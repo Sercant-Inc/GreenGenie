@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintEnd_toEndOf="@id/line_bottom"
+    app:layout_editor_absoluteX="1dp"
+    app:layout_editor_absoluteY="1dp">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterPage">
@@ -97,22 +104,12 @@
         android:layout_marginTop="8dp"
         app:startIconDrawable="@drawable/ic_locker">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/sweet_grey"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sweet_grey"
-            android:hint="Password:  6 characters min"
+            android:hint="Password"
             android:inputType="textPassword"
             android:singleLine="true"
             android:textColor="@color/black" />
@@ -147,15 +144,31 @@
         android:id="@+id/btnRegister"
         android:layout_width="150dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="40dp"
         android:background="@drawable/bordes_redondos"
         android:text="I'm ready!"
         android:textAllCaps="false"
         app:flow_horizontalAlign="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/password_confirm"
         app:layout_constraintEnd_toStartOf="@+id/lineright"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/lineleft" />
+        app:layout_constraintStart_toStartOf="@+id/lineleft"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintBottom_toBottomOf="@id/line_bottom"/>
+    <TextView
+        android:id="@+id/marginbottom"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@id/line_bottom"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

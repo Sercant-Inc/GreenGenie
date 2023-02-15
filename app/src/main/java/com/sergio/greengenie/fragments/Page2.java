@@ -115,14 +115,12 @@ public class Page2 extends Fragment{
                     if(estadoBoton){
                         btnedit.setText("SAVE");
                         txt_profileName.setEnabled(true);
-                        txt_profileEmail.setEnabled(true);
                         spinner.setEnabled(true);
                         estadoBoton= false;
                     }
                     else{
                         btnedit.setText("EDIT");
                         txt_profileName.setEnabled(false);
-                        txt_profileEmail.setEnabled(false);
                         spinner.setEnabled(false);
                         estadoBoton=true;
                     }

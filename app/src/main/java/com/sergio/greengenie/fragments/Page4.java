@@ -38,7 +38,7 @@ import java.util.ArrayList;
 public class Page4 extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Graphic graphic = new Graphic();
-    Button btn_done, btn_delete, btn_edit, btn_cancel, btn_newForm;
+    Button btn_done, btn_edit, btn_cancel, btn_newForm;
     EditText water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData;
     EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
     Spinner formSpinner;
@@ -46,13 +46,14 @@ public class Page4 extends Fragment {
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     ArrayAdapter<CharSequence> adapter;
     //public static ArrayList<Bill> bills = new ArrayList<Bill>();
+    boolean newform = true;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "TAG";
-    private ArrayList<Bill> bills = new ArrayList<Bill> ();
+    private ArrayList<Bill> bills = new ArrayList<Bill>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -122,7 +123,6 @@ public class Page4 extends Fragment {
         btn_done = view.findViewById(R.id.btn_done);
         btn_edit = view.findViewById(R.id.btn_edit);
         btn_cancel = view.findViewById(R.id.btn_cancel);
-        btn_delete = view.findViewById(R.id.btn_delete);
         btn_done.setVisibility(View.GONE);
         btn_cancel.setVisibility(View.GONE);
 
@@ -147,13 +147,27 @@ public class Page4 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
+                if (newform) {
+                    createBill();
+                    adapter.add(months[bills.size() - 1]);
+                    adapter.notifyDataSetChanged();
+                    formSpinner.setSelection(bills.size() - 1);
+                    newform=false;
+                }else{
+                    createBill();
+                    //editBill(bills.get(formSpinner.getSelectedItemPosition()));
 
-                createBill(view);
-                adapter.add(months[bills.size() - 1]);
-                adapter.notifyDataSetChanged();
-                formSpinner.setSelection(bills.size() - 1);
+                }
             }
         });
+//        btn_edit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Change the text of the TextView
+//
+//                fieldenabled();
+//            }
+//        });
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,23 +176,18 @@ public class Page4 extends Fragment {
                     edittexts[i].setEnabled(false);
                     edittexts[i].getText().clear();
                 }
-                visibility2();
+                fielddisbled();
             }
         });
         btn_newForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Change the text of the TextView
+                fieldenabled();
 
-
-                visibility1();
                 for (int i = 0; i < edittexts.length; i++) {
                     edittexts[i].getText().clear();
                     edittexts[i].setEnabled(true);
-
                 }
-
-
             }
         });
 
@@ -201,7 +210,7 @@ public class Page4 extends Fragment {
     }
 
 
-    public void createBill(View view) {
+    public void createBill() {
 
         String water = edittexts[0].getText().toString().trim();
         String light = edittexts[1].getText().toString().trim();
@@ -213,42 +222,40 @@ public class Page4 extends Fragment {
         String petrol2 = edittexts[7].getText().toString().trim();
         String house = edittexts[8].getText().toString().trim();
         String home = edittexts[9].getText().toString().trim();
-//        try {
-        addtofirebase(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid()));
-        // firebase(new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
-        Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
-        toast0.show();
-        // graphic.chart(db);
+        try {
+            if(newform) {
+                addtofirebase(new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid()));
+                // firebase(new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
+            }else{
+               // updateBill();
+            }
+          Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
+            toast0.show();
+            // graphic.chart(db);
+            for (int i = 0; i < edittexts.length; i++) {
+                edittexts[i].setEnabled(false);
+                edittexts[i].getText().clear();
+            }
+            fielddisbled();
 
-        for (int i = 0; i < edittexts.length; i++) {
-            edittexts[i].setEnabled(false);
-            edittexts[i].getText().clear();
+        } catch (Exception e) {
+            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
+            toast0.show();
         }
-        visibility2();
-
-//        } catch (Exception e) {
-//            Toast toast0 = Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG);
-//            toast0.show();
-//
-//        }
-
-
     }
 
-    public void visibility1() {
+    public void fieldenabled() {
         btn_done.setVisibility(View.VISIBLE);
         btn_cancel.setVisibility(View.VISIBLE);
         btn_edit.setVisibility(View.GONE);
-        btn_delete.setVisibility(View.GONE);
         btn_newForm.setVisibility(View.GONE);
         linearLayout.setVisibility(View.GONE);
     }
 
-    public void visibility2() {
+    public void fielddisbled() {
         btn_done.setVisibility(View.GONE);
         btn_cancel.setVisibility(View.GONE);
         btn_edit.setVisibility(View.VISIBLE);
-        btn_delete.setVisibility(View.VISIBLE);
         btn_newForm.setVisibility(View.VISIBLE);
         linearLayout.setVisibility(View.VISIBLE);
     }

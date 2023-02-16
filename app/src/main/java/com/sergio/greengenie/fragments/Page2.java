@@ -3,10 +3,13 @@ package com.sergio.greengenie.Fragments;
 import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -19,8 +22,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,6 +56,9 @@ public class Page2 extends Fragment{
     private String mParam2;
     Uri imageUri;
     EditText txt_profileName,txt_profileEmail;
+    private FirebaseAuth firebaseAuth;
+    private StorageReference mStorageRef;
+    private FirebaseUser user;
     Button btnedit;
     Spinner spinner;
     ImageView foto_gallery;
@@ -90,23 +99,30 @@ public class Page2 extends Fragment{
         spinner.setEnabled(false);
         txt_profileName.setEnabled(false);
         txt_profileEmail.setEnabled(false);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         String nom=user.getDisplayName();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         txt_profileName.setText(nom);
         txt_profileEmail.setText(user.getEmail());
+
         // Get references to the ImageView and TextView
         Button btnlogout = view.findViewById(R.id.btnlogout);
         btnedit= view.findViewById(R.id.btnedit);
         estadoBoton= true;
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
 
-            if (!selected_image) {
-                Glide.with(this).load(R.drawable.geniosinfondo_page2).circleCrop().into(foto_gallery);
-            } else {
-                Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
-            }
-            // Set an OnClickListener on the ImageView
+        getProfileImage();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String imageUrl = sharedPreferences.getString("profileImage", "");
+
+        if (user.getPhotoUrl()!=null) {
+            Glide.with(this).load(user.getPhotoUrl()).into(foto_gallery);
+            //Glide.with(this).load(imageUrl).circleCrop().into(foto_gallery);
+            selected_image=true;
+        }else {
+                Glide.with(this).load(R.drawable.geniosinfondo_page2).into(foto_gallery);
+        } // Set an OnClickListener on the ImageView
 
         btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,9 +152,7 @@ public class Page2 extends Fragment{
             @Override
             public void onClick(View v) {
                 if(btnedit.getText().equals("SAVE")){
-
                     openGallery();
-
                 }
 
             }
@@ -173,31 +187,60 @@ public class Page2 extends Fragment{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-            imageUri = data.getData();
+            Uri imageUri = data.getData();
             //foto_gallery.setImageURI(imageUri);
-            Glide.with(this).load(imageUri).circleCrop().into(foto_gallery);
-            selected_image=true;
+            Glide.with(this).load(imageUri).into(foto_gallery);
+
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-            StorageReference profileImageRef = storageRef.child("profile_images/" + user.getUid() + ".jpg");
+            StorageReference profileImageRef = storageRef.child("documents/users/profile_images/" + user.getUid() + "/profile_img.jpg");
             UploadTask uploadTask = profileImageRef.putFile(imageUri);
-            uploadTask.addOnSuccessListener(taskSnapshot -> {
-                // Get the download URL of the uploaded image
-                profileImageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Set the user's profile picture to the download URL
-                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                            .setPhotoUri(uri)
-                            .build();
-                    user.updateProfile(profileUpdates).addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "User profile updated.");
-                        }
-                    });
-                });
+            Task<Uri> urlTask = uploadTask.continueWithTask(task -> {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+                return profileImageRef.getDownloadUrl();
+            }).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    // Guardar la referencia a la imagen en el objeto firebaseUser
+                    updateUserProfileWithImageUri(downloadUri);
+                    Glide.with(this).load(downloadUri).into(foto_gallery);
+                } else {
+                    // Mostrar un mensaje de error si no se puede subir la imagen a Firebase
+                    Toast.makeText(getActivity(), "Error uploading image", Toast.LENGTH_SHORT).show();
+                }
             });
+
+
+            selected_image=true;
+        }
+
+    }
+    private void getProfileImage() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user.getPhotoUrl() !=null) {
+            String imageUrl = user.getPhotoUrl().toString();
+            Context context = getContext();
+            SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("profileImage", imageUrl);
+            editor.apply();
         }
     }
+    private void updateUserProfileWithImageUri(@Nullable Uri imageUri) {
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setPhotoUri(imageUri).build();
 
+        firebaseAuth.getCurrentUser().updateProfile(profileUpdates).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d(TAG, "Profile photo updated.");
+                Toast.makeText(getActivity(), "Profile photo updated", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e(TAG, "Failed to update user profile.", task.getException());
+                Toast.makeText(getActivity(), "Failed to update user profile", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
 

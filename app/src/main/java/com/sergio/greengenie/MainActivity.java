@@ -1,10 +1,12 @@
 package com.sergio.greengenie;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-
-
-
 
 
         // Glide.with(this).load(R.drawable.geniosinfondo).circleCrop().into(frame);
@@ -106,7 +105,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        hideBottomNavigationOnKeyboard();
 
+    }
+
+    public void hideBottomNavigationOnKeyboard() {
+        View rootView = findViewById(android.R.id.content);
+        rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect r = new Rect();
+                rootView.getWindowVisibleDisplayFrame(r);
+                int screenHeight = rootView.getRootView().getHeight();
+                int keypadHeight = screenHeight - r.bottom;
+
+                boolean isKeyboardActive = keypadHeight > screenHeight * 0.25;
+
+                if (isKeyboardActive) {
+                    bottom_navigation.setVisibility(View.INVISIBLE);
+                } else {
+                    bottom_navigation.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
 //    public boolean onCreateOptionsMenu(Menu menu) {

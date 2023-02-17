@@ -1,5 +1,8 @@
 package com.sergio.greengenie.Fragments;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +46,12 @@ public class Page4 extends Fragment {
     Button btn_done, btn_edit, btn_cancel, btn_newForm;
     EditText water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData;
     EditText[] edittexts = {water_billData, light_billData, gas_billData, petrol_billData, water_data2, light_data2, gas_data2, petrol_data2, house_billData, home_billData};
+    TextView watersentence,watersentence2,lightsentence,lightsentence2,gassentence,gassentence2,petrolsentence,petrolsentence2,housesentence,homesentence,txtform;
+
+    TextView[] setences={watersentence,watersentence2,lightsentence,lightsentence2,gassentence,gassentence2,petrolsentence,petrolsentence2,housesentence,homesentence,txtform};
+
+    ImageView watericon,lighticon,gasicon,petrolicon,houseicon,homeicon;
+    ImageView[] icons= { watericon,lighticon,gasicon,petrolicon,houseicon,homeicon};
     Spinner formSpinner;
     LinearLayout linearLayout;
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -57,6 +68,7 @@ public class Page4 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public Page4() {
         // Required empty public constructor
@@ -102,7 +114,23 @@ public class Page4 extends Fragment {
         btn_cancel = view.findViewById(R.id.btn_cancel);
 
 
-
+setences[0]=view.findViewById(R.id.water_sentence);
+        setences[1]=view.findViewById(R.id.water_sentence2);
+        setences[2]=view.findViewById(R.id.light_sentence);
+        setences[3]=view.findViewById(R.id.light_sentence2);
+        setences[4]=view.findViewById(R.id.gas_sentence);
+        setences[5]=view.findViewById(R.id.gas_sentence2);
+        setences[6]=view.findViewById(R.id.petrol_sentence);
+        setences[7]=view.findViewById(R.id.petrol_sentence2);
+        setences[8]=view.findViewById(R.id.family_sentence);
+        setences[9]=view.findViewById(R.id.home_sentence);
+        setences[10]=view.findViewById(R.id.txt_form);
+       icons[0]=view.findViewById(R.id.water);
+        icons[1]=view.findViewById(R.id.light);
+        icons[2]=view.findViewById(R.id.gas);
+        icons[3]=view.findViewById(R.id.petrol);
+        icons[4]=view.findViewById(R.id.family);
+        icons[5]=view.findViewById(R.id.home);
         linearLayout = view.findViewById(R.id.linearLayout);
 
         formSpinner = (Spinner) view.findViewById(R.id.spinnerForm);
@@ -127,8 +155,8 @@ public class Page4 extends Fragment {
         });
         loadfirebase();
 
-        btn_done.setVisibility(View.GONE);
-        btn_cancel.setVisibility(View.GONE);
+        btn_done.setVisibility(GONE);
+        btn_cancel.setVisibility(GONE);
 
 
         edittexts[0] = view.findViewById(R.id.water_billData);
@@ -159,7 +187,6 @@ public class Page4 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Change the text of the TextView
-
                 fieldenabled();
                 for (int i = 0; i < edittexts.length; i++) {
                     edittexts[i].setEnabled(true);
@@ -169,10 +196,15 @@ public class Page4 extends Fragment {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(bills.size()==0){
+                    initialhide();
+                }
                 if (newform) {
                     for (int i = 0; i < edittexts.length; i++) {
-                        edittexts[i].setEnabled(false);
 
+                        edittexts[i].getText().clear();
+                        edittexts[i].setEnabled(false);
+                        newform = false;
                     }
                 }
                 fielddisbled();
@@ -181,13 +213,17 @@ public class Page4 extends Fragment {
                     Log.d(TAG, formSpinner.getSelectedItemPosition() + "");
                 } catch (java.lang.IndexOutOfBoundsException e) {
                 }
+
+
             }
         });
         btn_newForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                initialshow();
                 fieldenabled();
                 newform = true;
+
                 for (int i = 0; i < edittexts.length; i++) {
                     edittexts[i].getText().clear();
                     edittexts[i].setEnabled(true);
@@ -246,7 +282,7 @@ public class Page4 extends Fragment {
                 //  Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                 updateBill(bill);
-                // updateBill(bills.get(formSpinner.getSelectedItemPosition()));
+
             }
             Toast toast0 = Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG);
             toast0.show();
@@ -263,7 +299,6 @@ public class Page4 extends Fragment {
     }
 
     private void updateBill(Bill bill) {
-
         db.collection("bills")
                 .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .whereEqualTo("index", bill.getIndex())
@@ -285,19 +320,21 @@ public class Page4 extends Fragment {
     }
 
     public void fieldenabled() {
-        btn_done.setVisibility(View.VISIBLE);
-        btn_cancel.setVisibility(View.VISIBLE);
-        btn_edit.setVisibility(View.GONE);
-        btn_newForm.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.GONE);
+        btn_done.setVisibility(VISIBLE);
+        btn_cancel.setVisibility(VISIBLE);
+        btn_edit.setVisibility(GONE);
+        btn_newForm.setVisibility(GONE);
+        linearLayout.setVisibility(GONE);
     }
 
     public void fielddisbled() {
-        btn_done.setVisibility(View.GONE);
-        btn_cancel.setVisibility(View.GONE);
-        btn_edit.setVisibility(View.VISIBLE);
-        btn_newForm.setVisibility(View.VISIBLE);
-        linearLayout.setVisibility(View.VISIBLE);
+        btn_done.setVisibility(GONE);
+        btn_cancel.setVisibility(GONE);
+        if (bills.size() > 0) {
+            btn_edit.setVisibility(VISIBLE);
+        }
+        btn_newForm.setVisibility(VISIBLE);
+        linearLayout.setVisibility(VISIBLE);
     }
 
     public void addtofirebase(Bill bill) {
@@ -316,6 +353,7 @@ public class Page4 extends Fragment {
 
     public void loadfirebase() {
         bills.clear();
+
         db.collection("bills")
                 .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .orderBy("index", Query.Direction.ASCENDING)
@@ -324,23 +362,22 @@ public class Page4 extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            if (task.getResult().isEmpty()) {
+                                Log.d("Firestore", "The bills collection is empty.");
+
+                                initialhide();
+                            }
+                            else{
+
+
+                            }
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Bill bill = document.toObject(Bill.class);
                                 bills.add(bill);
                                 Log.d("Firestore", document.getId() + " => " + document.getData());
                                 if (task.getResult().size() == bills.size()) {
-                                    graphic.chart(bills);
-                                    //initialhide();
-                                    for (int x = 0; x <= bills.size() - 1; x++) {
-                                        try {
-                                            adapter.remove(adapter.getItem(x));
-                                        } catch (java.lang.IndexOutOfBoundsException e) {
-
-                                        }
-                                        adapter.insert(months[x], x);
-                                        formSpinner.setSelection(bills.size() - 1);
-                                    }
-                                    adapter.notifyDataSetChanged();
+                                    Log.d("My app", bills.size() + "");
+                                    postload();
                                 }
                             }
                         } else {
@@ -352,8 +389,48 @@ public class Page4 extends Fragment {
     }
 
     private void initialhide() {
-        if (bills.size() == 0) {
-            btn_edit.setVisibility(View.GONE);
+        btn_edit.setVisibility(GONE);
+        for (TextView  s:setences) {
+            s.setVisibility(GONE);
+
         }
+        for (ImageView s:icons) {
+            s.setVisibility(GONE);
+
+        }
+        for (EditText s: edittexts) {
+            s.setVisibility(GONE);
+
+        }
+        linearLayout.setVisibility(GONE);
+    }
+    private void initialshow() {
+     //   btn_edit.setVisibility(V);
+        for (TextView  s:setences) {
+            s.setVisibility(VISIBLE);
+
+        }
+        for (ImageView s:icons) {
+            s.setVisibility(VISIBLE);
+
+        }
+        for (EditText s: edittexts) {
+            s.setVisibility(VISIBLE);
+
+        }
+linearLayout.setVisibility(VISIBLE);
+    }
+    public void postload() {
+        graphic.chart(bills);
+        for (int x = 0; x <= bills.size() - 1; x++) {
+            try {
+                adapter.remove(adapter.getItem(x));
+            } catch (java.lang.IndexOutOfBoundsException e) {
+
+            }
+            adapter.insert(months[x], x);
+            formSpinner.setSelection(bills.size() - 1);
+        }
+        adapter.notifyDataSetChanged();
     }
 }

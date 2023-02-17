@@ -17,9 +17,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.sergio.greengenie.UI.Main.PageViewModel;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -64,10 +65,11 @@ public class Page4 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "Firestore";
-    private ArrayList<Bill> bills = new ArrayList<Bill>();
+    //private ArrayList<Bill> bills = new ArrayList<Bill>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private PageViewModel mViewModel;
 
 
     public Page4() {
@@ -99,6 +101,8 @@ public class Page4 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mViewModel = new ViewModelProvider(requireActivity()).get(PageViewModel.class);
+
     }
 
     @Override
@@ -142,7 +146,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 try {
 
-                    loadbill(bills.get(position));
+                    loadbill(mViewModel.getBills().getValue().get(position));
                 } catch (java.lang.IndexOutOfBoundsException e) {
 
                 }
@@ -153,6 +157,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
 
             }
         });
+        mViewModel.setBills(new ArrayList<Bill>());
         loadfirebase();
 
         btn_done.setVisibility(GONE);
@@ -196,7 +201,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bills.size()==0){
+                if(mViewModel.getBills().getValue().size()==0){
                     initialhide();
                 }
                 if (newform) {
@@ -209,7 +214,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
                 }
                 fielddisbled();
                 try {
-                    loadbill(bills.get(formSpinner.getSelectedItemPosition()));
+                    loadbill(mViewModel.getBills().getValue().get(formSpinner.getSelectedItemPosition()));
                     Log.d(TAG, formSpinner.getSelectedItemPosition() + "");
                 } catch (java.lang.IndexOutOfBoundsException e) {
                 }
@@ -227,7 +232,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
                 for (int i = 0; i < edittexts.length; i++) {
                     edittexts[i].getText().clear();
                     edittexts[i].setEnabled(true);
-                    formSpinner.setSelection(bills.size() - 1);
+                    formSpinner.setSelection(mViewModel.getBills().getValue().size() - 1);
                 }
             }
         });
@@ -266,15 +271,15 @@ setences[0]=view.findViewById(R.id.water_sentence);
         try {
 
             if (newform) {
-                Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid(), bills.size());
+                Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
                 //  Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                 addtofirebase(bill);
                 if (newform) {
 
-                    adapter.add(months[bills.size() - 1]);
+                    adapter.add(months[mViewModel.getBills().getValue().size() - 1]);
                     adapter.notifyDataSetChanged();
-                    formSpinner.setSelection(bills.size() - 1);
+                    formSpinner.setSelection(mViewModel.getBills().getValue().size() - 1);
                     newform = false;
                 }
             } else {
@@ -310,8 +315,8 @@ setences[0]=view.findViewById(R.id.water_sentence);
                         document.getReference().set(bill)
                                 .addOnSuccessListener(aVoid -> {
                                     Log.d(TAG, "Documento suscefully updated");
-                                    bills.set(bill.getIndex(), bill);
-                                    graphic.chart(bills);
+                                    mViewModel.setBill(bill.getIndex(), bill);
+                                    graphic.chart(mViewModel.getBills().getValue());
                                 })
                                 .addOnFailureListener(e -> Log.e(TAG, "Error updating document", e));
                     }
@@ -330,7 +335,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
     public void fielddisbled() {
         btn_done.setVisibility(GONE);
         btn_cancel.setVisibility(GONE);
-        if (bills.size() > 0) {
+        if (mViewModel.getBills().getValue().size() > 0) {
             btn_edit.setVisibility(VISIBLE);
         }
         btn_newForm.setVisibility(VISIBLE);
@@ -346,13 +351,13 @@ setences[0]=view.findViewById(R.id.water_sentence);
                 .addOnFailureListener(e -> {
                     Log.w("Firestore", "Error adding document", e);
                 });
-        bills.add(bill);
-        graphic.chart(bills);
+        mViewModel.addBill(bill);
+        graphic.chart(mViewModel.getBills().getValue());
     }
 
 
     public void loadfirebase() {
-        bills.clear();
+        mViewModel.getBills().getValue().clear();
 
         db.collection("bills")
                 .whereEqualTo("uid", FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -373,10 +378,10 @@ setences[0]=view.findViewById(R.id.water_sentence);
                             }
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Bill bill = document.toObject(Bill.class);
-                                bills.add(bill);
+                                mViewModel.addBill(bill);
                                 Log.d("Firestore", document.getId() + " => " + document.getData());
-                                if (task.getResult().size() == bills.size()) {
-                                    Log.d("My app", bills.size() + "");
+                                if (task.getResult().size() == mViewModel.getBills().getValue().size()) {
+                                    Log.d("My app", mViewModel.getBills().getValue().size() + "");
                                     postload();
                                 }
                             }
@@ -421,15 +426,15 @@ setences[0]=view.findViewById(R.id.water_sentence);
 linearLayout.setVisibility(VISIBLE);
     }
     public void postload() {
-        graphic.chart(bills);
-        for (int x = 0; x <= bills.size() - 1; x++) {
+        graphic.chart(mViewModel.getBills().getValue());
+        for (int x = 0; x <= mViewModel.getBills().getValue().size() - 1; x++) {
             try {
                 adapter.remove(adapter.getItem(x));
             } catch (java.lang.IndexOutOfBoundsException e) {
 
             }
             adapter.insert(months[x], x);
-            formSpinner.setSelection(bills.size() - 1);
+            formSpinner.setSelection(mViewModel.getBills().getValue().size() - 1);
         }
         adapter.notifyDataSetChanged();
     }

@@ -6,6 +6,9 @@ import java.util.Date;
 
 
 public class Bill {
+
+
+    private  int index;
     private float water;
     private float light;
     private float gas;
@@ -16,11 +19,45 @@ public class Bill {
     private float petrol2;
     private int house;
     private float home;
+    private String uid;
     @ServerTimestamp
     private Date date;
 
+    public Bill(float water, float light, float gas, float petrol, float water2, float light2, float gas2, float petrol2, int house, float home, String uid,int index) {
+        this.water = water;
+        this.light = light;
+        this.gas = gas;
+        this.petrol = petrol;
+        this.water2 = water2;
+        this.light2 = light2;
+        this.gas2 = gas2;
+        this.petrol2 = petrol2;
+        this.house = house;
+        this.home = home;
+        this.uid = uid;
+        this.index=index;
+    }
+
+    public Bill() {
+    }
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     public Date getDate() {
         return date;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public void setDate(Date date) {
@@ -51,19 +88,6 @@ public class Bill {
         this.house = house;
     }
 
-    public Bill(float water, float light, float gas, float petrol, float water2, float light2, float gas2, float petrol2, int house, float home) {
-        this.water = water;
-        this.light = light;
-        this.gas = gas;
-        this.petrol = petrol;
-        this.water2 = water2;
-        this.light2 = light2;
-        this.gas2 = gas2;
-        this.petrol2 = petrol2;
-        this.house = house;
-        this.home = home;
-    }
-public Bill(){}
     public float getHome() {
         return home;
     }
@@ -119,7 +143,6 @@ public Bill(){}
     public void setPetrol2(float petrol2) {
         this.petrol2 = petrol2;
     }
-
 
 
 }

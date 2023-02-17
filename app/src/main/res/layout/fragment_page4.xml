@@ -87,7 +87,6 @@
             android:layout_marginEnd="4dp"
             android:gravity="center"
             android:text="@string/water_sentc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/txt_form"
             app:srcCompat="@drawable/water" />
@@ -118,7 +117,6 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/water_sentc2"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_billData" />
 
@@ -128,7 +126,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="water price"
+            android:hint="€/m³"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/water_sentence2" />
@@ -150,7 +148,6 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/light_sentc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/water_data2"
             app:srcCompat="@drawable/water" />
@@ -162,7 +159,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="light bill"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence"
             app:srcCompat="@drawable/water" />
@@ -173,7 +170,6 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/light_sentc2"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_billData" />
 
@@ -183,7 +179,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="light price"
+            android:hint=" €/kWh"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/light_sentence2" />
@@ -204,7 +200,6 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/light_sentc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/light_data2"
             app:srcCompat="@drawable/gas" />
@@ -227,7 +222,6 @@
             android:layout_height="35dp"
             android:gravity="center"
             android:text="@string/gas_sentc2"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_billData" />
 
@@ -237,7 +231,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="gas price"
+            android:hint="€/kWh"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/gas_sentence2" />
@@ -259,7 +253,6 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/petrol_sentc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/gas_data2" />
 
@@ -290,7 +283,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="gas price"
+            android:hint="€/L"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_sentence2" />
@@ -310,8 +303,6 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/people_sentc"
-
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/petrol_data2" />
 
@@ -322,7 +313,7 @@
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:inputType="number"
-            android:hint="people living"
+            android:hint="number of people"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/family_sentence" />
 
@@ -342,7 +333,6 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/house_sentc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/house_billData" />
 
@@ -352,7 +342,7 @@
             android:layout_height="35dp"
             android:background="@color/azul_claro_tr"
             android:gravity="center"
-            android:hint="people living"
+            android:hint="m²"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/home_sentence" />
@@ -393,29 +383,16 @@
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="24dp"
-            android:textSize="12dp"
             android:background="@drawable/bordes_redondos"
             android:text="@string/btnEdit"
-            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@id/linerightEnd"
-            app:layout_constraintStart_toStartOf="@id/linercenteright"
-            app:layout_constraintTop_toBottomOf="@id/home_billData"
-            tools:layout_editor_absoluteX="243dp"
-            tools:layout_editor_absoluteY="810dp" />
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textSize="12dp"
-            android:background="@drawable/bordes_redondos"
-            android:text="@string/btnDelete"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="@id/linercenterleft"
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
-            app:layout_constraintTop_toBottomOf="@id/home_billData"/>
+            app:layout_constraintTop_toBottomOf="@id/home_billData"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="943dp" />
+
 
         <Button
             android:id="@+id/btn_done"

@@ -27,36 +27,43 @@
         app:layout_constraintGuide_percent="0.90" />
 
 
-
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="80dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="40dp"
+        app:flow_horizontalBias="0.0"
+        app:cardCornerRadius="85dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/geniosinfondo" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/geniosinfondo" />
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
         style="@style/TextInputLayout"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:text="Email"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintStart_toStartOf="@id/line_left"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage">
+        app:layout_constraintTop_toBottomOf="@+id/cardview">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_profileName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/sweet_grey"
             android:hint="@string/nameProfile"
             android:inputType="textEmailAddress"
-            android:singleLine="true"
-            android:textColor="@color/black" />
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,11 +81,9 @@
             android:id="@+id/txt_profileEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/sweet_grey"
             android:hint="@string/emailProfile"
             android:inputType="textEmailAddress"
-            android:singleLine="true"
-            android:textColor="@color/black" />
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

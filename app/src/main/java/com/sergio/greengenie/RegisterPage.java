@@ -18,6 +18,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class RegisterPage extends AppCompatActivity {
     private String TAG;
@@ -28,6 +29,8 @@ public class RegisterPage extends AppCompatActivity {
     TextInputEditText password;
     TextInputEditText c_password;
     FirebaseAuth mAuth;
+    TextInputLayout tiuser;
+    TextInputLayout tipasswd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,10 @@ public class RegisterPage extends AppCompatActivity {
 
                         Log.d(TAG, "createUserWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(vnombre)
+                                .build();
+                        user.updateProfile(profileUpdates);
                         openMain();
                     } else {
                         // If sign in fails, display a message to the user.

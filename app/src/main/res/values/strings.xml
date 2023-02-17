@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GreenGenie</string>
+    <string name="app_name" translatable="false">GreenGenie</string>
     <string name="txt_tab1">My Genie</string>
     <string name="txt_tab2">My Data</string>
     <string name="txt_tab3">Form</string>
@@ -8,6 +8,11 @@
     <string name="data">Data</string>
     <string name="form">Form</string>
     <string name="save">Save</string>
+    <string name="password">password</string>
+    <string name="forgotPassword">We will send you an email to this adress</string>
+
+
+
 
     <string name="water_sentc">Introduce the amount of your last water bill</string>
     <string name="water_sentc2">Introduce the price of your last water bill</string>
@@ -34,7 +39,7 @@
     <string name="spinner">Vehicle Type</string>
 
 
-    <string name="text_policy">POLÍTICA DE PRIVACIDAD \n\n
+    <string name="text_policy" translatable="false">POLÍTICA DE PRIVACIDAD \n\n
 
     El presente Política de Privacidad establece los términos en que GreenGenie usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.\n\n
 
@@ -110,18 +115,18 @@ GreenGenie reserves the right to change the terms of this Privacy Policy at any 
 This privacy policy was generated on politicadeprivacidadplantilla.com.</string>
 
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="genie_tips">HI!!! I´m GreenGenie!! \n\n
         I´m going to be your assistant to help you saving money, and... being ecofriendly!!</string>
     <string name="title_activity_forgot_password">ForgotPassword</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
     <string name="createform">Form created</string>
     <string name="formerror">Error creating form</string>
 

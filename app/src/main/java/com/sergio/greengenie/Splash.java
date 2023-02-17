@@ -3,6 +3,7 @@ package com.sergio.greengenie;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Splash extends AppCompatActivity {
     private FirebaseAuth mAuth;
+
  ImageView genio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
         genio=findViewById(R.id.geniosplash);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
+        mediaPlayer.start();
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         genio.startAnimation(myanim);
 

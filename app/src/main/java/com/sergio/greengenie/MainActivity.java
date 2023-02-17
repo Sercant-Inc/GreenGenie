@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import com.sergio.greengenie.UI.Main.PageViewModel;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
@@ -28,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottom_navigation;
 
     private MenuItem prevMenuItem;
+    private PageViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mViewModel = new ViewModelProvider(this).get(PageViewModel.class);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         bottom_navigation = findViewById(R.id.bottom_navigation);

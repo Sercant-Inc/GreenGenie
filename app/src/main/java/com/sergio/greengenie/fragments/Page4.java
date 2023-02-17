@@ -402,7 +402,7 @@ setences[0]=view.findViewById(R.id.water_sentence);
             s.setVisibility(GONE);
 
         }
-        linearLayout.setVisibility(VISIBLE);
+        linearLayout.setVisibility(GONE);
     }
     private void initialshow() {
      //   btn_edit.setVisibility(V);

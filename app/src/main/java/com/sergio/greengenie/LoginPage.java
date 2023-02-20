@@ -180,7 +180,7 @@ public class LoginPage extends AppCompatActivity {
         startActivity(intent);
     }
     private void ToForgor(){
-        Intent intent=new Intent(getApplicationContext(),ForgotActivity.class);
+        Intent intent=new Intent(getApplicationContext(),Forgot.class);
         startActivity(intent);
     }
 
@@ -211,7 +211,7 @@ public class LoginPage extends AppCompatActivity {
     }
     public void openForgot(View v){
 
-        Intent intent = new Intent(this, ForgotActivity.class);
+        Intent intent = new Intent(this, Forgot.class);
         startActivity(intent);
     }
 

@@ -116,7 +116,7 @@
             app:layout_constraintTop_toBottomOf="@id/txt_objectives"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             app:srcCompat="@drawable/water"/>
-        <TextView
+        <EditText
             android:id="@+id/water_dataobj1"
             android:layout_width="80dp"
             android:layout_height="35dp"
@@ -183,7 +183,7 @@
             app:layout_constraintTop_toBottomOf="@id/water_dataobj2"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             app:srcCompat="@drawable/light"/>
-        <TextView
+        <EditText
             android:id="@+id/light_dataobj1"
             android:layout_width="80dp"
             android:layout_height="35dp"
@@ -249,7 +249,7 @@
             app:layout_constraintTop_toBottomOf="@id/light_dataobj2"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             app:srcCompat="@drawable/gas"/>
-        <TextView
+        <EditText
             android:id="@+id/gas_dataobj1"
             android:layout_width="80dp"
             android:layout_height="35dp"
@@ -314,7 +314,7 @@
             app:layout_constraintTop_toBottomOf="@id/gas_dataobj2"
             app:layout_constraintEnd_toStartOf="@+id/line_right"
             app:srcCompat="@drawable/fuel"/>
-        <TextView
+        <EditText
             android:id="@+id/petrol_dataobj1"
             android:layout_width="80dp"
             android:layout_height="35dp"

@@ -1,13 +1,8 @@
 package com.sergio.greengenie;
 
-import static com.sergio.greengenie.Fragments.Page3.graphic;
 
-import android.graphics.Color;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -17,17 +12,6 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.sergio.greengenie.Fragments.Page4;
-import com.sergio.greengenie.Fragments.Page3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +19,8 @@ import java.util.List;
 public class Graphic {
     private static final String TAG = "My App";
 
-    public void chart( ArrayList<Bill> bills) {
-        Log.d("Firestore", bills.size() + "");
+    public void chart(BarChart barChart, ArrayList<Bill> bills) {
+        Log.d("MyApp", bills.size() + "graphic");
         // Declaración de arrays con los meses y los valores de cada grupo
         //List<String> months = new ArrayList<>(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"));
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -71,10 +55,10 @@ public class Graphic {
         BarDataSet set2 = new BarDataSet(entriesGroup2, "Light");
         BarDataSet set3 = new BarDataSet(entriesGroup3, "Gas");
         BarDataSet set4 = new BarDataSet(entriesGroup4, "Fuel");
-        set1.setColor(ContextCompat.getColor(graphic.getContext(), R.color.azul_claro));
-        set2.setColor(ContextCompat.getColor(graphic.getContext(), R.color.yellow_chart));
-        set3.setColor(ContextCompat.getColor(graphic.getContext(), R.color.red_chart));
-        set4.setColor(ContextCompat.getColor(graphic.getContext(), R.color.gray_chart));
+        set1.setColor(ContextCompat.getColor(barChart.getContext(), R.color.azul_claro));
+        set2.setColor(ContextCompat.getColor(barChart.getContext(), R.color.yellow_chart));
+        set3.setColor(ContextCompat.getColor(barChart.getContext(), R.color.red_chart));
+        set4.setColor(ContextCompat.getColor(barChart.getContext(), R.color.gray_chart));
         set1.setDrawValues(false);//numeros encima de las barras
         set2.setDrawValues(false);
         set3.setDrawValues(false);
@@ -91,37 +75,37 @@ public class Graphic {
 
         BarData data = new BarData(set1, set2, set3, set4);
         data.setBarWidth(barWidth); // set the width of each bar
-        graphic.setData(data);
+        barChart.setData(data);
 
-        graphic.getDescription().setEnabled(false);
+        barChart.getDescription().setEnabled(false);
 
 
-        YAxis axisLeft = graphic.getAxisLeft();
+        YAxis axisLeft = barChart.getAxisLeft();
         // axisLeft.setDrawGridLines(false);//no horizontal lines
         axisLeft.setAxisMinimum(0f);//starts at 0
-        graphic.getAxisRight().setEnabled(false);//no right axis
-        graphic.setScaleYEnabled(false);//no vertical zoom
+        barChart.getAxisRight().setEnabled(false);//no right axis
+        barChart.setScaleYEnabled(false);//no vertical zoom
 
 
-        XAxis xaxis = graphic.getXAxis();
+        XAxis xaxis = barChart.getXAxis();
         xaxis.setDrawGridLines(false);//no vertical lines
         xaxis.setValueFormatter(new IndexAxisValueFormatter(months));//x axis labels as months
         xaxis.setCenterAxisLabels(true);//first x label centered in first group
-        xaxis.setGranularity(graphic.getBarData().getGroupWidth(groupSpace, barSpace));//x axis labels distance
+        xaxis.setGranularity(barChart.getBarData().getGroupWidth(groupSpace, barSpace));//x axis labels distance
         xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-        graphic.setHighlightPerTapEnabled(false);
-        graphic.setHighlightPerDragEnabled(false);
+        barChart.setHighlightPerTapEnabled(false);
+        barChart.setHighlightPerDragEnabled(false);
         //graphic.setScaleEnabled(false);//no zoom
 
         xaxis.setAxisMinimum(0f);////starts at 0
-        graphic.groupBars(xaxis.getAxisMinimum(), groupSpace, barSpace); // perform the "explicit" grouping
-        xaxis.setAxisMaximum(xaxis.getAxisMinimum() + graphic.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);//x axis size
-        graphic.setVisibleXRangeMaximum(xaxis.getAxisMaximum() / groupCount * (Math.min(groupCount, groupsVisible)));//
-        graphic.setVisibleXRangeMinimum(xaxis.getAxisMaximum() / (Math.min(groupCount, groupsVisible)));
-        graphic.moveViewToX(graphic.getXAxis().getAxisMaximum() / groupCount * (groupCount - groupsVisible));
+        barChart.groupBars(xaxis.getAxisMinimum(), groupSpace, barSpace); // perform the "explicit" grouping
+        xaxis.setAxisMaximum(xaxis.getAxisMinimum() + barChart.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);//x axis size
+        barChart.setVisibleXRangeMaximum(xaxis.getAxisMaximum() / groupCount * (Math.min(groupCount, groupsVisible)));//
+        barChart.setVisibleXRangeMinimum(xaxis.getAxisMaximum() / (Math.min(groupCount, groupsVisible)));
+        barChart.moveViewToX(barChart.getXAxis().getAxisMaximum() / groupCount * (groupCount - groupsVisible));
 
-        graphic.invalidate(); // refresh
+        barChart.invalidate(); // refresh
 
     }
 

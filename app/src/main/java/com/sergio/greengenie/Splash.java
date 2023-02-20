@@ -3,6 +3,7 @@ package com.sergio.greengenie;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Splash extends AppCompatActivity {
     private FirebaseAuth mAuth;
+
  ImageView genio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
         genio=findViewById(R.id.geniosplash);
+
+
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         genio.startAnimation(myanim);
 
@@ -33,7 +37,7 @@ public class Splash extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(currentUser != null){
+        if(currentUser != null ){
             Intent intent = new Intent(Splash
                     .this, MainActivity
                     .class);
@@ -42,6 +46,8 @@ public class Splash extends AppCompatActivity {
             startActivity(intent);
         }else{
             openApp();
+            MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
+            mediaPlayer.start();
         }
 
     }

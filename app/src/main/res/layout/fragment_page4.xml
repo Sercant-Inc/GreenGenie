@@ -102,7 +102,6 @@
             android:id="@+id/water_billData"
             android:layout_width="270dp"
             android:layout_height="35dp"
-
             android:background="@color/azul_claro_tr"
             android:gravity="center"
             android:hint="m³"

@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,8 @@ public class LoginPage extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView forgor;
 
+    Animation animation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,14 +90,16 @@ public class LoginPage extends AppCompatActivity {
                 logIn();
             }
 
-
         });
+
         forgor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ToForgor();
             }
         });
+
+
 
     }
 
@@ -174,7 +180,7 @@ public class LoginPage extends AppCompatActivity {
         startActivity(intent);
     }
     private void ToForgor(){
-        Intent intent=new Intent(getApplicationContext(),ForgotActivity.class);
+        Intent intent=new Intent(getApplicationContext(),Forgot.class);
         startActivity(intent);
     }
 
@@ -205,7 +211,8 @@ public class LoginPage extends AppCompatActivity {
     }
     public void openForgot(View v){
 
-        Intent intent = new Intent(this, ForgotActivity.class);
+        Intent intent = new Intent(this, Forgot.class);
         startActivity(intent);
     }
+
 }

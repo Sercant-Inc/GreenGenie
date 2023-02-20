@@ -113,8 +113,8 @@ public class Page2 extends Fragment{
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
 
         getProfileImage();
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        String imageUrl = sharedPreferences.getString("profileImage", "");
+        /*SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String imageUrl = sharedPreferences.getString("profileImage", "");*/
 
         if (user.getPhotoUrl()!=null) {
             Glide.with(this).load(user.getPhotoUrl()).into(foto_gallery);

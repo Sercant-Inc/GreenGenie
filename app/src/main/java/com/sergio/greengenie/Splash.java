@@ -25,8 +25,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
         genio=findViewById(R.id.geniosplash);
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
-        mediaPlayer.start();
+
+
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         genio.startAnimation(myanim);
 
@@ -46,6 +46,8 @@ public class Splash extends AppCompatActivity {
             startActivity(intent);
         }else{
             openApp();
+            MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
+            mediaPlayer.start();
         }
 
     }

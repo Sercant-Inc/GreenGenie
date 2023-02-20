@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,8 +44,8 @@ public class Page3 extends Fragment {
     private String mParam2;
     private PageViewModel mViewModel;
     TextView[] BillView = new TextView[8];
-    TextView[] GoalView = new TextView[8];
-
+    EditText[] GoalView = new  EditText[8];
+boolean pressedButton=false;
 
     public Page3() {
         // Required empty public constructor
@@ -90,7 +91,7 @@ public class Page3 extends Fragment {
             BillView[x] = new TextView(getContext());
         }
         for (int x = 0; x < GoalView.length; x++) {
-            GoalView[x] = new TextView(getContext());
+            GoalView[x] = new EditText(getContext());
         }
         BillView[0] = view.findViewById(R.id.water_data1);
         BillView[1] = view.findViewById(R.id.water_data2);
@@ -148,31 +149,48 @@ public class Page3 extends Fragment {
 
 
         btn_fix.setOnClickListener(v->{
+            if(pressedButton) {
                 try {
 
-                    String water = GoalView[0].getText().toString().trim();
-                    String light = GoalView[1].getText().toString().trim();
-                    String gas = GoalView[2].getText().toString().trim();
-                    String petrol = GoalView[3].getText().toString().trim();
-                    String water2 = GoalView[4].getText().toString().trim();
-                    String light2 = GoalView[5].getText().toString().trim();
-                    String gas2 = GoalView[6].getText().toString().trim();
-                    String petrol2 = GoalView[7].getText().toString().trim();
+                        String water = GoalView[0].getText().toString().trim();
+                        String light = GoalView[1].getText().toString().trim();
+                        String gas = GoalView[2].getText().toString().trim();
+                        String petrol = GoalView[3].getText().toString().trim();
+                        String water2 = GoalView[4].getText().toString().trim();
+                        String light2 = GoalView[5].getText().toString().trim();
+                        String gas2 = GoalView[6].getText().toString().trim();
+                        String petrol2 = GoalView[7].getText().toString().trim();
 
-                    Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getGoalindex());
+                        Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getGoalindex());
 
-                    if (mViewModel.getGoal() != null) {
-                        mViewModel.updateFirebase(bill);
-                    } else {
-                        mViewModel.addtofirebase(bill);
+                        if (mViewModel.getGoal() != null) {
+                            mViewModel.updateFirebase(bill);
+                        } else {
+                            mViewModel.addtofirebase(bill);
+                        }
+                        Toast.makeText(getActivity(), "Goal changed", Toast.LENGTH_LONG).show();
+                    } catch(Exception e){
+                        Toast.makeText(getActivity(), "Error changing goal", Toast.LENGTH_LONG).show();
                     }
-                   Toast.makeText(getActivity(), "Goal changed", Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    Toast.makeText(getActivity(), "Error changing goal", Toast.LENGTH_LONG).show();
+                for (EditText e:GoalView
+                ) {e.setEnabled(false);
+
                 }
 
-        });
 
+                }else{
+                for (EditText e:GoalView
+                ) {e.setEnabled(true);
+
+                }
+
+
+            }
+        });
+        for (EditText e:GoalView
+             ) {e.setEnabled(false);
+
+        }
 
         return view;
 

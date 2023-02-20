@@ -18,13 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class Splash extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
- ImageView genio;
+    ImageView genio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
-        genio=findViewById(R.id.geniosplash);
+        genio = findViewById(R.id.geniosplash);
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
         mediaPlayer.start();
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
@@ -37,23 +38,18 @@ public class Splash extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(currentUser != null ){
-            Intent intent = new Intent(Splash
-                    .this, MainActivity
-                    .class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }else{
+        if (currentUser != null) {
+            openMain();
+        } else {
             openApp();
         }
 
     }
+
     private void openApp() {
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable()
-        {
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(Splash
@@ -64,9 +60,28 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
 
 
+            }
+        }, 3000);
+
+
+    }
+
+    private void openMain() {
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Splash
+                        .this, MainActivity
+                        .class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
 
             }
-        }, 4000);
+        }, 3000);
 
 
     }

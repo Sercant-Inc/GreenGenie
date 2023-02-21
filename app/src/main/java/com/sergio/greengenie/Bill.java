@@ -37,7 +37,7 @@ public class Bill {
         this.uid = uid;
         this.index=index;
     }
-    public Bill(float water, float light, float gas, float petrol, float water2, float light2, float gas2, float petrol2, String uid,int index) {
+    public Bill(float water, float light, float gas, float petrol, String uid,int index) {
         this.water = water;
         this.light = light;
         this.gas = gas;

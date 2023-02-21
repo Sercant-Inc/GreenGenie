@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         bottom_navigation = findViewById(R.id.bottom_navigation);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
-    //   viewPager.setOffscreenPageLimit(3); // Set the offscreen page limit to 3
+       viewPager.setOffscreenPageLimit(3); // Set the offscreen page limit to 3
         viewPager.setAdapter(sectionsPagerAdapter);
 
 

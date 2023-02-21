@@ -26,7 +26,8 @@ import java.util.ArrayList;
 
 
 public class PageViewModel extends ViewModel {
-    private static final int GOALINDEX = -7;
+    private static final int GOALINDEX = 7999;
+    private static final String TAG = "My App";
     private MutableLiveData<Integer> mIndex = new MutableLiveData<>();
     //  private ArrayList<Bill> bills = new ArrayList<>();
     private MutableLiveData<ArrayList<Bill>> bills = new MutableLiveData<>();
@@ -84,18 +85,24 @@ public class PageViewModel extends ViewModel {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     ArrayList<Bill> bills = new ArrayList<>();
+                    Bill goal = null;
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         Bill bill = document.toObject(Bill.class);
                         Log.d("My App", bill.getIndex() + "index");
                         if (bill.getIndex() == GOALINDEX) {
-                            getGoal().setValue(bill);
+                            goal = bill;
+
                         } else {
+
                             bills.add(bill);
                         }
                         Log.d("Firestore", document.getId() + " => " + document.getData());
                     }
                     Log.d("My app", bills.size() + "");
                     this.bills.setValue(bills);
+                    if (goal != null) {
+                        getGoal().setValue(goal);
+                    }
                     if (bills.isEmpty()) {
                         Log.d("My App", "The bills collection is empty.");
                         loaded.setValue(false);
@@ -121,6 +128,8 @@ public class PageViewModel extends ViewModel {
                                     if (bill.getIndex() != GOALINDEX) {
                                         getBills().getValue().set(bill.getIndex(), bill);
                                         setBills(getBills().getValue());
+                                    } else {
+                                        getGoal().setValue(bill);
                                     }
                                     updated.setValue(true);
                                 })
@@ -146,6 +155,8 @@ public class PageViewModel extends ViewModel {
         if (bill.getIndex() != GOALINDEX) {
             getBills().getValue().add(bill);
             setBills(getBills().getValue());
+        } else {
+            getGoal().setValue(bill);
         }
         added.setValue(true);
     }

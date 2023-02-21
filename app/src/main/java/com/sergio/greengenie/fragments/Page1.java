@@ -1,6 +1,6 @@
 package com.sergio.greengenie.Fragments;
 import static androidx.core.content.ContextCompat.getSystemService;
-
+import com.sergio.greengenie.UI.Main.PageViewModel;
 import android.content.Context;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -19,6 +19,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,7 @@ import com.sergio.greengenie.R;
 
         private static final String ARG_PARAM1 = "param1";
         private static final String ARG_PARAM2 = "param2";
-
+        private PageViewModel mViewModel;
         // TODO: Rename and change types of parameters
         private String mParam1;
         private String mParam2;
@@ -70,7 +71,7 @@ import com.sergio.greengenie.R;
                 mParam2 = getArguments().getString(ARG_PARAM2);
 
             }
-
+            mViewModel = new ViewModelProvider(requireActivity()).get(com.sergio.greengenie.UI.Main.PageViewModel.class);
 
 
         }
@@ -90,6 +91,8 @@ import com.sergio.greengenie.R;
             String[] genieTips;
             genieTips= res.getStringArray(R.array.tips);
             MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.tip);
+            mViewModel.loadfirebase();
+
             // Set an OnClickListener on the ImageView
             imageView3.setOnClickListener(new View.OnClickListener() {
                 @Override

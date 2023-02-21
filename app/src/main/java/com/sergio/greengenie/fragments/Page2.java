@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -113,8 +115,8 @@ public class Page2 extends Fragment{
         foto_gallery = (ImageView)view.findViewById(R.id.profileImage);
 
         getProfileImage();
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        String imageUrl = sharedPreferences.getString("profileImage", "");
+        /*SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String imageUrl = sharedPreferences.getString("profileImage", "");*/
 
         if (user.getPhotoUrl()!=null) {
             Glide.with(this).load(user.getPhotoUrl()).into(foto_gallery);
@@ -139,6 +141,7 @@ public class Page2 extends Fragment{
                         txt_profileName.setEnabled(false);
                         spinner.setEnabled(false);
                         estadoBoton=true;
+                        updateUserName();
                     }
 
                 }
@@ -182,6 +185,18 @@ public class Page2 extends Fragment{
     private void openGallery(){
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+    }
+
+    private void updateUserName(){
+        //trying to push
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(txt_profileName.getText().toString())
+                .build();
+        user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+            }
+        });
     }
 
     @Override

@@ -270,6 +270,8 @@ public class Page4 extends Fragment {
                 Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
                 //     Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20, FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
                 mViewModel.addtofirebase(bill);
+                mViewModel.getBills().getValue().add(bill);
+                mViewModel.setBills(mViewModel.getBills().getValue());
                 adapter.add(months[(mViewModel.getBills().getValue().size() - 1) % 12]);
                 adapter.notifyDataSetChanged();
                 formSpinner.setSelection(mViewModel.getBills().getValue().size() - 1);
@@ -278,6 +280,8 @@ public class Page4 extends Fragment {
                 Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid(), formSpinner.getSelectedItemPosition());
                 //  Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
                 mViewModel.updateFirebase(bill);
+                mViewModel.getBills().getValue().set(bill.getIndex(), bill);
+                mViewModel.setBills(mViewModel.getBills().getValue());
             }
             Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG).show();
             fielDisabled();

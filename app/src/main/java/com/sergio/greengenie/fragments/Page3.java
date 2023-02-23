@@ -42,6 +42,7 @@ public class Page3 extends Fragment {
     TextView[] GoalView = new TextView[4];
     boolean pressedButton = false;
 
+
     public Page3() {
         // Required empty public constructor
     }
@@ -121,13 +122,13 @@ public class Page3 extends Fragment {
                 }
                 Bill bill = mViewModel.getBills().getValue().get(mViewModel.getBills().getValue().size() - 1);
                 BillView[0].setText(bill.getWater() + "m³");
-                BillView[1].setText(bill.getWater2() + "");
+                BillView[1].setText(bill.getWater2() + "€");
                 BillView[2].setText(bill.getLight() + "kWh");
-                BillView[3].setText(bill.getLight2() + "");
+                BillView[3].setText(bill.getLight2() + "€");
                 BillView[4].setText(bill.getGas() + "kWh");
-                BillView[5].setText(bill.getGas2() + "");
+                BillView[5].setText(bill.getGas2() + "€");
                 BillView[6].setText(bill.getPetrol() + "L");
-                BillView[7].setText(bill.getPetrol2() + "");
+                BillView[7].setText(bill.getPetrol2() + "€");
                 updateGoal(bill);
             } catch (java.lang.ArrayIndexOutOfBoundsException e) {
                 //   Log.d("My App","size:"+(mViewModel.getBills().getValue().size() - 1));
@@ -187,15 +188,21 @@ public class Page3 extends Fragment {
 
     public void updateGoal(Bill bill) {
         try {
-            float waterMult = Float.parseFloat(BillView[1].getText().toString().trim());
-            float lightMult = Float.parseFloat(BillView[3].getText().toString().trim());
-            float gasMult = Float.parseFloat(BillView[5].getText().toString().trim());
-            float petrolMult = Float.parseFloat(BillView[7].getText().toString().trim());
-            Log.d("My App", "Water Mult " + waterMult);
-            GoalView[0].setText((waterMult - (bill.getWater() / 100 * waterMult)) + "€");
-            GoalView[1].setText(lightMult - bill.getLight() / 100 * lightMult + "€");
-            GoalView[2].setText(gasMult - bill.getGas() / 100 * gasMult + "€");
-            GoalView[3].setText(petrolMult - bill.getPetrol() / 100 * petrolMult + "€");
+           float[] billParam= new float[4];
+            for (int  i=0;i<billParam.length;i++){
+                billParam[i]= Float.parseFloat((BillView[i].getText().toString().trim().substring(0, BillView[i].getText().toString().trim().length()-2)));
+            }
+
+
+//            float waterMult = Float.parseFloat(BillView[1].getText().toString().trim());
+//            float lightMult = Float.parseFloat(BillView[3].getText().toString().trim());
+//            float gasMult = Float.parseFloat(BillView[5].getText().toString().trim());
+//            float petrolMult = Float.parseFloat(BillView[7].getText().toString().trim());
+            Log.d("My App", "Water Mult " + BillView[0]);
+            GoalView[0].setText((billParam[0] - (bill.getWater() / 100 * billParam[0])) + "€");
+            GoalView[1].setText(billParam[1] - bill.getLight() / 100 * billParam[1] + "€");
+            GoalView[2].setText(billParam[2] - bill.getGas() / 100 * billParam[2] + "€");
+            GoalView[3].setText(billParam[3] - bill.getPetrol() / 100 * billParam[3] + "€");
             GoalEdit[0].setText(bill.getWater() + "");
             GoalEdit[1].setText(bill.getLight() + "");
             GoalEdit[2].setText(bill.getGas() + "");

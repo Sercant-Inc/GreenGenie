@@ -129,7 +129,10 @@ public class Page3 extends Fragment {
                 BillView[5].setText(bill.getGas2() + "€");
                 BillView[6].setText(bill.getPetrol() + "L");
                 BillView[7].setText(bill.getPetrol2() + "€");
-                updateGoal(bill);
+                if (mViewModel.getGoal().getValue() != null) {
+                    updateGoal(mViewModel.getGoal().getValue());
+
+                }
             } catch (java.lang.ArrayIndexOutOfBoundsException e) {
                 //   Log.d("My App","size:"+(mViewModel.getBills().getValue().size() - 1));
             }
@@ -137,7 +140,10 @@ public class Page3 extends Fragment {
         });
         mViewModel.getGoal().observe(getViewLifecycleOwner(), bill -> {
             updateGoal(bill);
-
+            GoalEdit[0].setText(bill.getWater() + "");
+            GoalEdit[1].setText(bill.getLight() + "");
+            GoalEdit[2].setText(bill.getGas() + "");
+            GoalEdit[3].setText(bill.getPetrol() + "");
         });
         Button btn_fix = view.findViewById(R.id.btn_fix);
 
@@ -146,12 +152,11 @@ public class Page3 extends Fragment {
             Log.d("My App", pressedButton + "fixbutton");
             if (pressedButton) {
                 try {
-
-                    float water = Float.parseFloat(GoalEdit[0].getText().toString().trim());
-                    float light = Float.parseFloat(GoalEdit[1].getText().toString().trim());
-                    float gas = Float.parseFloat(GoalEdit[2].getText().toString().trim());
-                    float petrol = Float.parseFloat(GoalEdit[3].getText().toString().trim());
-                    Bill bill = new Bill(water, light, gas, petrol, FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getGoalindex());
+                    float[] billParam = new float[4];
+                    for (int i = 0; i < billParam.length; i++) {
+                        billParam[i] = Float.parseFloat(GoalEdit[i].getText().toString().trim());
+                    }
+                    Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getGoalindex());
                     if (mViewModel.getGoal().getValue() != null) {
                         Log.d("My App", "update firebase" + mViewModel.getGoal().getValue().getIndex());
                         mViewModel.updateFirebase(bill);
@@ -162,7 +167,6 @@ public class Page3 extends Fragment {
                     for (EditText e : GoalEdit) {
                         e.setEnabled(false);
                     }
-
                     pressedButton = false;
                     btn_fix.setText("FIX OBJECTIVE");
                     Toast.makeText(getActivity(), "Goal changed", Toast.LENGTH_LONG).show();
@@ -176,7 +180,6 @@ public class Page3 extends Fragment {
                 pressedButton = true;
                 btn_fix.setText("SAVE");
             }
-            //pressedButton = !pressedButton;
         });
         for (EditText e : GoalEdit) {
             e.setEnabled(false);
@@ -188,25 +191,12 @@ public class Page3 extends Fragment {
 
     public void updateGoal(Bill bill) {
         try {
-           float[] billParam= new float[4];
-            for (int  i=0;i<billParam.length;i++){
-                billParam[i]= Float.parseFloat((BillView[i].getText().toString().trim().substring(0, BillView[i].getText().toString().trim().length()-2)));
-            }
-
-
-//            float waterMult = Float.parseFloat(BillView[1].getText().toString().trim());
-//            float lightMult = Float.parseFloat(BillView[3].getText().toString().trim());
-//            float gasMult = Float.parseFloat(BillView[5].getText().toString().trim());
-//            float petrolMult = Float.parseFloat(BillView[7].getText().toString().trim());
-            Log.d("My App", "Water Mult " + BillView[0]);
-            GoalView[0].setText((billParam[0] - (bill.getWater() / 100 * billParam[0])) + "€");
-            GoalView[1].setText(billParam[1] - bill.getLight() / 100 * billParam[1] + "€");
-            GoalView[2].setText(billParam[2] - bill.getGas() / 100 * billParam[2] + "€");
-            GoalView[3].setText(billParam[3] - bill.getPetrol() / 100 * billParam[3] + "€");
-            GoalEdit[0].setText(bill.getWater() + "");
-            GoalEdit[1].setText(bill.getLight() + "");
-            GoalEdit[2].setText(bill.getGas() + "");
-            GoalEdit[3].setText(bill.getPetrol() + "");
+            Bill lastBill = mViewModel.getBills().getValue().get(mViewModel.getBills().getValue().size() - 1);
+            Log.d("My App", "Water Mult " + BillView[0].getText());
+            GoalView[0].setText((lastBill.getWater2() - (bill.getWater() / 100 * lastBill.getWater2() )) + "€");
+            GoalView[1].setText(lastBill.getLight2() - bill.getLight() / 100 * lastBill.getLight2() + "€");
+            GoalView[2].setText(lastBill.getGas2() - bill.getGas() / 100 * lastBill.getGas2() + "€");
+            GoalView[3].setText(lastBill.getPetrol2() - bill.getPetrol() / 100 * lastBill.getPetrol2() + "€");
 
 
         } catch (Exception e) {

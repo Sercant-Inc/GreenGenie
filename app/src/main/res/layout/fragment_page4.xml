@@ -52,7 +52,7 @@
                 android:entries="@array/bills" />
         </LinearLayout>
 
-    <Button
+        <Button
             android:id="@+id/btn_newForm"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -61,7 +61,7 @@
             android:text="@string/btnNewForm"
             app:layout_constraintEnd_toEndOf="@id/linerightEnd"
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -89,6 +89,7 @@
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@+id/txt_form"
             app:srcCompat="@drawable/water" />
+
         <ImageView
             android:id="@+id/water"
             android:layout_width="35dp"
@@ -99,7 +100,7 @@
 
         <EditText
             android:id="@+id/water_billData"
-style="@style/esditext"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="m³"
             android:inputType="numberDecimal"
@@ -117,9 +118,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/water_data2"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="€"
             android:inputType="numberDecimal"
@@ -148,9 +147,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/light_billData"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="kWh"
             android:inputType="numberDecimal"
@@ -168,9 +165,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/light_data2"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint=" €"
             android:inputType="numberDecimal"
@@ -188,7 +183,7 @@ style="@style/esditext"
 
         <TextView
             android:id="@+id/gas_sentence"
-           style="@style/setence"
+            style="@style/setence"
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:text="@string/light_sentc"
@@ -198,9 +193,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/gas_billData"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="kWh"
             android:inputType="numberDecimal"
@@ -210,7 +203,7 @@ style="@style/esditext"
 
         <TextView
             android:id="@+id/gas_sentence2"
-           style="@style/setence"
+            style="@style/setence"
             android:gravity="center"
             android:text="@string/gas_sentc2"
             app:layout_constraintStart_toStartOf="@id/line_right"
@@ -218,9 +211,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/gas_data2"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="€"
             android:inputType="numberDecimal"
@@ -248,9 +239,7 @@ style="@style/esditext"
 
         <EditText
             android:id="@+id/petrol_billData"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="L"
             android:inputType="numberDecimal"
@@ -259,18 +248,15 @@ style="@style/esditext"
 
         <TextView
             android:id="@+id/petrol_sentence2"
-style="@style/setence"
+            style="@style/setence"
             android:gravity="center"
             android:text="@string/gas_sentc2"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/petrol_billData" />
 
         <EditText
             android:id="@+id/petrol_data2"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="€"
             android:inputType="numberDecimal"
@@ -296,12 +282,10 @@ style="@style/setence"
 
         <EditText
             android:id="@+id/house_billData"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
-            android:inputType="number"
             android:hint="number of people"
+            android:inputType="number"
             app:layout_constraintStart_toStartOf="@id/line_right"
             app:layout_constraintTop_toBottomOf="@id/family_sentence" />
 
@@ -325,9 +309,7 @@ style="@style/setence"
 
         <EditText
             android:id="@+id/home_billData"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:background="@color/azul_claro_tr"
+            style="@style/esditextPage4"
             android:gravity="center"
             android:hint="m²"
             android:inputType="numberDecimal"
@@ -366,7 +348,6 @@ style="@style/setence"
             app:layout_constraintGuide_percent="0.14" />
 
 
-
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="0dp"
@@ -392,8 +373,8 @@ style="@style/setence"
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
             app:layout_constraintTop_toBottomOf="@id/btn_edit"
             tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="943dp"
-          />
+            tools:layout_editor_absoluteY="943dp" />
+
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
@@ -405,8 +386,7 @@ style="@style/setence"
             app:layout_constraintStart_toStartOf="@id/lineleftStart"
             app:layout_constraintTop_toBottomOf="@id/btn_done"
             tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="943dp"
-            />
+            tools:layout_editor_absoluteY="943dp" />
 
         <TextView
             android:id="@+id/texmargin"
@@ -415,8 +395,7 @@ style="@style/setence"
             android:gravity="center"
             android:text=""
             app:layout_constraintStart_toStartOf="@id/line_right"
-            app:layout_constraintTop_toBottomOf="@id/btn_cancel"
-           />
+            app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

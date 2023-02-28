@@ -40,7 +40,31 @@
         <item name="cornerRadius">1050dip</item>
         <item name="strokeWidth">1dp</item>
     </style>
+    <style name="setence">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name= "android:textColor">@color/black</item>
+    </style>
 
+    <style name="esditextPage4">
+        <item name= "android:layout_width">270dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@color/azul_claro_tr</item>
+
+    </style>
+    <style name="textViewPage3">
+        <item name= "android:layout_width">80dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@color/azul_claro_tr</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+    <style name="editTextPage3">
+        <item name= "android:layout_width">80dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@color/azul_claro_tr</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
 </resources>
 
 

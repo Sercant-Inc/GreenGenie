@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 
 public class PageViewModel extends ViewModel {
-    private static final int GOALINDEX = 7999;
+    private static final int GOALINDEX = -7;
     private static final String TAG = "My App";
     private MutableLiveData<Integer> mIndex = new MutableLiveData<>();
     //  private ArrayList<Bill> bills = new ArrayList<>();
@@ -125,12 +125,6 @@ public class PageViewModel extends ViewModel {
                         document.getReference().set(bill)
                                 .addOnSuccessListener(aVoid -> {
                                     Log.d(TAG, "Document successfully updated");
-                                    if (bill.getIndex() != GOALINDEX) {
-                                        getBills().getValue().set(bill.getIndex(), bill);
-                                        setBills(getBills().getValue());
-                                    } else {
-                                        getGoal().setValue(bill);
-                                    }
                                     updated.setValue(true);
                                 })
                                 .addOnFailureListener(e -> {
@@ -151,13 +145,6 @@ public class PageViewModel extends ViewModel {
                 .addOnFailureListener(e -> {
                     Log.w("Firestore", "Error adding document", e);
                 });
-
-        if (bill.getIndex() != GOALINDEX) {
-            getBills().getValue().add(bill);
-            setBills(getBills().getValue());
-        } else {
-            getGoal().setValue(bill);
-        }
         added.setValue(true);
     }
 }

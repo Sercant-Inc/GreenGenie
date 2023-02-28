@@ -258,22 +258,9 @@ public class Page4 extends Fragment {
 for (int  i=0;i<billParam.length;i++){
     billParam[i]= (Float.parseFloat(editTexts[i].getText().toString().trim()));
 }
-//        String water = editTexts[0].getText().toString().trim();
-//        String light = editTexts[1].getText().toString().trim();
-//        String gas = editTexts[2].getText().toString().trim();
-//        String petrol = editTexts[3].getText().toString().trim();
-//        String water2 = editTexts[4].getText().toString().trim();
-//        String light2 = editTexts[5].getText().toString().trim();
-//        String gas2 = editTexts[6].getText().toString().trim();
-//        String petrol2 = editTexts[7].getText().toString().trim();
-//        String house = editTexts[8].getText().toString().trim();
-//        String home = editTexts[9].getText().toString().trim();
         try {
             if (newform) {
                 Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5],billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
-
-               // Bill bill = new Bill(Float.parseFloat(water), Float.parseFloat(light), Float.parseFloat(gas), Float.parseFloat(petrol), Float.parseFloat(water2), Float.parseFloat(light2), Float.parseFloat(gas2), Float.parseFloat(petrol2), Integer.parseInt(house), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
-                //     Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20, FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
                 mViewModel.addtofirebase(bill);
                 mViewModel.getBills().getValue().add(bill);
                 mViewModel.setBills(mViewModel.getBills().getValue());
@@ -283,7 +270,6 @@ for (int  i=0;i<billParam.length;i++){
                 newform = false;
             } else {
                 Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5],billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), formSpinner.getSelectedItemPosition());
-                //  Bill bill =new Bill((float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (float)Math.random()*20, (int)Math.random()*20, (float)Math.random()*20), Float.parseFloat(home), FirebaseAuth.getInstance().getCurrentUser().getUid());
                 mViewModel.updateFirebase(bill);
                 mViewModel.getBills().getValue().set(bill.getIndex(), bill);
                 mViewModel.setBills(mViewModel.getBills().getValue());

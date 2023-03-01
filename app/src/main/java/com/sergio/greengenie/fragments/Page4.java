@@ -102,10 +102,6 @@ public class Page4 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_page4, container, false);
 
         btn_done = view.findViewById(R.id.btn_done);
@@ -161,7 +157,7 @@ public class Page4 extends Fragment {
 
             }
         });
-      //  mViewModel.setBills(new ArrayList<Bill>());
+        //  mViewModel.setBills(new ArrayList<Bill>());
         //  loadfirebase();
 
 
@@ -195,8 +191,6 @@ public class Page4 extends Fragment {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 newform = false;
                 fielDisabled();
                 if (mViewModel.getBills().getValue().size() == 0) {
@@ -207,8 +201,6 @@ public class Page4 extends Fragment {
                     Log.d(TAG, formSpinner.getSelectedItemPosition() + "");
                 } catch (java.lang.IndexOutOfBoundsException e) {
                 }
-
-
             }
         });
         btn_newForm.setOnClickListener(new View.OnClickListener() {
@@ -227,15 +219,14 @@ public class Page4 extends Fragment {
         mViewModel.getLoaded().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean loaded) {
-                if (loaded)
-                {
+                if (loaded) {
                     loadSpinner();
-                }else{
+                } else {
                     initialhide();
                 }
             }
         });
-        Log.d("My App","Page4created");
+        Log.d("My App", "Page4created");
         return view;
     }
 
@@ -253,14 +244,14 @@ public class Page4 extends Fragment {
 
     }
 
-
     public void createBill() {
-for (int  i=0;i<billParam.length;i++){
-    billParam[i]= (Float.parseFloat(editTexts[i].getText().toString().trim()));
-}
+
         try {
+            for (int i = 0; i < billParam.length; i++) {
+                billParam[i] = (Float.parseFloat(editTexts[i].getText().toString().trim()));
+            }
             if (newform) {
-                Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5],billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
+                Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5], billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), mViewModel.getBills().getValue().size());
                 mViewModel.addtofirebase(bill);
                 mViewModel.getBills().getValue().add(bill);
                 mViewModel.setBills(mViewModel.getBills().getValue());
@@ -269,14 +260,13 @@ for (int  i=0;i<billParam.length;i++){
                 formSpinner.setSelection(mViewModel.getBills().getValue().size() - 1);
                 newform = false;
             } else {
-                Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5],billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), formSpinner.getSelectedItemPosition());
+                Bill bill = new Bill(billParam[0], billParam[1], billParam[2], billParam[3], billParam[4], billParam[5], billParam[6], billParam[7], billParam[8].intValue(), billParam[9], FirebaseAuth.getInstance().getCurrentUser().getUid(), formSpinner.getSelectedItemPosition());
                 mViewModel.updateFirebase(bill);
                 mViewModel.getBills().getValue().set(bill.getIndex(), bill);
                 mViewModel.setBills(mViewModel.getBills().getValue());
             }
             Toast.makeText(getActivity(), getString(R.string.createform), Toast.LENGTH_LONG).show();
             fielDisabled();
-
         } catch (Exception e) {
             Toast.makeText(getActivity(), getString(R.string.formerror), Toast.LENGTH_LONG).show();
         }
